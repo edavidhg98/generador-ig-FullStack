@@ -1,0 +1,16 @@
+<div class="container m-top-big-space">
+  <md-toolbar color="primary">
+    <span>{{ crudOperationTitle }}</span>
+  </md-toolbar>
+  <md-card>
+    <form class="row" #myForm="ngForm">
+      <% for (let key in attributes) { %>
+      <md-input-container class="col-md-12">
+        <input mdInput placeholder="Nombre" name="<%=key%>" [(ngModel)]="<%= entityName.camel %>.<%= key %>">
+      </md-input-container>
+      <% } %>
+      <button md-raised-button color="primary" (click)="registrar()" *ngIf="isCreate">Registrar</button>
+      <button md-raised-button color="primary" (click)="actualizar()" *ngIf="!isCreate">Actualizar</button>
+    </form>
+  </md-card>
+</div>

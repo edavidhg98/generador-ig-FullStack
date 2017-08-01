@@ -1,0 +1,13 @@
+{
+  "entities": [
+    {
+      "name": "Producto",
+      "attributes": {
+        "name": "String",
+        "description": "String",
+        "category": "String",
+        "price": "Number"
+      }
+    }
+  ]
+}

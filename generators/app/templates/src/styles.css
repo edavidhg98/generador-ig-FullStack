@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #F0F0F0;
+  font-family: Roboto, 'Helvetice Neue', 'Arial', sans-serif;
+}
+
+.fix-icon {
+  position: relative;
+  top: -.1em;
+  margin-right: .2em;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.m-top-big-space {
+  margin: 5rem;
+}

@@ -1,0 +1,17 @@
+<md-toolbar color="primary">
+  <button md-icon-button class="hidden-sm hidden-md hidden-lg">
+    <md-icon>menu</md-icon>
+  </button>
+  <span>IG-Generator</span>
+  <button md-button class="visible-sm visible-md visible-lg" routerLink="/"><md-icon class="fix-icon">home</md-icon>INICIO</button>
+  <button md-button class="visible-sm visible-md visible-lg"><md-icon class="fix-icon">person</md-icon>CONTACTO</button>
+  <button md-button class="visible-sm visible-md visible-lg" [mdMenuTriggerFor]="menu"><md-icon class="fix-icon">format_list_bulleted</md-icon>ENTIDADES</button>
+  <md-menu #menu="mdMenu">
+    <ul class="list-unstyled">
+      <li><button md-button [routerLink]="['/entities/entity']">Some entity</button></li>
+    </ul>
+  </md-menu>
+  <div class="example-spacer visible-sm visible-md visible-lg"></div>
+  <button md-button class="visible-sm visible-md visible-lg">REGISTRARSE</button>
+  <button md-button class="visible-sm visible-md visible-lg">INGRESAR</button>
+</md-toolbar>
