@@ -8,7 +8,9 @@
   <button md-button class="visible-sm visible-md visible-lg" [mdMenuTriggerFor]="menu"><md-icon class="fix-icon">format_list_bulleted</md-icon>ENTIDADES</button>
   <md-menu #menu="mdMenu">
     <ul class="list-unstyled">
-      <li><button md-button [routerLink]="['/entities/entity']">Some entity</button></li>
+      <% for (let entity of entities) { %>
+      <li><button md-button [routerLink]="['/entities/<%= entity.name %>']"><%=  _.startCase(entity.name) %></button></li>
+      <% } %>
     </ul>
   </md-menu>
   <div class="example-spacer visible-sm visible-md visible-lg"></div>

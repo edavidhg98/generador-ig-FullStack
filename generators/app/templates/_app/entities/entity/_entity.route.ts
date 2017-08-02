@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { <%= entityName.pascal %>Component } from './<%= entityName.kebab %>.component';
 import { <%= entityName.pascal %>UpSertComponent } from './<%= entityName.kebab %>-upsert.component';
 
-export const entityRoutes: Routes = [
+export const <%= entityName.camel %>Routes: Routes = [
   {
     path: '<%= entityName.name %>',
     children: [

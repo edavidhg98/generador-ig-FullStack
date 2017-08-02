@@ -46,18 +46,23 @@ module.exports = class extends Generator {
         pascal: entity.name,
         start: _.startCase(entity.name)
       }
-      this._writeServerCrudOperations(entity, entityNameFormats);
-      this._writeAngularCrudOperations(entity, entityNameFormats);
+      this._writeServerCrudOperationsByEntity(entity, entityNameFormats);
+      this._writeAngularCrudOperationsByEntity(entity, entityNameFormats);
     });
 
+    this._writeAngularEntities(this.config.entities);
+    this._writeAngularLayouts(this.config.entities);
     this.fs.copyTpl(
-      this.templatePath('src/app/entities/entities.module.ts'),
-      this.destinationPath('src/app/entities/entities.module.ts'),
-      { entities: this.config.entities, _: _ }
+        this.templatePath('server.js'),
+        this.destinationPath('server.js'),
+        { entities: this.config.entities, _: _ }
     );
+    this._writeAngularHomeComponents();
+    this._writeRootFiles();
+    //this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'));
   }
 
-  _writeServerCrudOperations(entity, entityNameFormats) {
+  _writeServerCrudOperationsByEntity(entity, entityNameFormats) {
     const entityName = _.kebabCase(entity.name);
     let layersNames = ['model', 'repository', 'controller'];
     layersNames.forEach(layerName => {
@@ -75,7 +80,7 @@ module.exports = class extends Generator {
     );
   }
 
-  _writeAngularCrudOperations(entity, entityNameFormats) {
+  _writeAngularCrudOperationsByEntity(entity, entityNameFormats) {
     const entityName = _.kebabCase(entity.name);
     let layersNames = ['.service.ts', '.model.ts', '.component.ts',
                       '.component.html', '.module.ts', '.route.ts',
@@ -83,11 +88,45 @@ module.exports = class extends Generator {
 
     layersNames.forEach(layerName => {
       this.fs.copyTpl(
-        this.templatePath(`src/app/entities/entity/_entity${layerName}`),
-        this.destinationPath(`src/app/entities/${entityName}/${entityName}.${layerName}`),
+        this.templatePath(`_app/entities/entity/_entity${layerName}`),
+        this.destinationPath(`src/app/entities/${entityName}/${entityName}${layerName}`),
         { entityName: entityNameFormats, attributes: entity.attributes, _: _ }
       );
     })
+  }
+
+  _writeAngularEntities(entities) {
+    let fileNames = [ '.module', '.route', '-shared.module' ];
+
+    fileNames.forEach(fileName => {
+      this.fs.copyTpl(
+        this.templatePath(`_app/entities/entities${fileName}.ts`),
+        this.destinationPath(`src/app/entities/entities${fileName}.ts`),
+        { entities: this.config.entities, _: _ }
+      );
+    });
+  }
+
+  _writeAngularLayouts(entities) {
+    this.fs.copyTpl(
+      this.templatePath('_app/layouts'),
+      this.destinationPath('src/app/layouts'),
+      { entities: this.config.entities, _: _ }
+    );
+  }
+
+  _writeAngularHomeComponents() {
+    this.fs.copy(this.templatePath('_app/home'), this.destinationPath('src/app/home'));
+  }
+
+  _writeRootFiles() {
+    this.fs.copy(this.templatePath('bin'), this.destinationPath('bin'));
+    this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
+    this.fs.copy(this.templatePath('e2e'), this.destinationPath('e2e'));
+    this.fs.copy(this.templatePath('_root-files'), this.destinationPath(''));
+    this.fs.copy(this.templatePath('.angular-cli.json'), this.destinationPath('.angular-cli.json'));
+    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('.editorconfig'), this.destinationPath('.editorconfig'));
   }
 
   install() {

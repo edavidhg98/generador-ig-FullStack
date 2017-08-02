@@ -13,7 +13,6 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
 
   crudOperationTitle = 'Create';
   isCreate = true;
-
   <%= entityName.camel %>: <%= entityName.pascal %>;
 
   constructor(
@@ -35,7 +34,8 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
     });
   }
 
-  registrar() {
+  registrar(formValues) {
+    this.<%= entityName.camel %> = formValues;
     this.<%= entityName.camel %>Service.insert(this.<%= entityName.camel %>).subscribe(
       (response) => {
         this.router.navigate(['/entities/<%= entityName.name %>']);

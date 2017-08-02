@@ -11,4 +11,4 @@ const <%= entityName.camel %>Schema = new Schema({<%attributesKeys.forEach((attr
     <%=attributeKey%>: <%=attributes[attributeKey]%><%if(counter++ < finalLength) {%>,<%}%><%});%>
 });
 
-module.exports = mongoose.model('<%= entityName.pascal %>', entitySchema);
+module.exports = mongoose.model('<%= entityName.pascal %>', <%= entityName.camel %>Schema);

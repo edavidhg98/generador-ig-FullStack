@@ -6,10 +6,11 @@
     <form class="row" #myForm="ngForm">
       <% for (let key in attributes) { %>
       <md-input-container class="col-md-12">
-        <input mdInput placeholder="Nombre" name="<%=key%>" [(ngModel)]="<%= entityName.camel %>.<%= key %>">
+        <input *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" [(ngModel)]="<%= entityName.camel %>.<%= key %>">
+        <input *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" ngModel>
       </md-input-container>
       <% } %>
-      <button md-raised-button color="primary" (click)="registrar()" *ngIf="isCreate">Registrar</button>
+      <button md-raised-button color="primary" (click)="registrar(myForm.value)" *ngIf="isCreate">Registrar</button>
       <button md-raised-button color="primary" (click)="actualizar()" *ngIf="!isCreate">Actualizar</button>
     </form>
   </md-card>

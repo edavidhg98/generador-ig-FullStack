@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class <%= entityName.pascal %>Service {
 
-  private entityUrl = 'api/<%= entityName.camel %>/';
+  private entityUrl = 'api/<%= entityName.camel %>s/';
 
   constructor(private http: Http) {
 
@@ -64,7 +64,9 @@ export class <%= entityName.pascal %>Service {
       let finalLength = attributesKeys.length;
       let counter = 1;
     %>
-    const <%= entityName.camel %>: <%= entityName.pascal %> = {<%attributesKeys.forEach((attributeKey) => {%>
+    const <%= entityName.camel %>: <%= entityName.pascal %> = {
+      id: data._id,
+      <%attributesKeys.forEach((attributeKey) => {%>
       <%=attributeKey%>: data.<%=attributeKey%><%if(counter++ < finalLength) {%>,<%}%><%});%>
     };
     return <%= entityName.camel %>;
