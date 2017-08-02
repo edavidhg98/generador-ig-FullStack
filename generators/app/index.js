@@ -19,7 +19,7 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'appName',
         message: '¿Cuál es el nombre de tu aplicación?',
-        default: 'IG-FullStack'
+        default: 'ig-fullstack'
       },
       {
         type: 'input',
@@ -32,6 +32,13 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.appName = {
+        name: props.appName,
+        kebab: _.kebabCase(props.appName),
+        camel: _.camelCase(props.appName),
+        pascal: props.appName,
+        start: _.startCase(props.appName)
+      }
       const configSettings = fs.readFileSync(path.join(props.configFile), 'utf8');
       this.config = JSON.parse(configSettings);
     });
@@ -50,14 +57,27 @@ module.exports = class extends Generator {
       this._writeAngularCrudOperationsByEntity(entity, entityNameFormats);
     });
 
-    this._writeAngularEntities(this.config.entities);
-    this._writeAngularLayouts(this.config.entities);
+    this._writeAngularEntitiesModule(this.config.entities);
+    this._writeAngularLayoutsComponents(this.config.entities, this.appName);
+    this._writeAngularHomeComponents();
+    this.fs.copyTpl(
+      this.templatePath('src'),
+      this.destinationPath('src'),
+      { appName: this.appName }
+    );
+    // entry point Node Server
     this.fs.copyTpl(
         this.templatePath('server.js'),
         this.destinationPath('server.js'),
         { entities: this.config.entities, _: _ }
     );
-    this._writeAngularHomeComponents();
+    // file constants Node.js
+    this.fs.copyTpl(
+      this.templatePath('server-config'),
+      this.destinationPath('server-config'),
+      { appName: this.appName }
+    );
+    this._writeRootFolders();
     this._writeRootFiles();
     //this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'));
   }
@@ -95,7 +115,7 @@ module.exports = class extends Generator {
     })
   }
 
-  _writeAngularEntities(entities) {
+  _writeAngularEntitiesModule(entities) {
     let fileNames = [ '.module', '.route', '-shared.module' ];
 
     fileNames.forEach(fileName => {
@@ -107,11 +127,11 @@ module.exports = class extends Generator {
     });
   }
 
-  _writeAngularLayouts(entities) {
+  _writeAngularLayoutsComponents(entities, appName) {
     this.fs.copyTpl(
       this.templatePath('_app/layouts'),
       this.destinationPath('src/app/layouts'),
-      { entities: this.config.entities, _: _ }
+      { entities: this.config.entities, appName: appName,  _: _ }
     );
   }
 
@@ -119,10 +139,12 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('_app/home'), this.destinationPath('src/app/home'));
   }
 
-  _writeRootFiles() {
+  _writeRootFolders() {
     this.fs.copy(this.templatePath('bin'), this.destinationPath('bin'));
-    this.fs.copy(this.templatePath('src'), this.destinationPath('src'));
     this.fs.copy(this.templatePath('e2e'), this.destinationPath('e2e'));
+  }
+
+  _writeRootFiles() {
     this.fs.copy(this.templatePath('_root-files'), this.destinationPath(''));
     this.fs.copy(this.templatePath('.angular-cli.json'), this.destinationPath('.angular-cli.json'));
     this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));

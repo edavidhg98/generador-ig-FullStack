@@ -63,10 +63,8 @@ export class <%= entityName.pascal %>Service {
       let attributesKeys = Object.keys(attributes);
       let finalLength = attributesKeys.length;
       let counter = 1;
-    %>
-    const <%= entityName.camel %>: <%= entityName.pascal %> = {
-      id: data._id,
-      <%attributesKeys.forEach((attributeKey) => {%>
+    %>const <%= entityName.camel %>: <%= entityName.pascal %> = {
+      id: data._id,<%attributesKeys.forEach((attributeKey) => {%>
       <%=attributeKey%>: data.<%=attributeKey%><%if(counter++ < finalLength) {%>,<%}%><%});%>
     };
     return <%= entityName.camel %>;

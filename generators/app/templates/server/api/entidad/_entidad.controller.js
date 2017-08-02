@@ -1,9 +1,9 @@
+'use strict';
 <%
   let attributesKeys = Object.keys(attributes);
   let finalLength = attributesKeys.length;
   let counter;
-%>
-const repository = require('./<%= entityName.kebab  %>.repository');
+%>const repository = require('./<%= entityName.kebab  %>.repository');
 
 function getAll(req, res) {
   repository.get()
@@ -27,7 +27,6 @@ function getById(req, res) {
 
 function insertEntity(req, res) {
   <% counter = 0; %>
-
   const _<%= entityName.camel %> = {<%attributesKeys.forEach((attributeKey) => {%>
     <%=attributeKey%>: req.body.<%=attributeKey%><%if(counter++ < finalLength) {%>,<%}%><%});%>
   };
@@ -42,7 +41,6 @@ function insertEntity(req, res) {
 function updateEntity(req, res) {
   const id = req.params.id;
   <% counter = 0; %>
-
   const _<%= entityName.camel %> = {<%attributesKeys.forEach((attributeKey) => {%>
     <%=attributeKey%>: req.body.<%=attributeKey%><%if(counter++ < finalLength) {%>,<%}%><%});%>
   };

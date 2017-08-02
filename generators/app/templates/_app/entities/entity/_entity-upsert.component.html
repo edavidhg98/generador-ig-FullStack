@@ -6,8 +6,13 @@
     <form class="row" #myForm="ngForm">
       <% for (let key in attributes) { %>
       <md-input-container class="col-md-12">
+        <% if (attributes[key].toLowerCase() === 'number') {%>
+        <input type="number" *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" [(ngModel)]="<%= entityName.camel %>.<%= key %>">
+        <input type="number" *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" ngModel>
+        <% } else {%>
         <input *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" [(ngModel)]="<%= entityName.camel %>.<%= key %>">
         <input *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(key) %>" name="<%=key%>" ngModel>
+        <% } %>
       </md-input-container>
       <% } %>
       <button md-raised-button color="primary" (click)="registrar(myForm.value)" *ngIf="isCreate">Registrar</button>
