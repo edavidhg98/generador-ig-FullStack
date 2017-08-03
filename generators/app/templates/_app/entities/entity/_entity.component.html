@@ -11,8 +11,7 @@
     <ng-container cdkColumnDef="actions">
       <md-header-cell *cdkHeaderCellDef> Actions </md-header-cell>
       <md-cell *cdkCellDef="let row">
-        <button md-raised-button color="primary" [routerLink]="['update', row.id]">Actualizar</button>
-        <button md-raised-button color="warn" (click)="deleteEntity(row.id)">Eliminar</button>
+        <a class="cursor-pointer" [routerLink]="['details', row.id]">Ver detalles</a> | <a class="cursor-pointer" [routerLink]="['update', row.id]">Actualizar</a> | <a class="cursor-pointer" (click)="deleteEntity(row.id)">Eliminar</a>
       </md-cell>
     </ng-container>
 

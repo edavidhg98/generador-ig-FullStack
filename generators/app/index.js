@@ -104,7 +104,9 @@ module.exports = class extends Generator {
     const entityName = _.kebabCase(entity.name);
     let layersNames = ['.service.ts', '.model.ts', '.component.ts',
                       '.component.html', '.module.ts', '.route.ts',
-                      '-delete-modal.component.ts', '-upsert.component.ts', '-upsert.component.html'];
+                      '-delete-modal.component.ts',
+                      '-upsert.component.ts', '-upsert.component.html',
+                      '-details.component.ts', '-details.component.html'];
 
     layersNames.forEach(layerName => {
       this.fs.copyTpl(

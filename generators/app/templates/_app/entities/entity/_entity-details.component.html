@@ -1,0 +1,10 @@
+<md-card class="container">
+  <ul *ngIf="<%= entityName.camel %>">
+  <% for (let key in attributes) { %>
+    <li>
+      <strong><%= _.startCase(key) %>:</strong>
+      {{ <%= entityName.camel %>.<%= key %> }}
+    </li>
+  <% } %>
+  </ul>
+</md-card>
