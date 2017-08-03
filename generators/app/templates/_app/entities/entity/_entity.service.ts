@@ -19,27 +19,33 @@ export class <%= entityName.pascal %>Service {
   getAll(): Observable<<%= entityName.pascal %>[]> {
     return this.http.get(this.entityUrl)
       .map(this.checkStatus)
-      .map(this.extractEntities);
+      .map(this.extractEntities)
+      .catch(this.handleError);
   }
 
   getById(id: string): Observable<<%= entityName.pascal %>> {
     return this.http.get(this.entityUrl + id)
       .map(this.checkStatus)
-      .map(this.extractEntity);
+      .map(this.extractEntity)
+      .catch(this.handleError);
   }
 
   insert(<%= entityName.camel %>: <%= entityName.pascal %>): Observable<any> {
     return this.http.post(this.entityUrl, <%= entityName.camel %>)
-      .map(this.checkStatus);
+      .map(this.checkStatus)
+      .catch(this.handleError);
   }
 
   update(id: string, <%= entityName.camel %>: <%= entityName.pascal %>) {
-    return this.http.put(this.entityUrl + id, <%= entityName.camel %>).map(this.checkStatus);
+    return this.http.put(this.entityUrl + id, <%= entityName.camel %>)
+          .map(this.checkStatus)
+          .catch(this.handleError);
   }
 
   delete(id: string): Observable<any> {
     return this.http.delete(this.entityUrl + id)
-      .map(this.checkStatus);
+      .map(this.checkStatus)
+      .catch(this.handleError);
   }
 
   private checkStatus(response: Response) {

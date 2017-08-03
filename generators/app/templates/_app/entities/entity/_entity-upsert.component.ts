@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MdSnackBar } from '@angular/material';
 
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
@@ -19,6 +20,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
     private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
     private router: Router,
     private route: ActivatedRoute,
+    private snackBar: MdSnackBar
   ) { }
 
   ngOnInit() {
@@ -40,9 +42,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
       (response) => {
         this.router.navigate(['/entities/<%= entityName.name %>']);
       },
-      (error) => {
-        console.log(error);
-      }
+      this.openSnackBar.bind(this)
     );
   }
 
@@ -51,9 +51,11 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
       (response) => {
         this.router.navigate(['/entities/<%= entityName.name %>']);
       },
-      (error) => {
-        console.error(error);
-      }
+      this.openSnackBar.bind(this)
     );
+  }
+
+  private openSnackBar(message) {
+    this.snackBar.open(message, null, { duration: 4000 });
   }
 }
