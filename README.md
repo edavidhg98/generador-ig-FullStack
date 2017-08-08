@@ -1,28 +1,92 @@
-# generator-ig-fullstack [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-ig-fullstack [![NPM version][npm-image]][npm-url]
 > 
 
-## Installation
+## Instalación
 
-First, install [Yeoman](http://yeoman.io) and generator-ig-fullstack using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+Primero, instala [Yeoman](http://yeoman.io) y el generator-ig-fullstack usando [npm](https://www.npmjs.com/) (asumo que tienes pre-instalado [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
 npm install -g generator-ig-fullstack
 ```
 
-Then generate your new project:
+Luego generas tu nuevo proyecto:
 
 ```bash
 yo ig-fullstack
 ```
 
-## Getting To Know Yeoman
+A continuación, cree un archivo config.json para la generación crud. A continuación se muestra un ejemplo de como debe quedar la configuración del archivo.
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+```json
+{
+  "entities": [
+    {
+      "name": "Producto",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String",
+          "validations": [
+            {
+              "type": "required",
+              "value": true,
+              "message": "El campo name debe ser obligatorio"
+            },
+            {
+              "type": "min",
+              "value": 8,
+              "message": "El campo name debe tener como minimo una longitud de 8"
+            },
+            {
+              "type": "max",
+              "value": 30,
+              "message": "El campo name debe tener como maxima una longitud de 30"
+            }
+          ]
+        },
+        {
+          "name": "description",
+          "type": "String"
+        },
+        {
+          "name": "category",
+          "type": "String"
+        },
+        {
+          "name": "price",
+          "type": "Number"
+        }
+      ],
+      "relationships": [
+        {
+          "entity": "Proveedor",
+          "attribute": "proveedor",
+          "reference": "_id"
+        }
+      ]
+    }
+  ]
+}
+```
+## Tipos de datos y validaciones
+| MongoDB  |         Validaciones         |
+|----------|------------------------------|
+| String   | required, min, max, pattern  |
+| Number   | required, min, max           |
+| Date     | required                     |
+| Boolean  | required                     |
+
+## Convención de nombres a seguir en el proyecto:
+Este es el formato correcto para el nombramiento de las entidades y sus atributos:
+
+| Convención  |    Ejemplo    |            Donde usarlas           |
+|-------------|---------------|------------------------------------|
+| Camel Case  | tipoProducto  | Variables                          |
+| Pascal Case | TipoProducto  | Clases                             |
+| Kebab Case  | tipo-producto | Nombre de archivos, carpetas, URL  |
+| Start Case  | Tipo Producto |  Títulos en la app                 |
 ## License
 
 Apache-2.0 © [SMorales]()
@@ -30,7 +94,3 @@ Apache-2.0 © [SMorales]()
 
 [npm-image]: https://badge.fury.io/js/generator-ig-fullstack.svg
 [npm-url]: https://npmjs.org/package/generator-ig-fullstack
-[travis-image]: https://travis-ci.org//generator-ig-fullstack.svg?branch=master
-[travis-url]: https://travis-ci.org//generator-ig-fullstack
-[daviddm-image]: https://david-dm.org//generator-ig-fullstack.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org//generator-ig-fullstack
