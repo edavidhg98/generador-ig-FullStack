@@ -1,10 +1,10 @@
 <div class="container-fluid" style="margin-top: 2em;">
   <button md-raised-button color="primary" [routerLink]="['create']">Crear Nuevo</button>
   <md-table [dataSource]="dataSource">
-    <% for (let key in attributes) { %>
-    <ng-container cdkColumnDef="<%= key %>">
-      <md-header-cell *cdkHeaderCellDef> <%= _.startCase(key) %> </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.<%= key %>}} </md-cell>
+    <% for (let attribute of attributes) { %>
+    <ng-container cdkColumnDef="<%= attribute.name %>">
+      <md-header-cell *cdkHeaderCellDef> <%= _.startCase(attribute.name) %> </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.<%= attribute.name %>}} </md-cell>
     </ng-container>
     <% } %>
 

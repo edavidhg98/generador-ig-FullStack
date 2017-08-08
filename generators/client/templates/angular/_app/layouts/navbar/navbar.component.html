@@ -9,7 +9,7 @@
   <md-menu #menu="mdMenu">
     <ul class="list-unstyled">
       <% for (let entity of entities) { %>
-      <li><button md-button [routerLink]="['/entities/<%= entity.name %>']"><%=  _.startCase(entity.name) %></button></li><% } %>
+      <li><button md-button [routerLink]="['/entities/<%=  _.kebabCase(entity.name) %>']"><%=  _.startCase(entity.name) %></button></li><% } %>
     </ul>
   </md-menu>
   <div class="example-spacer visible-sm visible-md visible-lg"></div>

@@ -14,7 +14,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
   templateUrl: './<%= entityName.kebab %>.component.html'
 })
 export class <%= entityName.pascal %>Component implements OnInit {
-  displayedColumns = [ <%for (let keys in attributes) {%> '<%= keys %>', <%}%> 'actions'];
+  displayedColumns = [ <%for (let attribute of attributes) {%> '<%= attribute.name %>', <%}%> 'actions'];
 
   dataSource: <%= entityName.pascal %>DataSource | null;
   <%= entityName.camel %>Database: <%= entityName.pascal %>Database | null;

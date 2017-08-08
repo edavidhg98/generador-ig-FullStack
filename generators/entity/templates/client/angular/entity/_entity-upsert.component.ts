@@ -26,7 +26,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = params['id'];
-      if (id) { // If exist id in params
+      if (id) {
         this.crudOperationTitle = 'Update';
         this.isCreate = false;
         this.<%= entityName.camel %>Service.getById(id).subscribe((<%= entityName.camel %>Data) => {
@@ -40,7 +40,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
     this.<%= entityName.camel %> = formValues;
     this.<%= entityName.camel %>Service.insert(this.<%= entityName.camel %>).subscribe(
       (response) => {
-        this.router.navigate(['/entities/<%= entityName.name %>']);
+        this.router.navigate(['/entities/<%= entityName.kebab %>']);
       },
       this.openSnackBar.bind(this)
     );
@@ -49,7 +49,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
   actualizar() {
     this.<%= entityName.camel %>Service.update(this.<%= entityName.camel %>.id, this.<%= entityName.camel %>).subscribe(
       (response) => {
-        this.router.navigate(['/entities/<%= entityName.name %>']);
+        this.router.navigate(['/entities/<%= entityName.kebab %>']);
       },
       this.openSnackBar.bind(this)
     );

@@ -1,0 +1,22 @@
+<div class="container m-top-big-space">
+  <md-toolbar color="primary">
+    <span>{{ crudOperationTitle }}</span>
+  </md-toolbar>
+  <md-card>
+    <form class="row" #myForm="ngForm">
+      <% for (let attribute of attributes) { %>
+      <md-input-container class="col-md-12">
+        <% if (attribute.type.toLowerCase() === 'number') {%>
+        <input type="number" *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>">
+        <input type="number" *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" ngModel>
+        <% } else {%>
+        <input *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>">
+        <input *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" ngModel>
+        <% } %>
+      </md-input-container>
+      <% } %>
+      <button md-raised-button color="primary" (click)="registrar(myForm.value)" *ngIf="isCreate">Registrar</button>
+      <button md-raised-button color="primary" (click)="actualizar()" *ngIf="!isCreate">Actualizar</button>
+    </form>
+  </md-card>
+</div>

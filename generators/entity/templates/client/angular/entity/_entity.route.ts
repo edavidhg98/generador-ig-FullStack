@@ -6,7 +6,7 @@ import { <%= entityName.pascal %>DetailsComponent } from './<%= entityName.kebab
 
 export const <%= entityName.camel %>Routes: Routes = [
   {
-    path: '<%= entityName.name %>',
+    path: '<%= entityName.kebab %>',
     children: [
       { path: '', component: <%= entityName.pascal %>Component },
       { path: 'create', component: <%= entityName.pascal %>UpSertComponent },
