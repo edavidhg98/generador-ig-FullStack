@@ -19,6 +19,33 @@
           "name": "price",
           "type": "Number"
         }
+      ],
+      "relationships": [
+        {
+          "entity": "Proveedor",
+          "attribute": "proveedor"
+        }
+      ]
+    },
+    {
+      "name": "Proveedor",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String"
+        },
+        {
+          "name": "email",
+          "type": "String"
+        },
+        {
+          "name": "address",
+          "type": "String"
+        },
+        {
+          "name": "telefono",
+          "type": "String"
+        }
       ]
     }
   ]

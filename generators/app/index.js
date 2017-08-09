@@ -10,9 +10,11 @@ const constants = require('../generator-constants');
 
 module.exports = class extends Generator {
   prompting() {
-    this.log(yosay(
+    /*this.log(yosay(
       'Welcome to the majestic ' + chalk.red('generator-ig-fullstack') + ' generator!'
-    ));
+    ));*/
+
+    this._printInterGrupoLogo();
 
     const prompts = [
       {
@@ -38,8 +40,15 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       this.typeOfApp = props.typeOfApp;
       this.appName = this._getNaminFormats(props.appName);
-      const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
-      this.entities = configSettings.entities;
+
+      try {
+        const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
+        this.entities = configSettings.entities;
+      } catch(error) {
+        this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración: ${props.configFile}`)));
+        this.log(chalk.green('Se ha abortado el proceso de generación del proyecto'));
+        throw new Error(`No se ha encontrado el archivo de configuración: ${props.configFile}`);
+      }
     });
   }
 
@@ -82,6 +91,31 @@ module.exports = class extends Generator {
         pascal: _.startCase(name).replace(' ', ''),
         start: _.startCase(name)
     }
+  }
+
+  _printInterGrupoLogo() {
+    this.log('\n');
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓░░░░░░░░░░▓▓░░░░░░▓▓▓░░░░░░░░▓▓▓▓░░▓░░░▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░▓▓▓▓░░░▓▓▓▓▓░░░▓▓░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░▓▓▓░░░░░░░░░░░░▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░▓▓▓▓░░░░▓▓▓░░░▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓░░░░░░░░░▓▓▓▓░░░▓▓▓▓░░░▓▓▓▓░░░░▓▓▓▓░░░░░░░▓▓▓▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓░░░░▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░▓▓░░▓▓░░░▓▓▓▓▓░░░▓▓░░░▓░░░░░▓▓▓▓▓▓░░░░░░░▓▓▓▓▓`);
+      this.log(`    ▓▓░░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░▓▓░░░▓▓▓▓▓░░░▓▓░░░░▓▓▓░░░░▓▓▓░░░▓▓▓▓░░░▓▓▓`);
+      this.log(`    ▓▓░░░░▓▓▓▓▓░░░░░▓▓▓▓▓░░░▓▓▓▓▓░░░▓▓▓▓▓░░░▓▓░░░▓▓▓▓▓░░░▓▓░░░▓▓▓▓▓▓░░░▓▓`);
+      this.log(`    ▓▓▓░░░▓▓▓▓▓▓▓▓░░▓▓▓▓▓░░▓▓▓▓▓▓░░░▓▓▓▓▓░░░▓▓░░░▓▓▓▓▓░░░▓▓░░░▓▓▓▓▓▓░░░▓▓`);
+      this.log(`    ▓▓▓▓░░░░▓▓▓▓░░░░▓▓▓▓▓░░▓▓▓▓▓▓░░░░▓▓▓░░░░▓▓░░░▓▓▓▓░░░░▓▓▓░░░▓▓▓▓░░░▓▓▓`);
+      this.log(`    ▓▓▓▓▓░░░░░░░░▓░░▓▓▓▓▓░░▓▓▓▓▓▓▓░░░░░░▓░░░▓▓░░░░░░░░░▓▓▓▓▓▓░░░░░░░░▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
+      this.log('                     ¡Bienvenido al generador FullStack!                 ');
+      this.log(`\n`);
   }
 
   install() {

@@ -1,22 +1,27 @@
 # generator-ig-fullstack [![NPM version][npm-image]][npm-url]
 > 
 
+## Requisitos previos
+* Node.js y npm - Descargar e instalar [node.js](https://nodejs.org/)
+* MongoDB - Descargar e instalar [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community). Luego de haber instalado MongoDB debe ejecutar el proceso mongod.
+
+## Tipos de aplicaciones que se pueden generar
+| Tipo          |         Tecnologías         |
+|---------------------|-------------------------------------------------------------------------------|
+| RESTful API         | Node.js, Express, Mongo (Mongoose)                                            |
+| Angular FullStack   | Node.js, Express, Mongo (Mongoose), Angular 4, Angular-CLI, Angular Material  |
+
+
 ## Instalación
 
-Primero, instala [Yeoman](http://yeoman.io) y el generator-ig-fullstack usando [npm](https://www.npmjs.com/) (asumo que tienes pre-instalado [node.js](https://nodejs.org/)).
+Primero, instala [Yeoman](http://yeoman.io) y el generator-ig-fullstack usando [npm](https://www.npmjs.com/)
 
 ```bash
 npm install -g yo
 npm install -g generator-ig-fullstack
 ```
 
-Luego generas tu nuevo proyecto:
-
-```bash
-yo ig-fullstack
-```
-
-A continuación, cree un archivo config.json para la generación crud. A continuación se muestra un ejemplo de como debe quedar la configuración del archivo.
+Cree un archivo config.json para la generación crud. A continuación se muestra un ejemplo de como debe quedar la configuración del archivo.
 
 
 ```json
@@ -63,13 +68,18 @@ A continuación, cree un archivo config.json para la generación crud. A continu
         {
           "entity": "Proveedor",
           "attribute": "proveedor",
-          "reference": "_id"
         }
       ]
     }
   ]
 }
 ```
+Luego generas tu nuevo proyecto:
+
+```bash
+yo ig-fullstack
+```
+
 ## Tipos de datos y validaciones
 | MongoDB  |         Validaciones         |
 |----------|------------------------------|
@@ -77,6 +87,12 @@ A continuación, cree un archivo config.json para la generación crud. A continu
 | Number   | required, min, max           |
 | Date     | required                     |
 | Boolean  | required                     |
+
+## Relaciones
+| Key         |         Explicación          |
+|-------------|-------------------------------------------------------------|
+| entity      | Nombre de la entidad con la que se quiere hacer la relación |
+| attribute   | Nombre del campo para usar en la definición del modelo      |
 
 ## Convención de nombres a seguir en el proyecto:
 Este es el formato correcto para el nombramiento de las entidades y sus atributos:
@@ -87,6 +103,9 @@ Este es el formato correcto para el nombramiento de las entidades y sus atributo
 | Pascal Case | TipoProducto  | Clases                             |
 | Kebab Case  | tipo-producto | Nombre de archivos, carpetas, URL  |
 | Start Case  | Tipo Producto |  Títulos en la app                 |
+
+<!--[](https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif)-->
+
 ## License
 
 Apache-2.0 © [SMorales]()

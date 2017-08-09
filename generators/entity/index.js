@@ -49,7 +49,7 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath(`server/api/entidad/_entidad.${layerName}.js`),
         this.destinationPath(`${destinationServerDirectory}/${entityName}/${entityName}.${layerName}.js`),
-        { entityName: entityNameFormats, attributes: this.entity.attributes }
+        { entityName: entityNameFormats, attributes: this.entity.attributes, relationships: this.entity.relationships }
       );
     });
 
