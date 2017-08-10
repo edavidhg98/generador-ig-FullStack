@@ -10,10 +10,6 @@ const constants = require('../generator-constants');
 
 module.exports = class extends Generator {
   prompting() {
-    /*this.log(yosay(
-      'Welcome to the majestic ' + chalk.red('generator-ig-fullstack') + ' generator!'
-    ));*/
-
     this._printInterGrupoLogo();
 
     const prompts = [
@@ -45,9 +41,10 @@ module.exports = class extends Generator {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
         this.entities = configSettings.entities;
       } catch(error) {
-        this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración: ${props.configFile}`)));
+        this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración, o no es un archivo JSON valido:
+         ${props.configFile}`)));
         this.log(chalk.green('Se ha abortado el proceso de generación del proyecto'));
-        throw new Error(`No se ha encontrado el archivo de configuración: ${props.configFile}`);
+        throw error;
       }
     });
   }
