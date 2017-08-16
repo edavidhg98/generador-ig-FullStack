@@ -7,7 +7,9 @@ import { <%= entity.name %>Module } from './<%= _.kebabCase(entity.name)%>/<%= _
 @NgModule({
   imports: [
     CommonModule,
-    <% for (let i = 0; i < entities.length; i++) { %><%=entities[i].name %>Module<% if (i < entities.length -1) { %>, <% } %><%}%>
+    <%_ for (let i = 0; i < entities.length; i++) { _%>
+      <%=entities[i].name %>Module<% if (i < entities.length -1) { %>, <% } %>
+    <%_ } _%>
   ]
 })
 export class EntitiesModule { }

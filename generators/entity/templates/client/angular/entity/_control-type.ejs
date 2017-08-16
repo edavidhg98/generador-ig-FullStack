@@ -1,0 +1,22 @@
+<%
+  if (!attribute.control) {
+    let controlType;
+    let attributeType = attribute.type.toLowerCase();
+    if (attributeType === 'date') {
+      controlType = 'date';
+    } else if(attributeType === 'number') {
+      controlType = 'number';
+    } else if(attributeType === 'boolean') {
+      controlType = 'checkbox';
+    } else {
+      controlType = 'text';
+    }
+%>
+<input type="<%= controlType %>" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.name" <%- include _validation_attributes -%> />
+<input type="<%= controlType %>" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
+<%_ } else { _%>
+  if (attribute.control === 'textarea') {
+_%>
+<textarea id="field_<%= attribute.name %>" *ngIf="entity" name="description" class="form-control" [(ngModel)]="entity.description"></textarea>
+<textarea id="field_<%= attribute.name %>" *ngIf="!entity" name="description" class="form-control" ngModel></textarea>
+<%_ } _%>

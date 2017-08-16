@@ -10,16 +10,16 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <% for (let attribute of attributes) { %>
+        <%_ for (let attribute of attributes) { _%>
         <th><%= _.startCase(attribute.name) %></th>
-        <% } %>
+        <%_ } _%>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let <%= entityName.camel %> of <%= entityName.camel %>s">
-        <% for (let attribute of attributes) { %>
+        <%_ for (let attribute of attributes) { _%>
         <td>{{ <%= entityName.camel %>.<%=attribute.name%> }}</td>
-        <% } %>
+        <%_ } _%>
         <td>
           <a class="btn btn-info btn-sm" routerLink="{{ <%= entityName.camel %>.id }}"><span class="fa fa-eye fa-fw"></span>Ver</a>
           <a class="btn btn-primary btn-sm" routerLink="{{ <%= entityName.camel %>.id }}/update"><span class="fa fa-pencil fa-fw"></span>Editar</a>

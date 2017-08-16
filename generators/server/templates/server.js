@@ -31,19 +31,23 @@ app.use(cookieParser());
 <% if (typeOfApp === 'Angular-FullStack') { %>
 const root = path.join(__dirname, 'dist');
 app.use(express.static(root));
-<% } else {%>app.use(express.static(path.join(__dirname, 'public')));<% } %>
+app.use(fallback('index.html', { root: root }));
+<% } else { %>app.use(express.static(path.join(__dirname, 'public')));<% } %>
 
 // api routes
-<% for (let entity of entities) { %>const <%=_.camelCase(entity.name) %> = require('./<%= sourceApiFolder %><%= _.kebabCase(entity.name) %>');<% } %>
-<% for (let entity of entities) { %>
-app.use('/api/<%= _.kebabCase(entity.name) %>s', <%= _.camelCase(entity.name) %>);<% } %>
+<%_ for (let entity of entities) { _%>
+const <%=_.camelCase(entity.name) %> = require('./<%= sourceApiFolder %><%= _.kebabCase(entity.name) %>');
+<%_ } _%>
 
-<% if (typeOfApp === 'Angular-FullStack') { %>
-app.use(fallback('index.html', { root: root }));
+<%_ for (let entity of entities) { _%>
+app.use('/api/<%= _.kebabCase(entity.name) %>s', <%= _.camelCase(entity.name) %>);
+<%_ } _%>
+
+<%_ if (typeOfApp === 'Angular-FullStack') { _%>
 app.get('*', (req, res) => {
   res.send(path.join(__dirname, 'dist/index.html'));
 });
-<% } %>
+<%_ } _%>
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

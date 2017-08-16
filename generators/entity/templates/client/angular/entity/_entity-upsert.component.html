@@ -6,17 +6,16 @@
     <div class="card-body">
       <form #myForm="ngForm">
         <div class="row">
-          <div *ngIf="<%= entityName.camel %>" class="col-md-12 form-group">
-            <label for="">ID</label>
-            <input *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
+          <div *ngIf="<%= entityName.camel %> && <%= entityName.camel %>.id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
           </div>
-          <% for (let attribute of attributes) { %>
+          <%_ for (let attribute of attributes) { %>
           <div class="col-md-12 form-group">
             <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
-            <input id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.name" <%- include _validation_attributes -%> />
+            <input id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes -%> />
             <input id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
-
-            <% if(attribute.validations) { %>
+            <%_ if(attribute.validations) { _%>
             <div *ngIf="(myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid)">
               <%_
                 for (let validation of attribute.validations) {
@@ -29,15 +28,19 @@
               <%_ } _%>
               <%_ if (validation.type === 'maxlength') { _%>
               <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.maxlength" class="form-text text-danger">La longitud no debe ser mayor que <%= validation.value %> caracteres</small>
-              <%_ } _%>
+              <%_}} _%>
+            </div>
             <%_ } _%>
           </div>
-            <% } %>
-          </div>
-          <% } %>
+          <%_ } _%>
+
           <div class="col form-group">
-            <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid"><i class="fa fa-floppy-o fa-fw"></i>Registrar</button>
-            <button class="btn btn-dark cursor-pointer" (click)="actualizar()" *ngIf="!isCreate"><i class="fa fa-floppy-o fa-fw"></i>Actualizar</button>
+            <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="actualizar()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
           </div>
         </div>
       </form>

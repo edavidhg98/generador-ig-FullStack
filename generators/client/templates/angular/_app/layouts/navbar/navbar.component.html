@@ -12,8 +12,9 @@
       <li class="nav-item dropdown">
         <a href="" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entidades</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <% for (let entity of entities) { %>
-          <a class="dropdown-item" [routerLink]="['/entities/<%=  _.kebabCase(entity.name) %>']"><%=  _.startCase(entity.name) %></a><% } %>
+          <%_ for (let entity of entities) { _%>
+          <a class="dropdown-item" [routerLink]="['/entities/<%=  _.kebabCase(entity.name) %>']"><%=  _.startCase(entity.name) %></a>
+          <%_ } _%>
         </div>
       </li>
     </ul>

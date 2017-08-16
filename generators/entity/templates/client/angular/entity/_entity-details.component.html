@@ -1,11 +1,10 @@
 <div *ngIf="<%= entityName.camel %>" class="container">
   <h3 class="m-top-and-bottom-2"><span><%= entityName.start %></span> {{ <%= entityName.camel %>.id }}</h3>
   <hr />
-  <dl>
-    <% for (let attribute of attributes) { %>
+  <dl><% for (let attribute of attributes) { %>
     <dt><%= _.startCase(attribute.name) %></dt>
     <dd>{{ <%= entityName.camel %>.<%= attribute.name %> }}</dd>
-    <% } %>
+    <%_ } _%>
   </dl>
   <a routerLink="update" class="btn btn-primary"><i class="fa fa-floppy-o fa-fw"></i>Actualizar</a>
 </div>
