@@ -29,8 +29,9 @@
               <%_ } _%>
               <%_ if (validation.type === 'maxlength') { _%>
               <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.maxlength" class="form-text text-danger">La longitud no debe ser mayor que <%= validation.value %> caracteres</small>
-            </div>
-              <%_ }} _%>
+              <%_ } _%>
+            <%_ } _%>
+          </div>
             <% } %>
           </div>
           <% } %>
