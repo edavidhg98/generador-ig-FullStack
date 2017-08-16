@@ -12,7 +12,7 @@
       validators.push(validation.type + '="' + validation.value + '"');
     }
     result = validators.join(' ');
-    result += ' ' + '[ngClass]="{ \'is-invalid\': (myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid) }"';
+    result += ' ' + '[ngClass]="{ \'is-invalid\': (myForm.controls.' + attribute.name + '?.dirty && myForm.controls.' + attribute.name + '?.invalid) }"';
   }
 -%>
 <%- result -%>
