@@ -1,33 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
-/* @import "~@angular/material/prebuilt-themes/purple-green.css";
-/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
-
-html, body {
-  margin: 0px;
-  padding: 0px;
-}
-
-body {
-  background-color: #F0F0F0;
-  font-family: Roboto, 'Helvetice Neue', 'Arial', sans-serif;
-}
-
-.fix-icon {
-  position: relative;
-  top: -.1em;
-  margin-right: .2em;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
+/* ==========================================================================
+Helper styles
+========================================================================== */
 
 .m-top-big-space {
   margin: 5rem;
 }
 
-.cusor-pointer {
+.m-top-2 {
+  margin-top: 2rem;
+}
+
+.m-bottom-2 {
+  margin-bottom: 2rem;
+}
+
+.m-top-and-bottom {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.m-top-and-bottom-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cursor-pointer {
   cursor: pointer;
+}
+
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid red;
+}
+
+input.ng-untouched, textarea.ng-untouched, select.ng-untouched {
+  border-left: 5px solid #80bdff;
 }

@@ -1,70 +1,40 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DataSource } from "@angular/cdk";
 
-import { <%= entityName.pascal %>DeleteModalComponent } from './<%= entityName.kebab %>-delete-modal.component';
-import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
+import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs/Observable';
-import { MdDialog } from "@angular/material";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'app-<%= entityName.kebab %>',
   templateUrl: './<%= entityName.kebab %>.component.html'
 })
 export class <%= entityName.pascal %>Component implements OnInit {
-  displayedColumns = [ <%for (let attribute of attributes) {%> '<%= attribute.name %>', <%}%> 'actions'];
 
-  dataSource: <%= entityName.pascal %>DataSource | null;
-  <%= entityName.camel %>Database: <%= entityName.pascal %>Database | null;
+  <%= entityName.camel %>s: <%= entityName.pascal %>[];
+  deleteModalOpts = { ok: 'OK', cancel: 'CANCEL' };
 
   constructor(
     private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
-    public dialog: MdDialog
+    private modalService: NgbModal
   ) {
-    this.<%= entityName.camel %>Database = new <%= entityName.pascal %>Database(this.<%= entityName.camel %>Service);
-    this.dataSource = new <%= entityName.pascal %>DataSource(this.<%= entityName.camel %>Database);
-   }
+
+  }
 
   ngOnInit() {
-  }
-
-  deleteEntity(id: string) {
-    let dialogRef = this.dialog.open(<%= entityName.pascal %>DeleteModalComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === "0") {
-        this.<%= entityName.camel %>Service.delete(id).subscribe((response) => {
-          this.<%= entityName.camel %>Database.getData();
-        });
-      }
+    this.<%= entityName.camel %>Service.getAll().subscribe((<%= entityName.camel %>s) => {
+      this.<%= entityName.camel %>s = <%= entityName.camel %>s;
     });
   }
-}
 
-export class <%= entityName.pascal %>Database {
-
-  dataChange: BehaviorSubject<<%= entityName.pascal %>[]> = new BehaviorSubject<<%= entityName.pascal %>[]>([]);
-
-  constructor(private <%= entityName.camel %>Service: <%= entityName.pascal %>Service) {
-    this.getData();
-  }
-
-  getData() {
-    this.<%= entityName.camel %>Service.getAll().subscribe(<%= entityName.camel %>s => this.dataChange.next(<%= entityName.camel %>s));
-  }
-}
-
-export class <%= entityName.pascal %>DataSource extends DataSource<<%= entityName.pascal %>> {
-
-  constructor(private database: <%= entityName.pascal %>Database) {
-    super();
-  }
-
-  connect(): Observable<<%= entityName.pascal %>[]> {
-    return this.database.dataChange;
-  }
-
-  disconnect() {
+  openDeleteModal(content: any, id: string) {
+    this.modalService.open(content).result.then((option) => {
+      if (option === this.deleteModalOpts.ok) {
+        this.<%= entityName.camel %>Service.delete(id).subscribe(response => {
+          this.<%= entityName.camel %>s = this.<%= entityName.camel %>s.filter(<%= entityName.camel %> => <%= entityName.camel %>.id !== id);
+        });
+      }
+    }, (reason) => {});
   }
 }

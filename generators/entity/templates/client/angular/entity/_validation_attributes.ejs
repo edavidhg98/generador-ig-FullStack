@@ -1,0 +1,18 @@
+<%
+  let result = '';
+  if (attribute.validations) {
+    const validations = attribute.validations;
+    const validators = [];
+
+    for(validation of validations) {
+      if (validation.type === 'required') {
+        validators.push(validation.type);
+        continue;
+      }
+      validators.push(validation.type + '="' + validation.value + '"');
+    }
+    result = validators.join(' ');
+    result += ' ' + '[ngClass]="{ \'is-invalid\': (myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid) }"';
+  }
+-%>
+<%- result -%>

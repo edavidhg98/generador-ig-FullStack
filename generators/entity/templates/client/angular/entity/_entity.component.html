@@ -1,21 +1,44 @@
-<div class="container-fluid" style="margin-top: 2em;">
-  <button md-raised-button color="primary" [routerLink]="['create']">Crear Nuevo</button>
-  <md-table [dataSource]="dataSource">
-    <% for (let attribute of attributes) { %>
-    <ng-container cdkColumnDef="<%= attribute.name %>">
-      <md-header-cell *cdkHeaderCellDef> <%= _.startCase(attribute.name) %> </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.<%= attribute.name %>}} </md-cell>
-    </ng-container>
-    <% } %>
+<div class="container-fluid">
+  <h2 class="m-top-and-bottom-2">
+    <span><%= entityName.start %></span>
+    <a class="btn btn-primary float-right" [routerLink]="['create']">
+      <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+      Crear Nuevo <%= entityName.start %>
+    </a>
+  </h2>
 
-    <ng-container cdkColumnDef="actions">
-      <md-header-cell *cdkHeaderCellDef> Actions </md-header-cell>
-      <md-cell *cdkCellDef="let row">
-        <a class="cursor-pointer" [routerLink]="['details', row.id]">Ver detalles</a> | <a class="cursor-pointer" [routerLink]="['update', row.id]">Actualizar</a> | <a class="cursor-pointer" (click)="deleteEntity(row.id)">Eliminar</a>
-      </md-cell>
-    </ng-container>
-
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% for (let attribute of attributes) { %>
+        <th><%= _.startCase(attribute.name) %></th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let <%= entityName.camel %> of <%= entityName.camel %>s">
+        <% for (let attribute of attributes) { %>
+        <td>{{ <%= entityName.camel %>.<%=attribute.name%> }}</td>
+        <% } %>
+        <td>
+          <a class="btn btn-info btn-sm" routerLink="{{ <%= entityName.camel %>.id }}"><span class="fa fa-eye fa-fw"></span>Ver</a>
+          <a class="btn btn-primary btn-sm" routerLink="{{ <%= entityName.camel %>.id }}/update"><span class="fa fa-pencil fa-fw"></span>Editar</a>
+          <a class="btn btn-danger btn-sm text-white cursor-pointer" (click)="openDeleteModal(content, <%= entityName.camel %>.id)"><span class="fa fa-trash fa-fw"></span>Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title"><i class="fa fa-exclamation-triangle fa-lg fa-fw" aria-hidden="true"></i>¿Esta seguro de eliminar?</h5>
+    <button type="button" class="close cursor-pointer" aria-label="Close" (click)="d(deleteModalOpts.cancel)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary cursor-pointer" (click)="c(deleteModalOpts.ok)"><i class="fa fa-check fa-fw"></i>Aceptar</button>
+    <button type="button" class="btn btn-secondary cursor-pointer" (click)="c(deleteModalOpts.cancel)"><i class="fa fa-ban fa-fw"></i>Cancelar</button>
+  </div>
+</ng-template>

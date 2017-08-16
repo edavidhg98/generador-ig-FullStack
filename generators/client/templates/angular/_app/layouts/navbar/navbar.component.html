@@ -1,18 +1,21 @@
-<md-toolbar color="primary">
-  <button md-icon-button class="hidden-sm hidden-md hidden-lg">
-    <md-icon>menu</md-icon>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/"><%= appName.start %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <span><%= appName.start %></span>
-  <button md-button class="visible-sm visible-md visible-lg" routerLink="/"><md-icon class="fix-icon">home</md-icon>INICIO</button>
-  <button md-button class="visible-sm visible-md visible-lg"><md-icon class="fix-icon">person</md-icon>CONTACTO</button>
-  <button md-button class="visible-sm visible-md visible-lg" [mdMenuTriggerFor]="menu"><md-icon class="fix-icon">format_list_bulleted</md-icon>ENTIDADES</button>
-  <md-menu #menu="mdMenu">
-    <ul class="list-unstyled">
-      <% for (let entity of entities) { %>
-      <li><button md-button [routerLink]="['/entities/<%=  _.kebabCase(entity.name) %>']"><%=  _.startCase(entity.name) %></button></li><% } %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Inicio</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entidades</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <% for (let entity of entities) { %>
+          <a class="dropdown-item" [routerLink]="['/entities/<%=  _.kebabCase(entity.name) %>']"><%=  _.startCase(entity.name) %></a><% } %>
+        </div>
+      </li>
     </ul>
-  </md-menu>
-  <div class="example-spacer visible-sm visible-md visible-lg"></div>
-  <button md-button class="visible-sm visible-md visible-lg">REGISTRARSE</button>
-  <button md-button class="visible-sm visible-md visible-lg">INGRESAR</button>
-</md-toolbar>
+  </div>
+</nav>

@@ -5,7 +5,13 @@
       "attributes": [
         {
           "name": "name",
-          "type": "String"
+          "type": "String",
+          "validations": [
+            {
+              "type": "required",
+              "value": true
+            }
+          ]
         },
         {
           "name": "description",

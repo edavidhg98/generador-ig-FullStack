@@ -1,22 +1,45 @@
-<div class="container m-top-big-space">
-  <md-toolbar color="primary">
-    <span>{{ crudOperationTitle }}</span>
-  </md-toolbar>
-  <md-card>
-    <form class="row" #myForm="ngForm">
-      <% for (let attribute of attributes) { %>
-      <md-input-container class="col-md-12">
-        <% if (attribute.type.toLowerCase() === 'number') {%>
-        <input type="number" *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>">
-        <input type="number" *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" ngModel>
-        <% } else {%>
-        <input *ngIf="<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>">
-        <input *ngIf="!<%= entityName.camel %>" mdInput placeholder="<%= _.startCase(attribute.name) %>" name="<%=attribute.name%>" ngModel>
-        <% } %>
-      </md-input-container>
-      <% } %>
-      <button md-raised-button color="primary" (click)="registrar(myForm.value)" *ngIf="isCreate">Registrar</button>
-      <button md-raised-button color="primary" (click)="actualizar()" *ngIf="!isCreate">Actualizar</button>
-    </form>
-  </md-card>
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} <%= entityName.start %></h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="<%= entityName.camel %>" class="col-md-12 form-group">
+            <label for="">ID</label>
+            <input *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
+          </div>
+          <% for (let attribute of attributes) { %>
+          <div class="col-md-12 form-group">
+            <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
+            <input id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.name" <%- include _validation_attributes -%> />
+            <input id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
+
+            <% if(attribute.validations) { %>
+            <div *ngIf="(myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid)">
+              <%_
+                for (let validation of attribute.validations) {
+                if (validation.type === 'required') {
+              _%>
+              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.required" class="form-text text-danger">Este campo es requerido</small>
+              <%_ } _%>
+              <%_ if (validation.type === 'minlength') { _%>
+              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.minlength" class="form-text text-danger">La longitud mínima debe ser al menos de <%= validation.value %> caracteres</small>
+              <%_ } _%>
+              <%_ if (validation.type === 'maxlength') { _%>
+              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.maxlength" class="form-text text-danger">La longitud no debe ser mayor que <%= validation.value %> caracteres</small>
+            </div>
+              <%_ }} _%>
+            <% } %>
+          </div>
+          <% } %>
+          <div class="col form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid"><i class="fa fa-floppy-o fa-fw"></i>Registrar</button>
+            <button class="btn btn-dark cursor-pointer" (click)="actualizar()" *ngIf="!isCreate"><i class="fa fa-floppy-o fa-fw"></i>Actualizar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

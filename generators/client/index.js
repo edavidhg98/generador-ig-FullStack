@@ -18,12 +18,11 @@ module.exports = class extends Generator {
     this._writeCommonFiles();
     this._writeAngularEntitiesModule();
     this._writeAngularLayoutsComponents();
-    this.fs.copy(this.templatePath('angular/_app/home'), this.destinationPath('src/app/home'));
     this.fs.copy(this.templatePath('angular/e2e'), this.destinationPath('e2e'));
   }
 
   _writeSourceFolder() {
-    this.fs.copyTpl(this.templatePath('angular/src'), this.destinationPath('src'), { appName: this.appName });
+    this.fs.copy(this.templatePath('angular/src'), this.destinationPath('src'));
   }
 
   _writeAngularEntitiesModule() {

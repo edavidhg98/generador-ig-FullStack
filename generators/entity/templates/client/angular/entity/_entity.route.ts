@@ -10,8 +10,8 @@ export const <%= entityName.camel %>Routes: Routes = [
     children: [
       { path: '', component: <%= entityName.pascal %>Component },
       { path: 'create', component: <%= entityName.pascal %>UpSertComponent },
-      { path: 'update/:id', component: <%= entityName.pascal %>UpSertComponent },
-      { path: 'details/:id', component: <%= entityName.pascal %>DetailsComponent }
+      { path: ':id', component: <%= entityName.pascal %>DetailsComponent },
+      { path: ':id/update', component: <%= entityName.pascal %>UpSertComponent }
     ]
   }
 ];
