@@ -68,8 +68,4 @@ module.exports = class extends Generator {
         start: _.startCase(name)
     }
   }
-
-  install() {
-    this.installDependencies();
-  }
 };

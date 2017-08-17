@@ -4,9 +4,9 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-<% if (typeOfApp === 'Angular-FullStack') { %>
+<%_ if (typeOfApp === 'Angular-FullStack') { _%>
 const fallback = require('express-history-api-fallback');
-<% } %>
+<%_ } _%>
 
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
@@ -31,7 +31,6 @@ app.use(cookieParser());
 <% if (typeOfApp === 'Angular-FullStack') { %>
 const root = path.join(__dirname, 'dist');
 app.use(express.static(root));
-app.use(fallback('index.html', { root: root }));
 <% } else { %>app.use(express.static(path.join(__dirname, 'public')));<% } %>
 
 // api routes
@@ -44,6 +43,7 @@ app.use('/api/<%= _.kebabCase(entity.name) %>s', <%= _.camelCase(entity.name) %>
 <%_ } _%>
 
 <%_ if (typeOfApp === 'Angular-FullStack') { _%>
+app.use(fallback('index.html', { root: root }));
 app.get('*', (req, res) => {
   res.send(path.join(__dirname, 'dist/index.html'));
 });

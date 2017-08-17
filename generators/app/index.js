@@ -90,10 +90,6 @@ module.exports = class extends Generator {
     }
   }
 
-  install() {
-    //this.installDependencies();
-  }
-
   _printInterGrupoLogo() {
     this.log('\n');
       this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
@@ -117,5 +113,9 @@ module.exports = class extends Generator {
       this.log(`    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`);
       this.log('                     ¡Bienvenido al generador FullStack!                 ');
       this.log(`\n`);
+  }
+
+  install() {
+    this.installDependencies();
   }
 };

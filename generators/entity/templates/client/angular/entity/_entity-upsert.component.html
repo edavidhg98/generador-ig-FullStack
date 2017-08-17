@@ -13,8 +13,7 @@
           <%_ for (let attribute of attributes) { %>
           <div class="col-md-12 form-group">
             <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
-            <input id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes -%> />
-            <input id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" type="text" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
+            <% include _control-type _%>
             <%_ if(attribute.validations) { _%>
             <div *ngIf="(myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid)">
               <%_

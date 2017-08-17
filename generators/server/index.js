@@ -31,8 +31,4 @@ module.exports = class extends Generator {
         { typeOfApp: this.typeOfApp, entities: this.entities, sourceApiFolder: sourceApiFolder,  _: _ }
     );
   }
-
-  install() {
-    this.installDependencies();
-  }
 };

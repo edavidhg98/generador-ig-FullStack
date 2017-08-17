@@ -54,8 +54,4 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('angular/tsconfig.json'), this.destinationPath('tsconfig.json'));
     this.fs.copy(this.templatePath('angular/tslint.json'), this.destinationPath('tslint.json'));
   }
-
-  install() {
-    this.installDependencies();
-  }
 };
