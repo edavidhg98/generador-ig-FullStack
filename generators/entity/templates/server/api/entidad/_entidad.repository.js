@@ -13,7 +13,7 @@ module.exports = {
     return _<%= entityName.camel %>.save();
   },
   update: function(id, <%= entityName.camel %>) {
-    return <%= entityName.pascal %>.findByIdAndUpdate(id, <%= entityName.camel %>, { new: true });
+    return <%= entityName.pascal %>.findByIdAndUpdate(id, <%= entityName.camel %>, { new: true, runValidators: true });
   },
   remove: function(id) {
     return <%= entityName.pascal %>.findByIdAndRemove(id);

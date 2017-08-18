@@ -1,0 +1,21 @@
+<%_
+  let result = '';
+  if (attribute.required) {
+    result += ', required: true';
+  }
+  if(attribute.validations) {
+    let mongooseValidations = [];
+
+    for (let validation of attribute.validations) {
+      if (validation.type === 'minlength') {
+        mongooseValidations.push('min: ' + validation.value);
+      }
+      if (validation.type === 'maxlength') {
+        mongooseValidations.push('max: ' + validation.value);
+      }
+    }
+
+    result += ', ' + mongooseValidations.join(', ');
+  }
+_%>
+<%= result _%>

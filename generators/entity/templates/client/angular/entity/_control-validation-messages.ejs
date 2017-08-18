@@ -1,0 +1,17 @@
+<% if (attribute.required || attribute.validations) { -%>
+<div *ngIf="(myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid)">
+<% if (attribute.required) { -%>
+    <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.required" class="form-text text-danger">Este campo es requerido</small>
+<% } -%>
+<%
+  for (let i = 0; attribute.validations && i < attribute.validations.length; i++) {
+    let validation = attribute.validations[i];
+    if (validation.type === 'minlength') {
+-%>
+    <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.minlength" class="form-text text-danger">La longitud mínima debe ser al menos de <%= validation.value %> caracteres</small>
+<% } -%>
+<% if (validation.type === 'maxlength') { -%>
+    <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.maxlength" class="form-text text-danger">La longitud no debe ser mayor que <%= validation.value %> caracteres</small>
+<% }} -%>
+  </div>
+<% } -%>

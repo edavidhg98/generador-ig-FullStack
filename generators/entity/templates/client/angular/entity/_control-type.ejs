@@ -11,19 +11,41 @@
     } else {
       controlType = 'text';
     }
-_%>
-<input type="<%= controlType %>" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes -%> />
-<input type="<%= controlType %>" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
-<% } else {
+    attribute.control = controlType;
+  }
+-%>
+<%
   const inputTypes = [ 'date', 'datetime-local', 'email', 'month', 'number', 'password', 'time', 'url', 'week', 'text' ];
-  if (attribute.control === 'textarea') {
-_%>
-<textarea id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes _%>></textarea>
-<textarea id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" ngModel <%- include _validation_attributes _%>></textarea>
-<% } else if (inputTypes.includes(attribute.control)) { _%>
-<input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes -%> />
-<input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
-<%  } else { _%>
-<input type="text" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _validation_attributes -%> />
-<input type="text" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _validation_attributes _%> />
-<%_ }} _%>
+  if (inputTypes.includes(attribute.control)) {
+-%>
+<div class="col-md-12 form-group">
+  <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
+  <input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes -%> />
+  <input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%> />
+  <%- include _control-validation-messages -%>
+</div>
+<% } else if (attribute.control === 'textarea') { -%>
+<div class="col-md-12 form-group">
+  <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
+  <textarea id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes _%>></textarea>
+  <textarea id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" ngModel <%- include _control-attributes _%>></textarea>
+  <%- include _control-validation-messages -%>
+</div>
+<% } else if (attribute.control === 'checkbox') { -%>
+<div class="col-md-12 form-check">
+  <label class="custom-control custom-checkbox">
+    <input *ngIf="<%= entityName.camel %>" type="checkbox" class="custom-control-input" name="<%= attribute.name %>"  [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes _%>/>
+    <input *ngIf="!<%= entityName.camel %>" type="checkbox" class="custom-control-input" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%>/>
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description"><%= _.startCase(attribute.name) %></span>
+    <%- include _control-validation-messages -%>
+  </label>
+</div>
+<%  } else { -%>
+<div class="col-md-12 form-group">
+  <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
+  <input type="text" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes -%> />
+  <input type="text" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%> />
+  <%- include _control-validation-messages -%>
+</div>
+<% } -%>

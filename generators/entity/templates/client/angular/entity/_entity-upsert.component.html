@@ -10,29 +10,9 @@
             <label for="field_id">ID</label>
             <input id="fiel_id" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
           </div>
-          <%_ for (let attribute of attributes) { %>
-          <div class="col-md-12 form-group">
-            <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
-            <% include _control-type _%>
-            <%_ if(attribute.validations) { _%>
-            <div *ngIf="(myForm.controls.<%= attribute.name %>?.dirty && myForm.controls.<%= attribute.name %>?.invalid)">
-              <%_
-                for (let validation of attribute.validations) {
-                if (validation.type === 'required') {
-              _%>
-              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.required" class="form-text text-danger">Este campo es requerido</small>
-              <%_ } _%>
-              <%_ if (validation.type === 'minlength') { _%>
-              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.minlength" class="form-text text-danger">La longitud mínima debe ser al menos de <%= validation.value %> caracteres</small>
-              <%_ } _%>
-              <%_ if (validation.type === 'maxlength') { _%>
-              <small [hidden]="!myForm.controls.<%= attribute.name %>?.errors?.maxlength" class="form-text text-danger">La longitud no debe ser mayor que <%= validation.value %> caracteres</small>
-              <%_}} _%>
-            </div>
-            <%_ } _%>
-          </div>
-          <%_ } _%>
-
+          <% for (let attribute of attributes) { %>
+          <% include _control-type %>
+          <% } %>
           <div class="col form-group">
             <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
               <i class="fa fa-floppy-o fa-fw"></i>Registrar

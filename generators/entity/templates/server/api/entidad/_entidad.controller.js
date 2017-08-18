@@ -69,7 +69,11 @@ function deleteEntity(req, res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function (err) {
-    res.status(statusCode).json({ msg: `Error al realizar la petición ${err}` });
+    if (err.name === 'ValidationError') {
+      res.status(400).json({ msg: `Error al realizar la petición ${err}` });
+    }
+
+    res.status(statusCode).json({ msg: `Ocurrión un error en el servidor ${err}` });
   };
 }
 

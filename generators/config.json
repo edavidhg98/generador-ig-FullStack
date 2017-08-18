@@ -6,10 +6,15 @@
         {
           "name": "name",
           "type": "String",
+          "required": "true",
           "validations": [
             {
-              "type": "required",
-              "value": true
+              "type": "minlength",
+              "value": 3
+            },
+            {
+              "type": "maxlength",
+              "value": 20
             }
           ]
         },
