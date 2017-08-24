@@ -6,7 +6,7 @@ module.exports = {
     return <%= entityName.pascal %>.find();
   },
   getById: function(id) {
-    return <%= entityName.pascal %>.findById(id);
+    return <%= entityName.pascal %>.findById(id)<%_ relationships.forEach(relationship => { _%> .populate('<%= relationship.fieldName %>') <%_ }); %>
   },
   add: function(<%= entityName.camel %>) {
     let _<%= entityName.camel %> = new <%= entityName.pascal %>(<%= entityName.camel %>);

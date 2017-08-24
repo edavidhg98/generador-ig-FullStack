@@ -1,7 +1,5 @@
 'use strict';
 const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
 const _ = require('lodash');
 const constants = require('../generator-constants');
 
@@ -44,11 +42,21 @@ module.exports = class extends Generator {
     const entityNameFormats = this._getNaminFormats(this.entity.name);
     let layersNames = ['model', 'repository', 'controller'];
 
+    const relationships = this.entity.relationships ? this.entity.relationships : [];
+    const manyToOneRelationShips = relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
+    const oneToManyRelationShips = relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
+
     layersNames.forEach(layerName => {
       this.fs.copyTpl(
         this.templatePath(`server/api/entidad/_entidad.${layerName}.js`),
         this.destinationPath(`${destinationServerDirectory}/${entityName}/${entityName}.${layerName}.js`),
-        { entityName: entityNameFormats, attributes: this.entity.attributes, relationships: this.entity.relationships }
+        {
+          entityName: entityNameFormats,
+          attributes: this.entity.attributes,
+          relationships,
+          manyToOneRelationShips,
+          oneToManyRelationShips
+        }
       );
     });
 

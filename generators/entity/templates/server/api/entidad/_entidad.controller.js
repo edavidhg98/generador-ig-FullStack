@@ -1,7 +1,6 @@
 'use strict';
 <%
-  let finalLength = attributes.length;
-  let counter;
+  let finalLength = attributes.length - 1;
 %>const repository = require('./<%= entityName.kebab  %>.repository');
 
 function getAll(req, res) {
@@ -25,9 +24,13 @@ function getById(req, res) {
 }
 
 function insertEntity(req, res) {
-  <% counter = 0; %>
-  const _<%= entityName.camel %> = {<%attributes.forEach(attribute => {%>
-    <%=attribute.name%>: req.body.<%=attribute.name%><%if(counter++ < finalLength) {%>,<%}%><%});%>
+  const _<%= entityName.camel %> = {
+  <%_ attributes.forEach((attribute, index) => { _%>
+    <%= attribute.name %>: req.body.<%= attribute.name %>,
+  <%_ }); _%>
+  <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
+    <%= manyToOneRelationShip.fieldName %>: req.body.<%= manyToOneRelationShip.fieldName %>,
+  <%_ } _%>
   };
 
   repository.add(_<%= entityName.camel %>)
@@ -39,9 +42,13 @@ function insertEntity(req, res) {
 
 function updateEntity(req, res) {
   const id = req.params.id;
-  <% counter = 0; %>
-  const _<%= entityName.camel %> = {<%attributes.forEach(attribute => {%>
-    <%=attribute.name%>: req.body.<%=attribute.name%><%if(counter++ < finalLength) {%>,<%}%><%});%>
+  const _<%= entityName.camel %> = {
+  <%_ attributes.forEach((attribute, index) => { _%>
+    <%= attribute.name %>: req.body.<%= attribute.name %>,
+  <%_ }); _%>
+  <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
+    <%= manyToOneRelationShip.fieldName %>: req.body.<%= manyToOneRelationShip.fieldName %>,
+  <%_ } _%>
   };
 
   repository.update(id, _<%= entityName.camel %>)
@@ -71,9 +78,9 @@ function handleError(res, statusCode) {
   return function (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json({ msg: `Error al realizar la petición ${err}` });
+    } else {
+      res.status(statusCode).json({ msg: `Ocurrión un error en el servidor ${err}` });
     }
-
-    res.status(statusCode).json({ msg: `Ocurrión un error en el servidor ${err}` });
   };
 }
 
