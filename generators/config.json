@@ -20,7 +20,8 @@
         },
         {
           "name": "description",
-          "type": "String"
+          "type": "String",
+          "control": "textarea"
         },
         {
           "name": "category",
@@ -48,7 +49,8 @@
         },
         {
           "name": "email",
-          "type": "String"
+          "type": "String",
+          "control": "email"
         },
         {
           "name": "address",
@@ -56,10 +58,11 @@
         },
         {
           "name": "telefono",
-          "type": "String"
+          "type": "String",
+          "control": "number"
         }
       ],
-      "relationships":[
+      "relationships": [
         {
           "entityRef": "Producto",
           "typeRelationship": "one-to-many",

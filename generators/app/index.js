@@ -5,7 +5,7 @@ const yosay = require('yosay');
 
 const path = require('path');
 const fs = require('fs');
-const _ = require('lodash');
+const utils = require('../utils');
 const constants = require('../generator-constants');
 
 module.exports = class extends Generator {
@@ -35,7 +35,7 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(props => {
       this.typeOfApp = props.typeOfApp;
-      this.appName = this._getNaminFormats(props.appName);
+      this.appName = utils.getNaminFormats(props.appName);
 
       try {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
@@ -78,16 +78,6 @@ module.exports = class extends Generator {
   _writeServer() {
     this.composeWith(require.resolve('../server'),
     { appName: this.appName, typeOfApp: this.typeOfApp, entities: this.entities });
-  }
-
-  _getNaminFormats(name) {
-    return {
-        name: name,
-        kebab: _.kebabCase(name),
-        camel: _.camelCase(name),
-        pascal: _.startCase(name).replace(' ', ''),
-        start: _.startCase(name)
-    }
   }
 
   _printInterGrupoLogo() {

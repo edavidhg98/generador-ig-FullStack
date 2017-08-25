@@ -13,6 +13,6 @@ const <%= entityName.camel %>Schema = new Schema({<%attributes.forEach((attribut
   localField: '<%= oneToManyRelationShip.localField %>',
   foreignField: '<%= oneToManyRelationShip.foreignField %>'
 });
-<% } %>
+<%_ } _%>
 
 module.exports = mongoose.model('<%= entityName.pascal %>', <%= entityName.camel %>Schema);

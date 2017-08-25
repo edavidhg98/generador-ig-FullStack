@@ -1,79 +1,52 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
-const constants = require('../generator-constants');
 
-module.exports = class extends Generator {
+const constants = require('../generator-constants');
+const utils = require('../utils');
+
+class EntityGenerator extends Generator {
 
   constructor(args, opts) {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
+    this.entityNameFormats = utils.getNaminFormats(this.entity.name);
+
+    this.relationships = this.entity.relationships ? this.entity.relationships : [];
+    this.manyToOneRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
+    this.oneToManyRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
   }
 
   writing() {
-    let destinationServerDirectory = 'api';
-    if (this.typeOfApp === constants.APP_TYPE_ANGULAR_FULLSTACK) {
-      destinationServerDirectory = 'server/' + destinationServerDirectory;
-      this._writeClientEntity();
+    if (this._isAngularFullStackApp()) {
+      this._writeAngularEntity();
     }
-    this._writeServerEntity(destinationServerDirectory);
+    this._writeServerEntity();
   }
 
-  _writeClientEntity() {
-    const entityName = _.kebabCase(this.entity.name);
-    const entityNameFormats = this._getNaminFormats(this.entity.name);
-    let layersNames = ['.service.ts', '.model.ts', '.component.ts',
-                      '.component.html', '.module.ts', '.route.ts',
-                      '-upsert.component.ts', '-upsert.component.html',
-                      '-details.component.ts', '-details.component.html'];
-
-    layersNames.forEach(layerName => {
-      this.fs.copyTpl(
-        this.templatePath(`client/angular/entity/_entity${layerName}`),
-        this.destinationPath(`src/app/entities/${entityName}/${entityName}${layerName}`),
-        { entityName: entityNameFormats, attributes: this.entity.attributes, _: _ }
-      );
+  _writeAngularEntity() {
+    this.composeWith(require.resolve('./client'), {
+      typeOfApp: this.typeOfApp,
+      entity: this.entity,
+      entityNameFormats: this.entityNameFormats
     });
   }
 
-  _writeServerEntity(destinationServerDirectory) {
-    const entityName = _.kebabCase(this.entity.name);
-    const entityNameFormats = this._getNaminFormats(this.entity.name);
-    let layersNames = ['model', 'repository', 'controller'];
-
-    const relationships = this.entity.relationships ? this.entity.relationships : [];
-    const manyToOneRelationShips = relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
-    const oneToManyRelationShips = relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
-
-    layersNames.forEach(layerName => {
-      this.fs.copyTpl(
-        this.templatePath(`server/api/entidad/_entidad.${layerName}.js`),
-        this.destinationPath(`${destinationServerDirectory}/${entityName}/${entityName}.${layerName}.js`),
-        {
-          entityName: entityNameFormats,
-          attributes: this.entity.attributes,
-          relationships,
-          manyToOneRelationShips,
-          oneToManyRelationShips
-        }
-      );
+  _writeServerEntity() {
+    this.composeWith(require.resolve('./server'), {
+      typeOfApp: this.typeOfApp,
+      entity: this.entity,
+      entityNameFormats: this.entityNameFormats,
+      relationships: this.relationships,
+      manyToOneRelationShips: this.manyToOneRelationShips,
+      oneToManyRelationShips: this.oneToManyRelationShips
     });
-
-    this.fs.copyTpl(
-      this.templatePath('server/api/entidad/_index.js'),
-      this.destinationPath(`${destinationServerDirectory}/${entityName}/index.js`),
-      { entityName: entityNameFormats }
-    );
   }
 
-  _getNaminFormats(name) {
-    return {
-        name: name,
-        kebab: _.kebabCase(name),
-        camel: _.camelCase(name),
-        pascal: _.startCase(name).replace(' ', ''),
-        start: _.startCase(name)
-    }
+  _isAngularFullStackApp() {
+    return this.typeOfApp === constants.APP_TYPE_ANGULAR_FULLSTACK;
   }
 };
+
+module.exports = EntityGenerator;

@@ -9,7 +9,7 @@
 | Tipo          |         Tecnologías         |
 |---------------------|-------------------------------------------------------------------------------|
 | RESTful API         | Node.js, Express, Mongo (Mongoose)                                            |
-| Angular FullStack   | Node.js, Express, Mongo (Mongoose), Angular 4, Angular-CLI, Angular Material  |
+| Angular FullStack   | Node.js, Express, Mongo (Mongoose), Angular 4, Angular-CLI, Bootstrap v4  |
 
 
 ## Instalación
@@ -33,12 +33,8 @@ Cree un archivo config.json para la generación crud. A continuación se muestra
         {
           "name": "name",
           "type": "String",
+          "required": true,
           "validations": [
-            {
-              "type": "required",
-              "value": true,
-              "message": "El campo name debe ser obligatorio"
-            },
             {
               "type": "min",
               "value": 8,
@@ -53,21 +49,58 @@ Cree un archivo config.json para la generación crud. A continuación se muestra
         },
         {
           "name": "description",
-          "type": "String"
+          "type": "String",
+          "required": true,
+          "control": "textarea"
         },
         {
           "name": "category",
-          "type": "String"
+          "type": "String",
+          "required": true
         },
         {
           "name": "price",
-          "type": "Number"
+          "type": "Number",
+          "required": true
         }
       ],
       "relationships": [
         {
-          "entity": "Proveedor",
-          "attribute": "proveedor",
+          "entityRef": "Proveedor",
+          "typeRelationship": "many-to-one",
+          "fieldName": "proveedor"
+        }
+      ]
+    },
+    {
+      "name": "Proveedor",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "String"
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "control": "email"
+        },
+        {
+          "name": "address",
+          "type": "String"
+        },
+        {
+          "name": "telefono",
+          "type": "String",
+          "control": "number"
+        }
+      ],
+      "relationships":[
+        {
+          "entityRef": "Producto",
+          "typeRelationship": "one-to-many",
+          "fieldName": "productos",
+          "localField": "_id",
+          "foreignField": "proveedor"
         }
       ]
     }
@@ -88,11 +121,28 @@ yo ig-fullstack
 | Date     | required                     |
 | Boolean  | required                     |
 
+## Especificacón de tipos de control a usar
+
+A un atributo de una entidad se le puede especificar un tipo de control (input) a usar. Tipos de controles válidos:
+
+* date, datetime-local, email, month, number, password, time, url, week, text
+
+Si no se le especifica un control, por defecto se usará un control según su tipo de dato.
+
 ## Relaciones
+### One-To-Many
 | Key         |         Explicación          |
 |-------------|-------------------------------------------------------------|
-| entity      | Nombre de la entidad con la que se quiere hacer la relación |
-| attribute   | Nombre del campo para usar en la definición del modelo      |
+| entityRef      | Nombre de la entidad con la que se quiere hacer la relación |
+| fieldName   | Nombre del campo para usar en la definición del modelo      |
+
+### Many-To-One
+| Key         |         Explicación          |
+|-------------|-------------------------------------------------------------|
+| entityRef      | Nombre de la entidad con la que se quiere hacer la relación |
+| fieldName   | Nombre del campo para usar en la definición del modelo      |
+| localField   | Primary Key      |
+| foreignField   | Foreign Key      |
 
 ## Convención de nombres a seguir en el proyecto:
 Este es el formato correcto para el nombramiento de las entidades y sus atributos:
@@ -103,8 +153,6 @@ Este es el formato correcto para el nombramiento de las entidades y sus atributo
 | Pascal Case | TipoProducto  | Clases                             |
 | Kebab Case  | tipo-producto | Nombre de archivos, carpetas, URL  |
 | Start Case  | Tipo Producto |  Títulos en la app                 |
-
-<!--[](https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif)-->
 
 ## License
 
