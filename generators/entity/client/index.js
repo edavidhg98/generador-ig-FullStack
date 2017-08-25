@@ -18,7 +18,7 @@ module.exports = class extends Generator {
   _writeClientEntity() {
     const entityName = this.entityNameFormats.kebab;
     let layersNames = ['.service.ts', '.model.ts', '.component.ts',
-                      '.component.html', '.module.ts', '.route.ts',
+                      '-list.component.ts', '-list.component.html', '.module.ts', '.route.ts',
                       '-upsert.component.ts', '-upsert.component.html',
                       '-details.component.ts', '-details.component.html'];
 
@@ -33,5 +33,4 @@ module.exports = class extends Generator {
       );
     });
   }
-
 }

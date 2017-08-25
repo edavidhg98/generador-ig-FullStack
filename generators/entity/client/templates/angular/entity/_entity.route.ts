@@ -15,3 +15,5 @@ export const <%= entityName.camel %>Routes: Routes = [
     ]
   }
 ];
+
+export const absolutePath = '/entities/<%= entityName.kebab %>/';
