@@ -35,7 +35,8 @@ module.exports = class extends Generator {
           attributes: this.entity.attributes,
           relationships: this.relationships,
           manyToOneRelationShips: this.manyToOneRelationShips,
-          oneToManyRelationShips: this.oneToManyRelationShips
+          oneToManyRelationShips: this.oneToManyRelationShips,
+          _: _
         }
       );
     });

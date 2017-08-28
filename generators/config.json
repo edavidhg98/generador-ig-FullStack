@@ -1,10 +1,10 @@
 {
   "entities": [
     {
-      "name": "Producto",
+      "name": "Products",
       "attributes": [
         {
-          "name": "name",
+          "name": "ProductoName",
           "type": "String",
           "required": "true",
           "validations": [
@@ -19,17 +19,28 @@
           ]
         },
         {
-          "name": "description",
-          "type": "String",
-          "control": "textarea"
-        },
-        {
-          "name": "category",
+          "name": "QuantityPerUnit",
           "type": "String"
         },
         {
-          "name": "price",
+          "name": "UnitPrice",
           "type": "Number"
+        },
+        {
+          "name": "UnitsInStock",
+          "type": "Number"
+        },
+        {
+          "name":"UnitsOnOrder",
+          "type": "Number"
+        },
+        {
+          "name":"ReorderLevel",
+          "type":"Number"
+        },
+        {
+          "name":"Discontinued",
+          "type":"Boolean"
         }
       ],
       "relationships": [
@@ -37,6 +48,276 @@
           "entityRef": "Proveedor",
           "typeRelationship": "many-to-one",
           "fieldName": "proveedor"
+        }
+      ]
+    },
+    {
+      "name":"OrderDetails",
+      "attributes":[
+        {
+          "name":"UnitPrice",
+          "type": "Number"
+        },
+        {
+          "name":"Quantity",
+          "type":"Number"
+        },
+        {
+          "name":"Discount",
+          "type":"Number"
+        }
+      ]
+    },
+    {
+      "name":"Categories",
+      "attributes":[
+        {
+          "name":"CategoryName",
+          "type":"String"
+        },
+        {
+          "name":"Description",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name": "Suppliers",
+      "attributes":[
+        {
+          "name":"CompanyName",
+          "type":"String"
+        },
+        {
+          "name":"ContactName",
+          "type":"String"
+        },
+        {
+          "name":"ContactTitle",
+          "type":"String"
+        },
+        {
+          "name":"Address",
+          "type":"String"
+        },
+        {
+          "name":"City",
+          "type":"String"
+        },
+        {
+          "name":"Region",
+          "type":"String"
+        },
+        {
+          "name":"PostalCode",
+          "type":"String"
+        },
+        {
+          "name":"Coutry",
+          "type":"String"
+        },
+        {
+          "name":"Phone",
+          "type":"String"
+        },
+        {
+          "name":"Fax",
+          "type":"String"
+        },
+        {
+          "name":"HomePage",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Territories",
+      "attributes":[
+        {
+          "name":"TerritoryDescription",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Employees",
+      "attributes":[
+        {
+          "name":"LastName",
+          "type":"String"
+        },
+        {
+          "name":"FirstName",
+          "type":"String"
+        },
+        {
+          "name":"Title",
+          "type":"String"
+        },
+        {
+          "name":"TitleOfCourtesy",
+          "type":"Number"
+        },
+        {
+          "name":"BirthDate",
+          "type":"Date"
+        },
+        {
+          "name":"HireDate",
+          "type":"Date"
+        },
+        {
+          "name":"Address",
+          "type":"String"
+        },
+        {
+          "name":"City",
+          "type":"String"
+        },
+        {
+          "name":"Region",
+          "type":"String"
+        },
+        {
+          "name":"PostalCode",
+          "type":"String"
+        },
+        {
+          "name":"Coutry",
+          "type":"String"
+        },
+        {
+          "name":"HomePhone",
+          "type":"String"
+        },
+        {
+          "name":"Extension",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Orders",
+      "attributes":[
+        {
+          "name":"OrderData",
+          "type":"Date"
+        },
+        {
+          "name":"RequiredData",
+          "type":"Date"
+        },
+        {
+          "name":"ShippedDate",
+          "type":"Date"
+        },
+        {
+          "name":"ShipVia",
+          "type":"Number"
+        },
+        {
+          "name":"Freight",
+          "type":"Number"
+        },
+        {
+          "name":"ShipName",
+          "type":"String"
+        },
+        {
+          "name":"ShipAddress",
+          "type":"String"
+        },
+        {
+          "name":"ShipCity",
+          "type":"String"
+        },
+        {
+          "name":"ShipRegion",
+          "type":"String"
+        },
+        {
+          "name":"ShipPostalCode",
+          "type":"String"
+        },
+        {
+          "name":"ShipCountry",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Customers",
+      "attributes":[
+        {
+          "name":"CompanyName",
+          "type":"String"
+        },
+        {
+          "name":"ContactName",
+          "type":"String"
+        },
+        {
+          "name":"ContactTitle",
+          "type":"String"
+        },
+        {
+          "name":"Address",
+          "type":"String"
+        },
+        {
+          "name":"City",
+          "type":"String"
+        },
+        {
+          "name":"Region",
+          "type":"String"
+        },
+        {
+          "name":"PostalCode",
+          "type":"String"
+        },
+        {
+          "name":"Coutry",
+          "type":"String"
+        },
+        {
+          "name":"Phone",
+          "type":"String"
+        },
+        {
+          "name":"Fax",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Region",
+      "attributes":[
+        {
+          "name":"RegionDescription",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"Shippers",
+      "attributes":[
+        {
+          "name":"CompanyName",
+          "type":"String"
+        },
+        {
+          "name":"Phone",
+          "type":"String"
+        }
+      ]
+    },
+    {
+      "name":"CustomerDemographics",
+      "attributes":[
+        {
+          "name":"CustomerDesc",
+          "type":"String"
         }
       ]
     },

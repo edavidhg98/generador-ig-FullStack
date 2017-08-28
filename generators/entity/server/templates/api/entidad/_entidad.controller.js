@@ -1,7 +1,5 @@
 'use strict';
-<%
-  let finalLength = attributes.length - 1;
-%>const repository = require('./<%= entityName.kebab  %>.repository');
+const repository = require('./<%= entityName.kebab  %>.repository');
 
 function getAll(req, res) {
   repository.get()

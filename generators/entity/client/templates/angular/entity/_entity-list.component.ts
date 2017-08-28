@@ -11,10 +11,15 @@ import { absolutePath } from './<%= entityName.kebab %>.route';
 })
 export class <%= entityName.pascal %>ListComponent implements OnInit {
 
-  @Input() <%= entityName.camel %>s: <%= entityName.pascal %>[];
   deleteModalOpts = { ok: 'OK', cancel: 'CANCEL' };
-
   absolutePath: string = absolutePath;
+
+  @Input() <%= entityName.camel %>s: <%= entityName.pascal %>[];
+
+  // Necesarios para el ordernamiento
+  isDesc = false;
+  column: string;
+  direction: number;
 
   constructor(
     private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
@@ -24,6 +29,12 @@ export class <%= entityName.pascal %>ListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  sort(property) {
+    this.isDesc = !this.isDesc;
+    this.column = property;
+    this.direction = this.isDesc ? 1 : -1;
   }
 
   openDeleteModal(content: any, id: string) {

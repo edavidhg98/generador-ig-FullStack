@@ -27,8 +27,8 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
       if (id) {
         this.crudOperationTitle = 'Actualizar';
         this.isCreate = false;
-        this.<%= entityName.camel %>Service.getById(id).subscribe((<%= entityName.camel %>Data) => {
-          this.<%= entityName.camel %> = <%= entityName.camel %>Data;
+        this.<%= entityName.camel %>Service.getById(id).subscribe((<%= entityName.camel %>) => {
+          this.<%= entityName.camel %> = <%= entityName.camel %>;
         });
       }
     });

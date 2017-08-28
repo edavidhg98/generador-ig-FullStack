@@ -35,6 +35,11 @@ module.exports = class extends Generator {
         { entities: this.entities, _: _ }
       );
     });
+
+    this.fs.copy(
+      this.templatePath('angular/_app/entities/orderby.pipe.ts'),
+      this.destinationPath('src/app/entities/orderby.pipe.ts')
+    );
   }
 
   _writeAngularLayoutsComponents() {

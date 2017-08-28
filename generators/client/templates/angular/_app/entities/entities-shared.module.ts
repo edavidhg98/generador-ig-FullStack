@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrderByPipe } from './orderby.pipe';
 
 @NgModule({
   imports: [
@@ -11,10 +12,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     NgbModule
   ],
+  declarations: [
+    OrderByPipe
+  ],
   exports: [
     FormsModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    OrderByPipe
   ]
 })
 export class EntitiesSharedModule { }

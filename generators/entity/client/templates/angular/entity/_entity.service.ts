@@ -19,14 +19,14 @@ export class <%= entityName.pascal %>Service {
   getAll(): Observable<<%= entityName.pascal %>[]> {
     return this.http.get(this.entityUrl)
       .map(this.checkStatus)
-      .map(this.extractEntities)
+      .map(response => response.json() as <%= entityName.pascal %>[])
       .catch(this.handleError);
   }
 
   getById(id: string): Observable<<%= entityName.pascal %>> {
     return this.http.get(this.entityUrl + id)
       .map(this.checkStatus)
-      .map(this.extractEntity)
+      .map(response => response.json() as <%= entityName.pascal %>)
       .catch(this.handleError);
   }
 
@@ -54,25 +54,6 @@ export class <%= entityName.pascal %>Service {
       return response;
     }
     throw response;
-  }
-
-  private extractEntities = (response: Response): <%= entityName.pascal %>[] => {
-    return response.json().map(this.convertTo<%= entityName.pascal %>);
-  }
-
-  private extractEntity = (response: Response): <%= entityName.pascal %> => {
-    return this.convertTo<%= entityName.pascal %>(response.json());
-  }
-
-  private convertTo<%= entityName.pascal %> = (data): <%= entityName.pascal %> => {
-    <%
-      let finalLength = attributes.length;
-      let counter = 1;
-    %>const <%= entityName.camel %>: <%= entityName.pascal %> = {
-      id: data._id,<%attributes.forEach((attribute) => {%>
-      <%=attribute.name%>: data.<%=attribute.name%><%if(counter++ < finalLength) {%>,<%}%><%});%>
-    };
-    return <%= entityName.camel %>;
   }
 
   private handleError(error: Response | any) {

@@ -6,16 +6,19 @@
   </a>
 </h2>
 
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="<%= entityName.camel %>s">
   <thead>
     <tr>
       <%_ for (let attribute of attributes) { _%>
-      <th><%= _.startCase(attribute.name) %></th>
+      <th class="cursor-pointer" (click)="sort('<%= _.camelCase(attribute.name) %>')">
+        <%= _.startCase(attribute.name) %>
+        <i class="fa" [ngClass]="{'fa-sort': column != '<%= _.camelCase(attribute.name) %>', 'fa-sort-asc': (column == '<%= _.camelCase(attribute.name) %>' && isDesc), 'fa-sort-desc': (column == '<%= _.camelCase(attribute.name) %>' && !isDesc) }" aria-hidden="true"> </i>
+      </th>
       <%_ } _%>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let <%= entityName.camel %> of <%= entityName.camel %>s">
+    <tr *ngFor="let <%= entityName.camel %> of <%= entityName.camel %>s | orderBy: { property: column, direction: direction }">
       <%_ for (let attribute of attributes) { _%>
       <td>{{ <%= entityName.camel %>.<%=attribute.name%> }}</td>
       <%_ } _%>

@@ -9,6 +9,10 @@ module.exports = class extends Generator {
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
     this.entityNameFormats = opts.entityNameFormats;
+
+    this.relationships = this.entity.relationships ? this.entity.relationships : [];
+    this.manyToOneRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
+    this.oneToManyRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
   }
 
   writing() {

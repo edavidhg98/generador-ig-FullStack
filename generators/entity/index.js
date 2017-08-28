@@ -28,9 +28,24 @@ class EntityGenerator extends Generator {
   _writeAngularEntity() {
     this.composeWith(require.resolve('./client'), {
       typeOfApp: this.typeOfApp,
-      entity: this.entity,
-      entityNameFormats: this.entityNameFormats
+      entity: this._formatNamingEntityAttributes(this.entity),
+      entityNameFormats: this.entityNameFormats,
+
+      relationships: this.relationships,
+      manyToOneRelationShips: this.manyToOneRelationShips,
+      oneToManyRelationShips: this.oneToManyRelationShips
     });
+  }
+
+  // Cambia el formato de los nombres de los atributos de una entidad al formato Camel Case.
+  _formatNamingEntityAttributes(entity) {
+    const attributes = entity.attributes.map(e => {
+      let name = e.name;
+      e.name = _.camelCase(name);
+      return e;
+    });
+    entity.attributes = attributes;
+    return entity;
   }
 
   _writeServerEntity() {
