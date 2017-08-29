@@ -16,7 +16,11 @@
               "type": "maxlength",
               "value": 20
             }
-          ]
+          ],
+          "position": {
+            "row": 0,
+            "col": 1
+          }
         },
         {
           "name": "QuantityPerUnit",

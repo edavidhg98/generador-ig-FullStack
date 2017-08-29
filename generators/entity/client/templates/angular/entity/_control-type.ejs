@@ -18,21 +18,21 @@
   const inputTypes = [ 'date', 'datetime-local', 'email', 'month', 'number', 'password', 'time', 'url', 'week', 'text' ];
   if (inputTypes.includes(attribute.control)) {
 -%>
-<div class="col-md-12 form-group">
+<div class="<%= classGridLayout %> form-group">
   <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
   <input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes -%> />
   <input type="<%= attribute.control %>" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%> />
   <%- include _control-validation-messages -%>
 </div>
 <% } else if (attribute.control === 'textarea') { -%>
-<div class="col-md-12 form-group">
+<div class="<%= classGridLayout %> form-group">
   <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
   <textarea id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes _%>></textarea>
   <textarea id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" name="<%= attribute.name %>" class="form-control" ngModel <%- include _control-attributes _%>></textarea>
   <%- include _control-validation-messages -%>
 </div>
 <% } else if (attribute.control === 'checkbox') { -%>
-<div class="col-md-12 form-check">
+<div class="<%= classGridLayout %> form-check">
   <label class="custom-control custom-checkbox">
     <input *ngIf="<%= entityName.camel %>" type="checkbox" class="custom-control-input" name="<%= attribute.name %>"  [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes _%>/>
     <input *ngIf="!<%= entityName.camel %>" type="checkbox" class="custom-control-input" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%>/>
@@ -42,7 +42,7 @@
   </label>
 </div>
 <%  } else { -%>
-<div class="col-md-12 form-group">
+<div class="<%= classGridLayout %> form-group">
   <label for="field_<%= attribute.name %>"><%= _.startCase(attribute.name) %></label>
   <input type="text" id="field_<%= attribute.name %>" *ngIf="<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" [(ngModel)]="<%= entityName.camel %>.<%= attribute.name %>" <%- include _control-attributes -%> />
   <input type="text" id="field_<%= attribute.name %>" *ngIf="!<%= entityName.camel %>" class="form-control" name="<%= attribute.name %>" ngModel <%- include _control-attributes _%> />

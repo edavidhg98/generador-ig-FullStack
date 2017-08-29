@@ -10,10 +10,21 @@
             <label for="field_id">ID</label>
             <input id="fiel_id" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
           </div>
-          <% for (let attribute of attributes) { %>
+          <%
+            for (let attributesGroupByRow of attributesGroupByPosition) {
+              let widthColumns = parseInt(12 / attributesGroupByRow.length);
+              let classGridLayout = 'col-' + widthColumns;
+              for (let attribute of attributesGroupByRow) {
+          %>
+          <% include _control-type %>
+          <% }} %>
+          <%
+            for (let attribute of attributesWithoutPosition) {
+              let classGridLayout = 'col-12';
+          %>
           <% include _control-type %>
           <% } %>
-          <div class="col form-group">
+          <div class="col-12 form-group">
             <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
               <i class="fa fa-floppy-o fa-fw"></i>Registrar
             </button>
