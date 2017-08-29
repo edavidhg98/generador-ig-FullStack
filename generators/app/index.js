@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require('fs');
 const utils = require('../utils');
 const constants = require('../generator-constants');
+const util = require('util');
 
 module.exports = class extends Generator {
   prompting() {
@@ -40,6 +41,8 @@ module.exports = class extends Generator {
       try {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
         this.entities = configSettings.entities;
+        this.globalMessages = configSettings.globalMessages;
+
       } catch(error) {
         this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración, o no es un archivo JSON valido:
          ${props.configFile}`)));
@@ -66,18 +69,18 @@ module.exports = class extends Generator {
   _writeEntities() {
     this.entities.forEach(entity => {
       this.composeWith(require.resolve('../entity'),
-      { appName: this.appName, typeOfApp: this.typeOfApp, entity: entity });
+      { appName: this.appName, typeOfApp: this.typeOfApp, entity: entity, globalMessages:this.globalMessages, util:this.util });
     });
   }
 
   _writeClient() {
     this.composeWith(require.resolve('../client'),
-      { appName: this.appName, typeOfApp: this.typeOfApp, entities: this.entities });
+      { appName: this.appName, typeOfApp: this.typeOfApp, entities: this.entities, globalMessages:this.globalMessages });
   }
 
   _writeServer() {
     this.composeWith(require.resolve('../server'),
-    { appName: this.appName, typeOfApp: this.typeOfApp, entities: this.entities });
+    { appName: this.appName, typeOfApp: this.typeOfApp, entities: this.entities, globalMessages:this.globalMessages });
   }
 
   _printInterGrupoLogo() {

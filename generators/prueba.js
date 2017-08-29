@@ -1,8 +1,9 @@
-{
-    "globalMessages": {
+var datos = {
+    "globalMessages":{
         "required": "campo requerido",
-        "minlength": "la longitud minima es de %d caracteres",
-        "maxlength": "La longitud máxima es de %d caracteres"
+        "email": "correo mal formado",
+        "minlength": "la longitud minima es de {0} caracteres",
+        "maxlength": "La longitud máxima es de {0} caracteres"
     },
     "entities": [{
             "name": "Products",
@@ -12,6 +13,7 @@
                     "control": "email",
                     "required": "true",
                     "messages": {
+                        "minlength": "la longitud minima es de 3 caracteres",
                         "maxlength": "La longitud máxima es de 20 caracteres"
                     },
                     "validations": [{
@@ -348,3 +350,6 @@
         }
     ]
 }
+
+
+console.log(datos.globalMessages["required"])

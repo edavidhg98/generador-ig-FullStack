@@ -1,6 +1,7 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
+const util = require('util');
 
 module.exports = class extends Generator {
 
@@ -8,8 +9,8 @@ module.exports = class extends Generator {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
+    this.globalMessages = opts.globalMessages;
     this.entityNameFormats = opts.entityNameFormats;
-
     this.relationships = this.entity.relationships ? this.entity.relationships : [];
     this.manyToOneRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
     this.oneToManyRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
@@ -32,6 +33,8 @@ module.exports = class extends Generator {
         this.destinationPath(`src/app/entities/${entityName}/${entityName}${layerName}`),
         { entityName: this.entityNameFormats,
           attributes: this.entity.attributes,
+          globalMessages: this.globalMessages,
+          util:util,
           _: _
         }
       );

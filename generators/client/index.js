@@ -11,6 +11,7 @@ module.exports = class extends Generator {
     this.typeOfApp = opts.typeOfApp;
     this.appName = opts.appName;
     this.entities = opts.entities;
+    this.globalMessages=opts.globalMessages
   }
 
   writing() {
@@ -32,7 +33,7 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath(`angular/_app/entities/entities${fileName}.ts`),
         this.destinationPath(`src/app/entities/entities${fileName}.ts`),
-        { entities: this.entities, _: _ }
+        { entities: this.entities, globalMessages:this.globalMessages, _: _ }
       );
     });
 

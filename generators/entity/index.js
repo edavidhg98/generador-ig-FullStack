@@ -11,6 +11,7 @@ class EntityGenerator extends Generator {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
+    this.globalMessages=opts.globalMessages;
     this.entityNameFormats = utils.getNaminFormats(this.entity.name);
 
     this.relationships = this.entity.relationships ? this.entity.relationships : [];
@@ -30,7 +31,7 @@ class EntityGenerator extends Generator {
       typeOfApp: this.typeOfApp,
       entity: this._formatNamingEntityAttributes(this.entity),
       entityNameFormats: this.entityNameFormats,
-
+      globalMessages:this.globalMessages,
       relationships: this.relationships,
       manyToOneRelationShips: this.manyToOneRelationShips,
       oneToManyRelationShips: this.oneToManyRelationShips
