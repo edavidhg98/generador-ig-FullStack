@@ -21,11 +21,16 @@ npm install -g yo
 npm install -g generator-ig-fullstack
 ```
 
-Cree un archivo config.json para la generación crud. A continuación se muestra un ejemplo de como debe quedar la configuración del archivo.
+Cree un archivo config.json en la carpeta del proyecto. A continuación se muestra un ejemplo de como debe quedar la configuración del archivo.
 
 
 ```json
 {
+  "globalMessages": {
+    "required": "El campo es requerido",
+    "minlength": "la longitud mínima es de %d caracteres",
+    "maxlength": "La longitud máxima es de %d caracteres"
+  },
   "entities": [
     {
       "name": "Producto",
@@ -34,16 +39,18 @@ Cree un archivo config.json para la generación crud. A continuación se muestra
           "name": "name",
           "type": "String",
           "required": true,
+          "messages": {
+            "maxlength": "La longitud máxima es de 30 carácteres"
+          },
           "validations": [
             {
-              "type": "min",
+              "type": "minlength",
               "value": 8,
-              "message": "El campo name debe tener como minimo una longitud de 8"
+              "message": "El campo name debe tener como mínimo una longitud de 8 carácteres"
             },
             {
-              "type": "max",
-              "value": 30,
-              "message": "El campo name debe tener como maxima una longitud de 30"
+              "type": "maxlength",
+              "value": 30
             }
           ]
         },
@@ -56,7 +63,14 @@ Cree un archivo config.json para la generación crud. A continuación se muestra
         {
           "name": "category",
           "type": "String",
-          "required": true
+          "required": true,
+          "validations": [
+            {
+              "type": "pattern",
+              "value": "[A-Z]*",
+              "message": "Valor debe ser en mayúsculas"
+            }
+          ]
         },
         {
           "name": "price",
@@ -116,18 +130,207 @@ yo ig-fullstack
 ## Tipos de datos y validaciones
 | MongoDB  |         Validaciones         |
 |----------|------------------------------|
-| String   | required, min, max, pattern  |
-| Number   | required, min, max           |
+| String   | required, minlength, maxlength, pattern  |
+| Number   | required, minlength, maxlength           |
 | Date     | required                     |
 | Boolean  | required                     |
 
-## Especificacón de tipos de control a usar
+## Especificación de los mensajes de las validaciones
+
+El atributo globalMessages permite especificar mensajes globales que se usarán en la aplicación en caso de que no se especifiquen en los atributos.
+
+```json
+{
+  "globalMessages": {
+    "required": "El campo es requerido",
+    "minlength": "la longitud mínima es de %d caracteres",
+    "maxlength": "La longitud máxima es de %d caracteres"
+  }
+}
+```
+
+Se pueden especificar los mensajes de validación de un atributo de dos maneras:
+
+1. Dentro de cada validación, especificar el respectivo mensaje.
+```json
+{
+  {
+    "name": "name",
+    "type": "String",
+    "required": true,
+    "messages": {
+      "required": "El campo name es requerido",
+      "minlength": "La longitud mínima es de 30 carácteres"
+    },
+    "validations": [
+      {
+        "type": "minlength",
+        "value": 8,
+        "message": "El campo name debe tener como mínimo una longitud de 8 carácteres"
+      },
+      {
+        "type": "maxlength",
+        "value": 30,
+        "message": "El campo name debe tener como máximo una longitud de 30 carácteres"
+      }
+    ]
+  }
+}
+```
+
+2. Crear un atributo messages y dentro de el, especificar los mensajes de las validaciones.
+```json
+{
+  {
+    "name": "name",
+    "type": "String",
+    "required": true,
+    "messages": {
+      "required": "El campo name es requerido",
+      "minlength": "La longitud mínima es de 8 carácteres",
+      "maxlength": "La longitud máxima es de 30 carácteres"
+    },
+    "validations": [
+      {
+        "type": "minlength",
+        "value": 8
+      },
+      {
+        "type": "maxlength",
+        "value": 30
+      }
+    ]
+  }
+}
+```
+
+## Especificación de tipos de control a usar
 
 A un atributo de una entidad se le puede especificar un tipo de control (input) a usar. Tipos de controles válidos:
 
 * date, datetime-local, email, month, number, password, time, url, week, text
 
 Si no se le especifica un control, por defecto se usará un control según su tipo de dato.
+
+## Especificar el posicionamiento de los controles
+
+Por defecto un control usa las 12 columnas de la grilla de Bootstrap, pero se pueden especificar el posicionamiento de los controles agregando el campo position a un atributo, de la siguiente manera:
+
+```json
+{
+  "name": "Employee",
+  "attributes": [
+    {
+      "name": "LastName",
+      "type": "String",
+      "position": {
+        "row": 0,
+        "col": 0
+      }
+    },
+    {
+      "name": "FirstName",
+      "type": "String",
+      "position": {
+        "row": 0,
+        "col": 1
+      }
+    },
+    {
+      "name": "Title",
+      "type": "String",
+      "position": {
+        "row": 0,
+        "col": 2
+      }
+    },
+    {
+      "name": "TitleOfCourtesy",
+      "type": "Number",
+      "position": {
+        "row": 1,
+        "col": 0
+      }
+    },
+    {
+      "name": "BirthDate",
+      "type": "Date",
+      "position": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "name": "HireDate",
+      "type": "Date",
+      "position": {
+        "row": 2,
+        "col": 0
+      }
+    },
+    {
+      "name": "Address",
+      "type": "String",
+      "position": {
+        "row": 2,
+        "col": 1
+      }
+    },
+    {
+      "name": "City",
+      "type": "String",
+      "position": {
+        "row": 3,
+        "col": 0
+      }
+    },
+    {
+      "name": "Region",
+      "type": "String",
+      "position": {
+        "row": 3,
+        "col": 1
+      }
+    },
+    {
+      "name": "PostalCode",
+      "type": "String",
+      "position": {
+        "row": 4,
+        "col": 0
+      }
+    },
+    {
+      "name": "Coutry",
+      "type": "String",
+      "position": {
+        "row": 4,
+        "col": 1
+      }
+    },
+    {
+      "name": "HomePhone",
+      "type": "String",
+      "position": {
+        "row": 5,
+        "col": 0
+      }
+    },
+    {
+      "name": "Extension",
+      "type": "String",
+      "position": {
+        "row": 5,
+        "col": 1
+      }
+    }
+  ]
+}
+```
+
+Dando un resultado como este:
+
+![alt text](docs/posicionamiento-controles.png)
 
 ## Relaciones
 ### One-To-Many
