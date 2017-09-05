@@ -2,11 +2,14 @@
 const _ = require('lodash');
 
 function getNaminFormats(name) {
+  const kebabName = _.kebabCase(name);
+  const pascalName = _.startCase(kebabName).replace(/ /g, '');
+
   return {
       name: name,
-      kebab: _.kebabCase(name),
+      kebab: kebabName,
       camel: _.camelCase(name),
-      pascal: _.startCase(name).replace(' ', ''),
+      pascal: pascalName,
       start: _.startCase(name)
   }
 }
