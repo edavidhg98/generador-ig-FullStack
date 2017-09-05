@@ -41,7 +41,7 @@ export class <%= entityName.pascal %>ListComponent implements OnInit {
     this.modalService.open(content).result.then((option) => {
       if (option === this.deleteModalOpts.ok) {
         this.<%= entityName.camel %>Service.delete(id).subscribe(response => {
-          this.<%= entityName.camel %>s = this.<%= entityName.camel %>s.filter(<%= entityName.camel %> => <%= entityName.camel %>.id !== id);
+          this.<%= entityName.camel %>s = this.<%= entityName.camel %>s.filter(<%= entityName.camel %> => <%= entityName.camel %>._id !== id);
         });
       }
     }, (reason) => {});

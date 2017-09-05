@@ -44,7 +44,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
   }
 
   actualizar() {
-    this.<%= entityName.camel %>Service.update(this.<%= entityName.camel %>.id, this.<%= entityName.camel %>).subscribe(
+    this.<%= entityName.camel %>Service.update(this.<%= entityName.camel %>._id, this.<%= entityName.camel %>).subscribe(
       (response) => {
         this.router.navigate(['/entities/<%= entityName.kebab %>']);
       }
