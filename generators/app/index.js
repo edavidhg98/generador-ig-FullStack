@@ -8,6 +8,7 @@ const fs = require('fs');
 const utils = require('../utils');
 const constants = require('../generator-constants');
 
+
 module.exports = class extends Generator {
   prompting() {
     this._printInterGrupoLogo();
@@ -39,7 +40,7 @@ module.exports = class extends Generator {
 
       try {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
-        this.entities = configSettings.entities;
+        this.entities = this._processEntities(configSettings.entities);
         this.globalMessages = configSettings.globalMessages;
 
       } catch(error) {
@@ -48,6 +49,49 @@ module.exports = class extends Generator {
         this.log(chalk.green('Se ha abortado el proceso de generación del proyecto'));
         throw error;
       }
+    });
+  }
+
+  _processEntities(entities){
+    if(entities){
+
+      entities.forEach(entity => {
+        if(entity.relationships){
+          entity.relationships = this._uniq(entity.relationships);
+        }
+      });
+
+      entities.forEach(entity => {
+        if(entity.name!=='TR_ADMISION_OBSERVACIONES'){
+          entity.relationships = null;
+        }
+      });
+
+      entities.forEach(entity => {
+        if(entity.relationships){
+          entity.relationships.forEach(relation => {
+            let entRel = entities.find(ent => ent.name === relation.entityRef);
+            if(entRel){
+              relation.entRel = Object.assign({},entRel);
+              relation.entRel.naminFormat = utils.getNaminFormats(entRel.name);
+            }
+          });
+        }
+      });
+      return entities;
+    }
+  }
+
+  _uniq(relationships) {
+    var seen = {};
+    return relationships.filter(function(item) {
+        return seen.hasOwnProperty(item.entityRef) ? false : (seen[item.entityRef] = true);
+    });
+  }
+
+  _circu(relationships, entity) {
+    return relationships.filter(function(item) {
+        return item.entityRef!==entity.name;
     });
   }
 

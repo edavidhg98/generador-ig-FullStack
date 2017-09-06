@@ -4,11 +4,9 @@
         "minlength": "la longitud mínima es de %d caracteres",
         "maxlength": "La longitud máxima es de %d caracteres"
     },
-    "entities": [
-        {
+    "entities": [{
             "name": "TR_ADMISION_OBSERVACIONES",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -16,12 +14,15 @@
                 {
                     "name": "ID_CAMA",
                     "type": "Number",
-                    "required": false
+                    "required": false,
+                    "orden": 1
                 },
                 {
                     "name": "FECHA_INGRESO",
                     "type": "Date",
-                    "required": true
+                    "required": true,
+                    "orden": 3
+
                 },
                 {
                     "name": "HORA_INGRESO",
@@ -89,8 +90,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA"
@@ -104,8 +104,7 @@
         },
         {
             "name": "TR_ALIAS_TIPO_DOCUMENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ITEM_LISTA_TIPO_DOCUMENTO",
                     "type": "Number",
                     "required": true
@@ -179,8 +178,7 @@
         },
         {
             "name": "TR_ANTICIPO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -221,8 +219,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -241,8 +238,7 @@
         },
         {
             "name": "TR_AUDITORIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "FICHERO",
                     "type": "String",
                     "required": true
@@ -276,8 +272,7 @@
         },
         {
             "name": "TR_AUDITORIA_CONTRATO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -308,18 +303,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_AUDITORIA_ESTADO_ADMISION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -348,8 +340,7 @@
         },
         {
             "name": "TR_AUDITORIA_SOLICITUD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -385,8 +376,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_MEDICO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_MEDICO"
@@ -400,8 +390,7 @@
         },
         {
             "name": "TR_AUTORIZACION_BH",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -462,18 +451,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_CALENDARIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "FECHA",
                     "type": "Date",
                     "required": true
@@ -517,56 +503,65 @@
         },
         {
             "name": "TR_CAMA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "CAMA",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "ITEM_LISTA_ESTADO_CAMA",
                     "type": "Number",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "DESCRIPCION",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "NUM_EXT",
                     "type": "Number",
-                    "required": false
+                    "required": false,
+                    "orden": 1
                 },
                 {
                     "name": "FEC_POS_EGR",
                     "type": "Date",
-                    "required": false
+                    "required": false,
+                    "orden": 1
                 },
                 {
                     "name": "HOR_POS_EGR",
                     "type": "Number",
-                    "required": false
+                    "required": false,
+                    "orden": 1
                 },
                 {
                     "name": "MIN_POS_EGR",
                     "type": "Number",
-                    "required": false
+                    "required": false,
+                    "orden": 1
                 },
                 {
                     "name": "CAR_HAB",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "FEC_REGISTRO",
                     "type": "Date",
-                    "required": true
+                    "required": true,
+                    "orden": 1
                 },
                 {
                     "name": "LOGIN_REGISTRO",
@@ -604,8 +599,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ADMISION_OBSERVACIONES",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ADMISION_OBSERVACIONES",
@@ -681,8 +675,7 @@
         },
         {
             "name": "TR_CAMA_PLAN",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_CAMA",
                     "type": "Number",
                     "required": true
@@ -713,8 +706,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA"
@@ -733,8 +725,7 @@
         },
         {
             "name": "TR_CARGO_AUTOMATICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -780,8 +771,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -800,8 +790,7 @@
         },
         {
             "name": "TR_CARGOS_PENDIENTES",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -917,8 +906,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -964,8 +952,7 @@
         },
         {
             "name": "TR_CARNET",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CAMPO",
                     "type": "String",
                     "required": true
@@ -999,8 +986,7 @@
         },
         {
             "name": "TR_CATALOGO_MEDICAMENTOS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "DESCRIPCION",
                     "type": "String",
                     "required": true
@@ -1039,8 +1025,7 @@
         },
         {
             "name": "TR_CATALOGO_MEDICAMENTOS_DETALLE",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENCABEZADO",
                     "type": "Number",
                     "required": true
@@ -1124,8 +1109,7 @@
         },
         {
             "name": "TR_CENSO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -1211,8 +1195,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA"
@@ -1231,8 +1214,7 @@
         },
         {
             "name": "TR_CENSO_HISTORICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -1268,8 +1250,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA"
@@ -1283,8 +1264,7 @@
         },
         {
             "name": "TR_CENSO_SERVICIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -1320,18 +1300,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL"
+            }]
         },
         {
             "name": "TR_CENSO_TRASLADO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -1387,8 +1364,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA"
@@ -1407,8 +1383,7 @@
         },
         {
             "name": "TR_CENTRO_COSTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CEN_COSTO",
                     "type": "String",
                     "required": true
@@ -1499,8 +1474,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CARGOS_PENDIENTES",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CARGOS_PENDIENTES",
@@ -1600,8 +1574,7 @@
         },
         {
             "name": "TR_CENTRO_COSTO_VALIDO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_CENTRO_COSTO_GENERA",
                     "type": "Number",
                     "required": true
@@ -1642,8 +1615,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -1672,8 +1644,7 @@
         },
         {
             "name": "TR_CITA_RETRASO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -1714,8 +1685,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -1734,8 +1704,7 @@
         },
         {
             "name": "TR_CIUDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_DEPARTAMENTO",
                     "type": "Number",
                     "required": false
@@ -1766,8 +1735,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_DEPARTAMENTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_DEPARTAMENTO"
@@ -1811,8 +1779,7 @@
         },
         {
             "name": "TR_CLASE_VOLANTE",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TIPO_ADMISION",
                     "type": "Number",
                     "required": true
@@ -1843,18 +1810,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_TIPO_ADMISION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_TIPO_ADMISION"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_TIPO_ADMISION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_TIPO_ADMISION"
+            }]
         },
         {
             "name": "TR_CODIGO_DIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "FECHA_DIA",
                     "type": "Date",
                     "required": true
@@ -1883,8 +1847,7 @@
         },
         {
             "name": "TR_CODIGO_POSTAL",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_POSTAL",
                     "type": "String",
                     "required": true
@@ -1913,8 +1876,7 @@
         },
         {
             "name": "TR_CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PRESTADOR",
                     "type": "Number",
                     "required": true
@@ -1955,8 +1917,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -1975,8 +1936,7 @@
         },
         {
             "name": "TR_CONCEPTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CONCEPTO",
                     "type": "String",
                     "required": true
@@ -2022,8 +1982,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
@@ -2104,8 +2063,7 @@
         },
         {
             "name": "TR_CONSULTA_EXTERNA_PYP",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_PYP",
                     "type": "String",
                     "required": true
@@ -2141,18 +2099,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_CONSULTORIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -2208,8 +2163,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_TRAZABILIDAD_ADMISION",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_TRAZABILIDAD_ADMISION",
@@ -2232,8 +2186,7 @@
         },
         {
             "name": "TR_CONSUMO_SOAT_OTRA_IPS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -2292,8 +2245,7 @@
         },
         {
             "name": "TR_DEPARTAMENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PAIS",
                     "type": "Number",
                     "required": false
@@ -2324,8 +2276,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CIUDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CIUDAD",
@@ -2341,8 +2292,7 @@
         },
         {
             "name": "TR_DETALLE_CARGOS_PENDIENTES",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_CARGOS_PENDIENTES",
                     "type": "Number",
                     "required": true
@@ -2508,8 +2458,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CARGOS_PENDIENTES",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CARGOS_PENDIENTES"
@@ -2533,8 +2482,7 @@
         },
         {
             "name": "TR_DIAGNOSTICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "DIAGNOST",
                     "type": "String",
                     "required": true
@@ -2603,8 +2551,7 @@
         },
         {
             "name": "TR_ENCABEZADO_CATALOGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENCABEZADO",
                     "type": "Number",
                     "required": true
@@ -2650,20 +2597,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL_ENTIDAD",
-                    "localField": "_id",
-                    "foreignField": "ID_ENCABEZADO_CATALOGO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL_ENTIDAD",
+                "localField": "_id",
+                "foreignField": "ID_ENCABEZADO_CATALOGO"
+            }]
         },
         {
             "name": "TR_ENCABEZADO_FACTURA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -2814,18 +2758,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_MOTIVO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_MOTIVO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_MOTIVO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_MOTIVO"
+            }]
         },
         {
             "name": "TR_ENCABEZADO_RESULTADO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -2906,8 +2847,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -2941,8 +2881,7 @@
         },
         {
             "name": "TR_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ENTIDAD",
                     "type": "String",
                     "required": true
@@ -3303,8 +3242,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ANTICIPO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ANTICIPO",
@@ -3530,8 +3468,7 @@
         },
         {
             "name": "TR_ENTIDAD_ADMISION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -3572,8 +3509,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -3587,8 +3523,7 @@
         },
         {
             "name": "TR_ENTIDAD_UVR",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -3634,18 +3569,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_EPS_RECOBRABLE",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -3671,18 +3603,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_ESPECIALIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ESPECIALIDAD",
                     "type": "String",
                     "required": true
@@ -3753,8 +3682,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CITA_RETRASO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CITA_RETRASO",
@@ -3814,8 +3742,7 @@
         },
         {
             "name": "TR_ESTADO_SALIDA_PACIENTE",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -3854,8 +3781,7 @@
         },
         {
             "name": "TR_EXCEPCION_PRODUCTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -3896,8 +3822,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -3916,8 +3841,7 @@
         },
         {
             "name": "TR_EXCEPCION_REGARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PROCEDIMIENTO",
                     "type": "Number",
                     "required": true
@@ -3973,8 +3897,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -3998,8 +3921,7 @@
         },
         {
             "name": "TR_EXCLUSION_RECARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -4050,8 +3972,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -4070,8 +3991,7 @@
         },
         {
             "name": "TR_FOTO_ESTADO_CAMA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "IDFOTO",
                     "type": "Number",
                     "required": true
@@ -4092,20 +4012,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_CAMA",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_CAMA",
-                    "localField": "_id",
-                    "foreignField": "ID_FOTO_ESTADO_CAMA"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_CAMA",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_CAMA",
+                "localField": "_id",
+                "foreignField": "ID_FOTO_ESTADO_CAMA"
+            }]
         },
         {
             "name": "TR_GRUPO_ETAREO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -4151,8 +4068,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -4166,8 +4082,7 @@
         },
         {
             "name": "TR_GRUPO_PROCEDIMIENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ITEM_LISTA_TIPO_PROCEDIMIENTO",
                     "type": "Number",
                     "required": true
@@ -4208,20 +4123,17 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUB_GRUPO_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUB_GRUPO_PROCEDIMIENTO",
-                    "localField": "_id",
-                    "foreignField": "ID_GRUPO_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUB_GRUPO_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUB_GRUPO_PROCEDIMIENTO",
+                "localField": "_id",
+                "foreignField": "ID_GRUPO_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_HOMOLOGACION_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD_ORIGEN",
                     "type": "Number",
                     "required": true
@@ -4252,8 +4164,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -4267,8 +4178,7 @@
         },
         {
             "name": "TR_HOMOLOGACION_ESPECIALIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ESP_ORIGEN",
                     "type": "Number",
                     "required": true
@@ -4304,8 +4214,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ESPECIALIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ESPECIALIDAD"
@@ -4324,8 +4233,7 @@
         },
         {
             "name": "TR_HOMOLOGACION_SERVICIOS_AGFA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -4366,8 +4274,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -4381,8 +4288,7 @@
         },
         {
             "name": "TR_INSTITUCION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_INSTITUCION",
                     "type": "String",
                     "required": true
@@ -4411,8 +4317,7 @@
         },
         {
             "name": "TR_LOCALIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_CIUDAD",
                     "type": "Number",
                     "required": true
@@ -4443,18 +4348,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_CIUDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_CIUDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_CIUDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_CIUDAD"
+            }]
         },
         {
             "name": "TR_LOGIN",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "LOGIN",
                     "type": "String",
                     "required": true
@@ -4565,8 +4467,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -4592,8 +4493,7 @@
         },
         {
             "name": "TR_LOGIN_SUCURSAL",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -4619,8 +4519,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_LOGIN",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_LOGIN"
@@ -4634,8 +4533,7 @@
         },
         {
             "name": "TR_MEDICAMENTO_ALTO_COSTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PRESTADOR",
                     "type": "Number",
                     "required": false
@@ -4691,8 +4589,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -4716,8 +4613,7 @@
         },
         {
             "name": "TR_MEDICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "MEDICO",
                     "type": "String",
                     "required": true
@@ -4843,8 +4739,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_AUDITORIA_SOLICITUD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_AUDITORIA_SOLICITUD",
@@ -4939,8 +4834,7 @@
         },
         {
             "name": "TR_MEDICO_GRUPO_PROCEDIMIENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -4976,8 +4870,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ESPECIALIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ESPECIALIDAD"
@@ -5001,8 +4894,7 @@
         },
         {
             "name": "TR_MEDICO_SUCURSAL",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -5208,8 +5100,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONCEPTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONCEPTO"
@@ -5253,8 +5144,7 @@
         },
         {
             "name": "TR_MEDICO_SUCURSAL_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -5305,18 +5195,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ESPECIALIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ESPECIALIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ESPECIALIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ESPECIALIDAD"
+            }]
         },
         {
             "name": "TR_MODULO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO",
                     "type": "String",
                     "required": true
@@ -5357,20 +5244,17 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_OPCION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_OPCION",
-                    "localField": "_id",
-                    "foreignField": "ID_MODULO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_OPCION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_OPCION",
+                "localField": "_id",
+                "foreignField": "ID_MODULO"
+            }]
         },
         {
             "name": "TR_MONEDA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "MONEDA",
                     "type": "String",
                     "required": true
@@ -5401,52 +5285,72 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL_ENTIDAD",
-                    "localField": "_id",
-                    "foreignField": "ID_MONEDA"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL_ENTIDAD",
+                "localField": "_id",
+                "foreignField": "ID_MONEDA"
+            }]
         },
         {
             "name": "TR_MOTIVO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TIPO_MOTIVO",
                     "type": "Number",
-                    "required": false
+                    "required": false,
+                    "position": {
+                        "row": 1,
+                        "col": 1
+                    }
                 },
                 {
                     "name": "MOTIVO",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "position": {
+                        "row": 1,
+                        "col": 2
+                    }
                 },
                 {
                     "name": "DESCRIPCION",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "position": {
+                        "row": 2,
+                        "col": 1
+                    }
                 },
                 {
                     "name": "FECHA_REGISTRO",
                     "type": "Date",
-                    "required": true
+                    "required": true,
+                    "position": {
+                        "row": 2,
+                        "col": 2
+                    }
                 },
                 {
                     "name": "LOGIN_REGISTRO",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "position": {
+                        "row": 3,
+                        "col": 1
+                    }
                 },
                 {
                     "name": "OBSERVACIONES",
                     "type": "String",
-                    "required": true
+                    "required": true,
+                    "position": {
+                        "row": 3,
+                        "col": 2
+                    }
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ADMISION_OBSERVACIONES",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ADMISION_OBSERVACIONES",
@@ -5532,8 +5436,7 @@
         },
         {
             "name": "TR_NIVEL_CARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -5584,8 +5487,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_SUCURSAL_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_SUCURSAL_ENTIDAD"
@@ -5599,8 +5501,7 @@
         },
         {
             "name": "TR_NIVEL_RECARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -5651,8 +5552,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_SUB_GRUPO_PROCEDIMIENTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_SUB_GRUPO_PROCEDIMIENTO"
@@ -5671,8 +5571,7 @@
         },
         {
             "name": "TR_NUMERO_SECUENCIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TYPE",
                     "type": "String",
                     "required": true
@@ -5723,18 +5622,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL"
+            }]
         },
         {
             "name": "TR_OCUPACION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_OCUPACION",
                     "type": "String",
                     "required": true
@@ -5768,8 +5664,7 @@
         },
         {
             "name": "TR_OPCION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO",
                     "type": "Number",
                     "required": true
@@ -5820,18 +5715,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_MODULO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_MODULO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_MODULO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_MODULO"
+            }]
         },
         {
             "name": "TR_PACIENTE_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -6032,8 +5924,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -6062,8 +5953,7 @@
         },
         {
             "name": "TR_PACIENTE_INCONSISTENCIAS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "NUM_DOC",
                     "type": "String",
                     "required": true
@@ -6239,18 +6129,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_PAIS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "NOMBRE_PAIS",
                     "type": "String",
                     "required": true
@@ -6281,20 +6168,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_DEPARTAMENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_DEPARTAMENTO",
-                    "localField": "_id",
-                    "foreignField": "ID_PAIS"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_DEPARTAMENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_DEPARTAMENTO",
+                "localField": "_id",
+                "foreignField": "ID_PAIS"
+            }]
         },
         {
             "name": "TR_PAR_ALIASCOLUMNAS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "NOMBRETABLA",
                     "type": "String",
                     "required": true
@@ -6323,8 +6207,7 @@
         },
         {
             "name": "TR_PAR_CAMPO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PAR_FORMULARIO",
                     "type": "Number",
                     "required": true
@@ -6445,8 +6328,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PAR_FORMATO_CAMPO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PAR_FORMATO_CAMPO"
@@ -6484,8 +6366,7 @@
         },
         {
             "name": "TR_PAR_DEPENDENCIA_CAMPO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PAR_CAMPO_PRINCIPAL",
                     "type": "Number",
                     "required": true
@@ -6511,8 +6392,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PAR_CAMPO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PAR_CAMPO"
@@ -6526,8 +6406,7 @@
         },
         {
             "name": "TR_PAR_FORMATO_CAMPO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "LONGITUD_TEXTO",
                     "type": "Number",
                     "required": false
@@ -6583,20 +6462,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PAR_CAMPO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PAR_CAMPO",
-                    "localField": "_id",
-                    "foreignField": "ID_PAR_FORMATO_CAMPO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PAR_CAMPO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PAR_CAMPO",
+                "localField": "_id",
+                "foreignField": "ID_PAR_FORMATO_CAMPO"
+            }]
         },
         {
             "name": "TR_PAR_FORMULARIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "NOMBRE",
                     "type": "String",
                     "required": true
@@ -6632,20 +6508,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PAR_CAMPO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PAR_CAMPO",
-                    "localField": "_id",
-                    "foreignField": "ID_PAR_FORMULARIO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PAR_CAMPO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PAR_CAMPO",
+                "localField": "_id",
+                "foreignField": "ID_PAR_FORMULARIO"
+            }]
         },
         {
             "name": "TR_PAR_ORIGEN_INFORMACION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO",
                     "type": "String",
                     "required": true
@@ -6691,20 +6564,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PAR_CAMPO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PAR_CAMPO",
-                    "localField": "_id",
-                    "foreignField": "ID_PAR_ORIGEN_INFORMACION"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PAR_CAMPO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PAR_CAMPO",
+                "localField": "_id",
+                "foreignField": "ID_PAR_ORIGEN_INFORMACION"
+            }]
         },
         {
             "name": "TR_PAR_TIPO_CAMPO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "DESCRIPCION_TIPO",
                     "type": "String",
                     "required": true
@@ -6730,20 +6600,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PAR_CAMPO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PAR_CAMPO",
-                    "localField": "_id",
-                    "foreignField": "ID_PAR_TIPO_CAMPO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PAR_CAMPO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PAR_CAMPO",
+                "localField": "_id",
+                "foreignField": "ID_PAR_TIPO_CAMPO"
+            }]
         },
         {
             "name": "TR_PEDIDOS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -6849,8 +6716,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -6879,8 +6745,7 @@
         },
         {
             "name": "TR_PLANES",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "COD_COMPANIA",
                     "type": "Number",
                     "required": true
@@ -6916,18 +6781,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_PORCENTAJE_MEDICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_PORCENTAJE",
                     "type": "String",
                     "required": true
@@ -6981,8 +6843,7 @@
         },
         {
             "name": "TR_PREFIJO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "PREFIJO",
                     "type": "String",
                     "required": true
@@ -7016,8 +6877,7 @@
         },
         {
             "name": "TR_PRESENTACION_PRODUCTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "PRESENTA",
                     "type": "String",
                     "required": true
@@ -7048,20 +6908,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PRODUCTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PRODUCTO",
-                    "localField": "_id",
-                    "foreignField": "ID_PRESENTACION_PRODUCTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PRODUCTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PRODUCTO",
+                "localField": "_id",
+                "foreignField": "ID_PRESENTACION_PRODUCTO"
+            }]
         },
         {
             "name": "TR_PRESTADOR",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "COD_PRE_SGS",
                     "type": "String",
                     "required": true
@@ -7257,8 +7114,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO_VALIDO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO_VALIDO",
@@ -7323,8 +7179,7 @@
         },
         {
             "name": "TR_PRESTADOR_CENTRO_COSTO_UNICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PRESTADOR",
                     "type": "Number",
                     "required": true
@@ -7355,18 +7210,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PRESTADOR",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PRESTADOR"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PRESTADOR",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PRESTADOR"
+            }]
         },
         {
             "name": "TR_PRIORIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "DESCRIPCION",
                     "type": "String",
                     "required": true
@@ -7397,8 +7249,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CARGOS_PENDIENTES",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CARGOS_PENDIENTES",
@@ -7416,8 +7267,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUB_GRUPO_PROCEDIMIENTO",
                     "type": "Number",
                     "required": true
@@ -7618,8 +7468,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ANTICIPO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ANTICIPO",
@@ -7794,8 +7643,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO_CENTRO_COSTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -7871,8 +7719,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -7901,8 +7748,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO_CONVENIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -8003,8 +7849,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PROCEDIMIENTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PROCEDIMIENTO"
@@ -8023,8 +7868,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO_CONVENIO_CAPITADO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -8090,8 +7934,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PROCEDIMIENTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PROCEDIMIENTO"
@@ -8110,8 +7953,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -8202,8 +8044,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -8217,8 +8058,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTO_FINALIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PROCEDIMIENTO",
                     "type": "Number",
                     "required": true
@@ -8229,18 +8069,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_PROCEDIMIENTO_NIVEL",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -8291,8 +8128,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CENTRO_COSTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CENTRO_COSTO"
@@ -8316,8 +8152,7 @@
         },
         {
             "name": "TR_PROCEDIMIENTOS_RIS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -8403,18 +8238,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_PRODUCTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "COD_CORTO",
                     "type": "String",
                     "required": true
@@ -8570,8 +8402,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONCEPTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONCEPTO"
@@ -8633,8 +8464,7 @@
         },
         {
             "name": "TR_PROVEEDOR",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "PROVEEDOR",
                     "type": "String",
                     "required": true
@@ -8663,8 +8493,7 @@
         },
         {
             "name": "TR_PYP_PROCEDIMIENTO_PROGRAMA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -8730,8 +8559,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_MOTIVO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_MOTIVO"
@@ -8750,8 +8578,7 @@
         },
         {
             "name": "TR_PYP_PROGRAMAS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "COD_PROGRAMA",
                     "type": "Number",
                     "required": true
@@ -8787,20 +8614,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PYP_PROCEDIMIENTO_PROGRAMA",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PYP_PROCEDIMIENTO_PROGRAMA",
-                    "localField": "_id",
-                    "foreignField": "ID_PYP_PROGRAMAS"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PYP_PROCEDIMIENTO_PROGRAMA",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PYP_PROCEDIMIENTO_PROGRAMA",
+                "localField": "_id",
+                "foreignField": "ID_PYP_PROGRAMAS"
+            }]
         },
         {
             "name": "TR_RECALCULO_AUTOMATICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -8851,8 +8675,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -8866,8 +8689,7 @@
         },
         {
             "name": "TR_RECARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "RECARGO",
                     "type": "String",
                     "required": true
@@ -8908,18 +8730,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PRESTADOR",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PRESTADOR"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PRESTADOR",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PRESTADOR"
+            }]
         },
         {
             "name": "TR_RECARGO_AUTOMATICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -8965,18 +8784,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_RELIGION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "RELIGION",
                     "type": "String",
                     "required": true
@@ -9010,8 +8826,7 @@
         },
         {
             "name": "TR_SALARIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ANNO",
                     "type": "Number",
                     "required": true
@@ -9040,8 +8855,7 @@
         },
         {
             "name": "TR_SALAS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -9077,18 +8891,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL"
+            }]
         },
         {
             "name": "TR_SECCION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -9129,8 +8940,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA",
@@ -9151,8 +8961,7 @@
         },
         {
             "name": "TR_SUB_GRUPO_PROCEDIMIENTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_GRUPO_PROCEDIMIENTO",
                     "type": "Number",
                     "required": false
@@ -9183,8 +8992,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_GRUPO_PROCEDIMIENTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_GRUPO_PROCEDIMIENTO"
@@ -9214,8 +9022,7 @@
         },
         {
             "name": "TR_SUBCONCEPTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TIPO_ADMISION",
                     "type": "Number",
                     "required": true
@@ -9256,8 +9063,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONCEPTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONCEPTO"
@@ -9281,8 +9087,7 @@
         },
         {
             "name": "TR_SUCURSAL",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PRESTADOR",
                     "type": "Number",
                     "required": true
@@ -9648,8 +9453,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ANTICIPO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ANTICIPO",
@@ -9892,8 +9696,7 @@
         },
         {
             "name": "TR_SUCURSAL_CENTRO_COSTO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": false
@@ -9922,8 +9725,7 @@
         },
         {
             "name": "TR_SUCURSAL_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -10074,8 +9876,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENCABEZADO_CATALOGO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENCABEZADO_CATALOGO"
@@ -10141,8 +9942,7 @@
         },
         {
             "name": "TR_SUSTITUTOS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "OBSERVACIONES",
                     "type": "String",
                     "required": true
@@ -10153,8 +9953,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PRESTADOR",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PRESTADOR"
@@ -10173,8 +9972,7 @@
         },
         {
             "name": "TR_TARIFA_VACUNACION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TIPO_TARIFA_VACUNACION",
                     "type": "Number",
                     "required": true
@@ -10210,8 +10008,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_SUCURSAL_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_SUCURSAL_ENTIDAD"
@@ -10230,8 +10027,7 @@
         },
         {
             "name": "TR_TIEMPO_RECARGO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -10287,18 +10083,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL_ENTIDAD"
+            }]
         },
         {
             "name": "TR_TIPO_ADMISION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TIP_ADMISION",
                     "type": "String",
                     "required": true
@@ -10339,8 +10132,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CLASE_VOLANTE",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CLASE_VOLANTE",
@@ -10400,8 +10192,7 @@
         },
         {
             "name": "TR_TIPO_AFILIADO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TIP_AFILIAD",
                     "type": "String",
                     "required": true
@@ -10432,20 +10223,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PACIENTE_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PACIENTE_ENTIDAD",
-                    "localField": "_id",
-                    "foreignField": "ID_TIPO_AFILIADO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PACIENTE_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PACIENTE_ENTIDAD",
+                "localField": "_id",
+                "foreignField": "ID_TIPO_AFILIADO"
+            }]
         },
         {
             "name": "TR_TIPO_ANESTESIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TIPO_ANESTESIA",
                     "type": "String",
                     "required": true
@@ -10481,18 +10269,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_PROCEDIMIENTO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_PROCEDIMIENTO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_PROCEDIMIENTO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_PROCEDIMIENTO"
+            }]
         },
         {
             "name": "TR_TIPO_CAMA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TIP_CAMA",
                     "type": "String",
                     "required": true
@@ -10523,20 +10308,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_CAMA",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_CAMA",
-                    "localField": "_id",
-                    "foreignField": "ID_TIPO_CAMA"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_CAMA",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_CAMA",
+                "localField": "_id",
+                "foreignField": "ID_TIPO_CAMA"
+            }]
         },
         {
             "name": "TR_TIPO_CIRUGIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -10572,18 +10354,15 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_ENTIDAD",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_ENTIDAD"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_ENTIDAD",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_ENTIDAD"
+            }]
         },
         {
             "name": "TR_TIPO_ENTIDAD_LABORATORIO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_ENTIDAD_LABORATORIO",
                     "type": "String",
                     "required": true
@@ -10612,8 +10391,7 @@
         },
         {
             "name": "TR_TIPO_MOTIVO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ITEM_LISTA_CLASE_MOTIVO",
                     "type": "Number",
                     "required": true
@@ -10644,20 +10422,17 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_MOTIVO",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_MOTIVO",
-                    "localField": "_id",
-                    "foreignField": "ID_TIPO_MOTIVO"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_MOTIVO",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_MOTIVO",
+                "localField": "_id",
+                "foreignField": "ID_TIPO_MOTIVO"
+            }]
         },
         {
             "name": "TR_TIPO_NOVEDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "CODIGO_TIPO_NOVEDAD",
                     "type": "String",
                     "required": true
@@ -10691,8 +10466,7 @@
         },
         {
             "name": "TR_TIPO_PLAN",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -10733,8 +10507,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CAMA_PLAN",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CAMA_PLAN",
@@ -10764,8 +10537,7 @@
         },
         {
             "name": "TR_TIPO_TARIFA_VACUNACION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "TARIFA",
                     "type": "String",
                     "required": true
@@ -10791,20 +10563,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_TARIFA_VACUNACION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_TARIFA_VACUNACION",
-                    "localField": "_id",
-                    "foreignField": "ID_TIPO_TARIFA_VACUNACION"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_TARIFA_VACUNACION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_TARIFA_VACUNACION",
+                "localField": "_id",
+                "foreignField": "ID_TIPO_TARIFA_VACUNACION"
+            }]
         },
         {
             "name": "TR_TIPOS_DOCUMENTO_ENTIDAD",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ENTIDAD",
                     "type": "Number",
                     "required": true
@@ -10850,8 +10619,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_ENTIDAD",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_ENTIDAD"
@@ -10865,8 +10633,7 @@
         },
         {
             "name": "TR_TIPOS_VALORES",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_PRESTADOR",
                     "type": "Number",
                     "required": false
@@ -10910,8 +10677,7 @@
         },
         {
             "name": "TR_TRAZABILIDAD_ADMISION",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_ADMISION",
                     "type": "Number",
                     "required": true
@@ -11107,8 +10873,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONSULTORIO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONSULTORIO"
@@ -11176,8 +10941,7 @@
         },
         {
             "name": "TR_TRAZABILIDAD_ADMISION_CARGOS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TRAZABILIDAD_ADMISION",
                     "type": "Number",
                     "required": true
@@ -11203,18 +10967,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_TRAZABILIDAD_ADMISION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_TRAZABILIDAD_ADMISION"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_TRAZABILIDAD_ADMISION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_TRAZABILIDAD_ADMISION"
+            }]
         },
         {
             "name": "TR_TRAZABILIDAD_ADMISION_LISTA_ESPERA_HISTORIA_CLINICA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_TRAZABILIDAD_ADMISION",
                     "type": "Number",
                     "required": true
@@ -11240,18 +11001,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_TRAZABILIDAD_ADMISION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_TRAZABILIDAD_ADMISION"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_TRAZABILIDAD_ADMISION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_TRAZABILIDAD_ADMISION"
+            }]
         },
         {
             "name": "TR_TRIAGE",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -11407,8 +11165,7 @@
                     "required": false
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_CONSULTORIO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_CONSULTORIO"
@@ -11432,8 +11189,7 @@
         },
         {
             "name": "TR_UNIDAD_MEDIDA_PEDIDO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "UNIDAD_MEDIDA_PEDIDO",
                     "type": "String",
                     "required": true
@@ -11464,8 +11220,7 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
+            "relationships": [{
                     "entityRef": "TR_PRODUCTO",
                     "typeRelationship": "one-to-many",
                     "fieldName": "TR_PRODUCTO",
@@ -11490,8 +11245,7 @@
         },
         {
             "name": "TR_VACUNAS",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "VACUNA",
                     "type": "String",
                     "required": true
@@ -11517,20 +11271,17 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_TARIFA_VACUNACION",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_TARIFA_VACUNACION",
-                    "localField": "_id",
-                    "foreignField": "ID_VACUNAS"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_TARIFA_VACUNACION",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_TARIFA_VACUNACION",
+                "localField": "_id",
+                "foreignField": "ID_VACUNAS"
+            }]
         },
         {
             "name": "TR_VALE_ELECTRONICO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "SERVICIO",
                     "type": "String",
                     "required": true
@@ -11584,8 +11335,7 @@
         },
         {
             "name": "TR_ZONA_HORARIA",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -11611,18 +11361,15 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL"
+            }]
         },
         {
             "name": "TR_ZONA_HORARIA_VERANO",
-            "attributes": [
-                {
+            "attributes": [{
                     "name": "ID_SUCURSAL",
                     "type": "Number",
                     "required": true
@@ -11658,13 +11405,11 @@
                     "required": true
                 }
             ],
-            "relationships": [
-                {
-                    "entityRef": "TR_SUCURSAL",
-                    "typeRelationship": "one-to-many",
-                    "fieldName": "TR_SUCURSAL"
-                }
-            ]
+            "relationships": [{
+                "entityRef": "TR_SUCURSAL",
+                "typeRelationship": "one-to-many",
+                "fieldName": "TR_SUCURSAL"
+            }]
         }
     ]
 }

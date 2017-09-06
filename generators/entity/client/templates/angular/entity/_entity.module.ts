@@ -9,10 +9,31 @@ import { <%= entityName.pascal %>UpSertComponent } from './<%= entityName.kebab 
 import { <%= entityName.pascal %>DetailsComponent } from './<%= entityName.kebab %>-details.component';
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 
+
+<% if(relationships){
+  relationships.forEach(relation => {-%>    
+    import { <%= relation.entRel.naminFormat.pascal %>Module } from '../<%= relation.entRel.naminFormat.kebab %>/<%= relation.entRel.naminFormat.kebab %>.module';
+ <%});    
+}%>
+
+
+
 @NgModule({
   imports: [
     CommonModule,
     EntitiesSharedModule
+    <% if(relationships){
+      relationships.forEach(relation => {
+      %>
+      ,<%=relation.entRel.naminFormat.pascal%>Module
+     <%});    
+    }%>
+  ],
+  exports: [
+    <%= entityName.pascal %>Component,
+    <%= entityName.pascal %>ListComponent,
+    <%= entityName.pascal %>UpSertComponent,
+    <%= entityName.pascal %>DetailsComponent
   ],
   declarations: [
     <%= entityName.pascal %>Component,

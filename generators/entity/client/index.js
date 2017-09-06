@@ -38,6 +38,7 @@ module.exports = class extends Generator {
           attributesWithoutPosition: this._getAttributesWithoutPosition(this.entity.attributes),
           globalMessages: this.globalMessages,
           util: util,
+          relationships: this.entity.relationships,
           _: _
         }
       );
