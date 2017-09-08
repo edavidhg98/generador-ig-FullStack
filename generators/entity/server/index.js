@@ -1,5 +1,4 @@
 const Generator = require('yeoman-generator');
-const fs = require('fs');
 const _ = require('lodash');
 const constants = require('../../generator-constants');
 
@@ -9,7 +8,7 @@ module.exports = class extends Generator {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
-    this.destinationServerDirectory = this.typeOfApp === constants.APP_TYPE_RESTFUL_API ? 'api': 'server/api';
+    this.destinationServerDirectory = this.typeOfApp === constants.APP_TYPE_RESTFUL_API ? 'api' : 'server/api';
     this.entityNameFormats = opts.entityNameFormats;
 
     this.relationships = opts.relationships;
@@ -26,7 +25,7 @@ module.exports = class extends Generator {
     const entityName = this.entityNameFormats.kebab;
     const layersNames = ['model', 'repository', 'controller'];
 
-    layersNames.forEach(layerName => {
+    layersNames.forEach((layerName) => {
       this.fs.copyTpl(
         this.templatePath(`api/entidad/_entidad.${layerName}.js`),
         this.destinationPath(`${this.destinationServerDirectory}/${entityName}/${entityName}.${layerName}.js`),
@@ -50,4 +49,4 @@ module.exports = class extends Generator {
       { entityName: this.entityNameFormats }
     );
   }
-}
+};

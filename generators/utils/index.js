@@ -1,4 +1,3 @@
-'use strict';
 const _ = require('lodash');
 
 function getNaminFormats(name) {
@@ -6,14 +5,14 @@ function getNaminFormats(name) {
   const pascalName = _.startCase(kebabName).replace(/ /g, '');
 
   return {
-      name: name,
-      kebab: kebabName,
-      camel: _.camelCase(name),
-      pascal: pascalName,
-      start: _.startCase(name)
-  }
+    name,
+    kebab: kebabName,
+    camel: _.camelCase(name),
+    pascal: pascalName,
+    start: _.startCase(name)
+  };
 }
 
 module.exports = {
   getNaminFormats
-}
+};

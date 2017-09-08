@@ -1,10 +1,8 @@
-'use strict';
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
 const util = require('util');
 
 module.exports = class extends Generator {
-
   constructor(args, opts) {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
@@ -22,12 +20,14 @@ module.exports = class extends Generator {
 
   _writeClientEntity() {
     const entityName = this.entityNameFormats.kebab;
-    let layersNames = ['.service.ts', '.model.ts', '.component.ts',
-                      '-list.component.ts', '-list.component.html', '.module.ts', '.route.ts',
-                      '-upsert.component.ts', '-upsert.component.html',
-                      '-details.component.ts', '-details.component.html'];
+    const layersNames = [
+      '.service.ts', '.model.ts', '.component.ts',
+      '-list.component.ts', '-list.component.html', '.module.ts', '.route.ts',
+      '-upsert.component.ts', '-upsert.component.html',
+      '-details.component.ts', '-details.component.html'
+    ];
 
-    layersNames.forEach(layerName => {
+    layersNames.forEach((layerName) => {
       this.fs.copyTpl(
         this.templatePath(`angular/entity/_entity${layerName}`),
         this.destinationPath(`src/app/entities/${entityName}/${entityName}${layerName}`),
@@ -37,7 +37,7 @@ module.exports = class extends Generator {
           attributesGroupByPosition: this._getAttributesGroupByPosition(this.entity.attributes),
           attributesWithoutPosition: this._getAttributesWithoutPosition(this.entity.attributes),
           globalMessages: this.globalMessages,
-          util: util,
+          util,
           relationships: this.entity.relationships,
           _: _
         }
@@ -50,10 +50,10 @@ module.exports = class extends Generator {
     const attributesSortedByPosition = this._sortAttributesByPosition(attributes);
 
     // Objeto JSON con los atributos agrupados por filas.
-    const attributesGroupByPosition =  _.groupBy(attributesSortedByPosition, 'position.row');
+    const attributesGroupByPosition = _.groupBy(attributesSortedByPosition, 'position.row');
 
     // Quitar los atributos sin posicion, y convertir el JSON a un array
-    let attributesArrayGroupByPosition = [];
+    const attributesArrayGroupByPosition = [];
     for (let key in attributesGroupByPosition) {
       if (key !== 'undefined') {
         attributesArrayGroupByPosition.push(attributesGroupByPosition[key]);
@@ -69,13 +69,15 @@ module.exports = class extends Generator {
 
   _sortAttributesByPosition(attributes) {
     return attributes.sort((a, b) => {
-      if (a.position === undefined || (a.position.row === undefined || a.position.col === undefined)) {
-         return -1;
+      if (a.position === undefined ||
+        (a.position.row === undefined || a.position.col === undefined)) {
+        return -1;
       }
-      if (b.position === undefined || (b.position.row === undefined || b.position.col === undefined)) {
-         return 1;
+      if (b.position === undefined ||
+        (b.position.row === undefined || b.position.col === undefined)) {
+        return 1;
       }
       return (a.position.row - b.position.row) || (a.position.col - b.position.col);
-   });
+    });
   }
-}
+};

@@ -1,17 +1,13 @@
-'use strict';
 const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
 const _ = require('lodash');
 
 module.exports = class extends Generator {
-
   constructor(args, opts) {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.appName = opts.appName;
     this.entities = opts.entities;
-    this.globalMessages=opts.globalMessages
+    this.globalMessages = opts.globalMessages;
   }
 
   writing() {
@@ -27,13 +23,13 @@ module.exports = class extends Generator {
   }
 
   _writeAngularEntitiesModule() {
-    let fileNames = [ '.module', '.route', '-shared.module' ];
+    const fileNames = ['.module', '.route', '-shared.module'];
 
-    fileNames.forEach(fileName => {
+    fileNames.forEach((fileName) => {
       this.fs.copyTpl(
         this.templatePath(`angular/_app/entities/entities${fileName}.ts`),
         this.destinationPath(`src/app/entities/entities${fileName}.ts`),
-        { entities: this.entities, globalMessages:this.globalMessages, _: _ }
+        { entities: this.entities, globalMessages: this.globalMessages, _: _ }
       );
     });
 
@@ -47,7 +43,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath('angular/_app/layouts'),
       this.destinationPath('src/app/layouts'),
-      { entities: this.entities, appName: this.appName,  _: _ }
+      { entities: this.entities, appName: this.appName, _: _ }
     );
   }
 

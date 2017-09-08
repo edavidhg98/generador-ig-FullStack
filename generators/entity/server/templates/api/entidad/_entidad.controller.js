@@ -1,9 +1,8 @@
-'use strict';
 const repository = require('./<%= entityName.kebab  %>.repository');
 
 function getAll(req, res) {
   repository.get()
-    .then(<%= entityName.camel %>s => {
+    .then((<%= entityName.camel %>s) => {
       res.json(<%= entityName.camel %>s);
     })
     .catch(handleError(res));
@@ -12,7 +11,7 @@ function getAll(req, res) {
 function getById(req, res) {
   const id = req.params.id;
   repository.getById(id)
-    .then(<%= entityName.camel %> => {
+    .then((<%= entityName.camel %>) => {
       if (!<%= entityName.camel %>) {
         return res.status(404).json({ error: `El recurso con el id ${id} no se encuentra` });
       }
@@ -32,7 +31,7 @@ function insertEntity(req, res) {
   };
 
   repository.add(_<%= entityName.camel %>)
-    .then(<%= entityName.camel %> => {
+    .then((<%= entityName.camel %>) => {
       res.status(201).json(<%= entityName.camel %>);
     })
     .catch(handleError(res));
@@ -50,7 +49,7 @@ function updateEntity(req, res) {
   };
 
   repository.update(id, _<%= entityName.camel %>)
-    .then(<%= entityName.camel %> => {
+    .then((<%= entityName.camel %>) => {
       if (!<%= entityName.camel %>) {
         return res.status(404).json({ error: `El recurso con el id ${id} no se encuentra` });
       }
@@ -62,7 +61,7 @@ function updateEntity(req, res) {
 function deleteEntity(req, res) {
   const id = req.params.id;
   repository.remove(id)
-    .then(<%= entityName.camel %> => {
+    .then((<%= entityName.camel %>) => {
       if (!<%= entityName.camel %>) {
         return res.status(404).json({ error: `El recurso con el id ${id} no se encuentra` });
       }
@@ -88,4 +87,4 @@ module.exports = {
   insertEntity,
   updateEntity,
   deleteEntity
-}
+};

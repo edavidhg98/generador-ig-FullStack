@@ -1,17 +1,14 @@
-'use strict';
 const Generator = require('yeoman-generator');
 const _ = require('lodash');
-
 const constants = require('../generator-constants');
 const utils = require('../utils');
 
-class EntityGenerator extends Generator {
-
+module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.entity = opts.entity;
-    this.globalMessages=opts.globalMessages;
+    this.globalMessages = opts.globalMessages;
     this.entityNameFormats = utils.getNaminFormats(this.entity.name);
 
     this.relationships = this.entity.relationships ? this.entity.relationships : [];
@@ -31,7 +28,7 @@ class EntityGenerator extends Generator {
       typeOfApp: this.typeOfApp,
       entity: this._formatNamingEntityAttributes(this.entity),
       entityNameFormats: this.entityNameFormats,
-      globalMessages:this.globalMessages,
+      globalMessages: this.globalMessages,
       relationships: this.relationships,
       manyToOneRelationShips: this.manyToOneRelationShips,
       oneToManyRelationShips: this.oneToManyRelationShips
@@ -40,10 +37,10 @@ class EntityGenerator extends Generator {
 
   // Cambia el formato de los nombres de los atributos de una entidad al formato Camel Case.
   _formatNamingEntityAttributes(entity) {
-    const attributes = entity.attributes.map(e => {
-      let name = e.name;
-      e.name = _.camelCase(name);
-      return e;
+    const attributes = entity.attributes.map((attribute) => {
+      let name = attribute.name;
+      attribute.name = _.camelCase(name);
+      return attribute;
     });
     entity.attributes = attributes;
     return entity;
@@ -64,5 +61,3 @@ class EntityGenerator extends Generator {
     return this.typeOfApp === constants.APP_TYPE_ANGULAR_FULLSTACK;
   }
 };
-
-module.exports = EntityGenerator;

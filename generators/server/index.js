@@ -1,12 +1,8 @@
-'use strict';
 const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
 const constants = require('../generator-constants');
 const _ = require('lodash');
 
 module.exports = class extends Generator {
-
   constructor(args, opts) {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
@@ -23,12 +19,17 @@ module.exports = class extends Generator {
   _writeEntryPoint() {
     let sourceApiFolder = 'api/';
     if (this.typeOfApp === constants.APP_TYPE_ANGULAR_FULLSTACK) {
-      sourceApiFolder = 'server/' + sourceApiFolder;
+      sourceApiFolder = `server/${sourceApiFolder}`;
     }
     this.fs.copyTpl(
-        this.templatePath('server.js'),
-        this.destinationPath('server.js'),
-        { typeOfApp: this.typeOfApp, entities: this.entities, sourceApiFolder: sourceApiFolder,  _: _ }
+      this.templatePath('server.js'),
+      this.destinationPath('server.js'),
+      {
+        typeOfApp: this.typeOfApp,
+        entities: this.entities,
+        sourceApiFolder,
+        _: _
+      }
     );
   }
 };

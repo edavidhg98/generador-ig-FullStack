@@ -154,53 +154,50 @@ Se pueden especificar los mensajes de validación de un atributo de dos maneras:
 1. Dentro de cada validación, especificar el respectivo mensaje.
 ```json
 {
-  {
-    "name": "name",
-    "type": "String",
-    "required": true,
-    "messages": {
-      "required": "El campo name es requerido",
-      "minlength": "La longitud mínima es de 30 carácteres"
+  "name": "name",
+  "type": "String",
+  "required": true,
+  "messages": {
+    "required": "El campo name es requerido",
+    "minlength": "La longitud mínima es de 30 carácteres"
+  },
+  "validations": [
+    {
+      "type": "minlength",
+      "value": 8,
+      "message": "El campo name debe tener como mínimo una longitud de 8 carácteres"
     },
-    "validations": [
-      {
-        "type": "minlength",
-        "value": 8,
-        "message": "El campo name debe tener como mínimo una longitud de 8 carácteres"
-      },
-      {
-        "type": "maxlength",
-        "value": 30,
-        "message": "El campo name debe tener como máximo una longitud de 30 carácteres"
-      }
-    ]
-  }
+    {
+      "type": "maxlength",
+      "value": 30,
+      "message": "El campo name debe tener como máximo una longitud de 30 carácteres"
+    }
+  ]
 }
+
 ```
 
 2. Crear un atributo messages y dentro de el, especificar los mensajes de las validaciones.
 ```json
 {
-  {
-    "name": "name",
-    "type": "String",
-    "required": true,
-    "messages": {
-      "required": "El campo name es requerido",
-      "minlength": "La longitud mínima es de 8 carácteres",
-      "maxlength": "La longitud máxima es de 30 carácteres"
+  "name": "name",
+  "type": "String",
+  "required": true,
+  "messages": {
+    "required": "El campo name es requerido",
+    "minlength": "La longitud mínima es de 8 carácteres",
+    "maxlength": "La longitud máxima es de 30 carácteres"
+  },
+  "validations": [
+    {
+      "type": "minlength",
+      "value": 8
     },
-    "validations": [
-      {
-        "type": "minlength",
-        "value": 8
-      },
-      {
-        "type": "maxlength",
-        "value": 30
-      }
-    ]
-  }
+    {
+      "type": "maxlength",
+      "value": 30
+    }
+  ]
 }
 ```
 
