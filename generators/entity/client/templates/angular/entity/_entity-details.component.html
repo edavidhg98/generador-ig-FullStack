@@ -1,5 +1,5 @@
 <div *ngIf="<%= entityName.camel %>" class="container">
-  <h3 class="m-top-and-bottom-2"><span><%= entityName.start %></span> {{ <%= entityName.camel %>.id }}</h3>
+  <h3 class="m-top-and-bottom-2"><span><%= entityName.start %></span> {{ <%= entityName.camel %>._id }}</h3>
   <hr />
   <dl><% for (let attribute of attributes) { %>
     <dt><%= _.startCase(attribute.name) %></dt>

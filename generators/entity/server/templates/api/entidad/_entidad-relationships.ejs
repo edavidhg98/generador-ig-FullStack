@@ -2,7 +2,7 @@
   let result = '';
   let mongoosePopulates = [];
   for (let manyToOneRelationShip of manyToOneRelationShips) {
-    let reference = `${manyToOneRelationShip.fieldName}: { type: Schema.Types.ObjectId, ref: '${manyToOneRelationShip.entityRef}', required: true }`;
+    let reference = `${manyToOneRelationShip.fieldName}: { type: Schema.Types.ObjectId, ref: '${manyToOneRelationShip.entityRef}'}`;
     mongoosePopulates.push(reference);
   }
   result += mongoosePopulates.join(',');

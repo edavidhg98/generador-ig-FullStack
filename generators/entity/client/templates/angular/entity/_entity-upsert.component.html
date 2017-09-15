@@ -6,9 +6,9 @@
     <div class="card-body">
       <form #myForm="ngForm">
         <div class="row">
-          <div *ngIf="<%= entityName.camel %> && <%= entityName.camel %>.id" class="col-md-12 form-group">
+          <div *ngIf="<%= entityName.camel %> && <%= entityName.camel %>._id" class="col-md-12 form-group">
             <label for="field_id">ID</label>
-            <input id="fiel_id" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>.id" disabled required>
+            <input id="fiel_id" *ngIf="<%= entityName.camel %>" type="text" class="form-control" name="id" [(ngModel)]="<%= entityName.camel %>._id" disabled required>
           </div>
           <%
             for (let attributesGroupByRow of attributesGroupByPosition) {
@@ -30,7 +30,7 @@
             if(relationships){
               for (let relation of relationships) {
                 if(relation.entRel){
-                  var name = relation.entRel.name;                
+                  var name = relation.entRel.name;
             -%>
             <!-- Button trigger modal <%=name%> -->
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<%=name%>">
@@ -68,7 +68,7 @@
             </button>
           </div>
         </div>
-        
+
 
 
 
