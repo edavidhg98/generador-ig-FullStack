@@ -13,15 +13,13 @@ import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 })
 export class <%= entityName.pascal %>Component implements OnInit {
 
-  <%= entityName.camel %>s: <%= entityName.pascal %>[];
+  <%= entityName.camel %>s: <%= entityName.pascal %>[] = [];
 
   constructor(private <%= entityName.camel %>Service: <%= entityName.pascal %>Service) {
 
   }
 
   ngOnInit() {
-    this.<%= entityName.camel %>Service.getAll().subscribe((<%= entityName.camel %>s) => {
-      this.<%= entityName.camel %>s = <%= entityName.camel %>s;
-    });
+    this.<%= entityName.camel %>Service.getAll().subscribe(<%= entityName.camel %>s => this.<%= entityName.camel %>s = <%= entityName.camel %>s);
   }
 }

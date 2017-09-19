@@ -4,6 +4,8 @@
     "linebreak-style": ["error", "windows"],
     "comma-dangle": "off",
     "no-underscore-dangle": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "prefer-destructuring": "off",
+    "no-restricted-syntax": ["error", "ForInStatement"]
   }
 }

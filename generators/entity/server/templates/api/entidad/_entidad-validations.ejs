@@ -7,12 +7,7 @@
     let mongooseValidations = [];
 
     for (let validation of attribute.validations) {
-      if (validation.type === 'minlength') {
-        mongooseValidations.push('min: ' + validation.value);
-      }
-      if (validation.type === 'maxlength') {
-        mongooseValidations.push('max: ' + validation.value);
-      }
+      mongooseValidations.push(validation.type + ': ' + validation.value);
     }
 
     result += ', ' + mongooseValidations.join(', ');

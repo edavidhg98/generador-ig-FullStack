@@ -25,54 +25,32 @@
           %>
           <% include _control-type %>
           <% } %>
-          <div id="relationshipsPanel" class="col-12 form-group">
-            <%
-            if(relationships){
-              for (let relation of relationships) {
-                if(relation.entRel){
-                  var name = relation.entRel.name;
-            -%>
-            <!-- Button trigger modal <%=name%> -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<%=name%>">
-              <%=name%>
-            </button>
-            <!-- Modal <%=name%> -->
-            <div class="modal fade" id="myModal<%=name%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel"><%=name%></h4>
-                    </div>
-                    <div class="modal-body container">
-                      <app-<%=relation.entRel.naminFormat.kebab%>></app-<%=relation.entRel.naminFormat.kebab%>>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <%  }
-              }
-            } -%>
-          </div>
+
+          <%_ for (let relationship of manyToOneRelationShips) { _%>
+            <div class="col-12 form-group" *ngIf="<%= relationship.entityRef.camel %>s">
+              <label for="field_<%= relationship.entityRef.camel %>"><%= relationship.entityRef.start %></label>
+
+              <select *ngIf="!<%= entityName.camel %>" class="form-control" name="id<%= relationship.entityRef.start %>" ngModel>
+                <option [ngValue]="null"></option>
+                <option [ngValue]="<%= relationship.entityRef.camel %>._id" *ngFor="let <%= relationship.entityRef.camel %> of <%= relationship.entityRef.camel %>s">{{ <%= relationship.entityRef.camel %>._id }}</option>
+              </select>
+
+              <select *ngIf="<%= entityName.camel %> && <%= entityName.camel %>.id<%= relationship.entityRef.start %>" class="form-control" name="id<%= relationship.entityRef.start %>" [(ngModel)]="<%= entityName.camel %>.id<%= relationship.entityRef.start %>">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="<%= relationship.entityRef.camel %>._id" *ngFor="let <%= relationship.entityRef.camel %> of <%= relationship.entityRef.camel %>s">{{ <%= relationship.entityRef.camel %>._id }}</option>
+              </select>
+            </div>
+          <%_ } _%>
 
           <div id="buttonsPanel" class="col-12 form-group">
-            <button class="btn btn-dark cursor-pointer" (click)="registrar(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
               <i class="fa fa-floppy-o fa-fw"></i>Registrar
             </button>
-            <button class="btn btn-dark cursor-pointer" (click)="actualizar()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
               <i class="fa fa-floppy-o fa-fw"></i>Actualizar
             </button>
           </div>
         </div>
-
-
-
-
-
       </form>
     </div>
   </div>

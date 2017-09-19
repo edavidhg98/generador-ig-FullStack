@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
@@ -12,19 +12,17 @@ export class <%= entityName.pascal %>DetailsComponent implements OnInit {
 
   <%= entityName.camel %>: <%= entityName.pascal %>;
 
-  constructor(
-    private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
-    private route: ActivatedRoute
-  ) {
+    constructor(
+      private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
+      private route: ActivatedRoute
+    ) {
 
-  }
+    }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.<%= entityName.camel %>Service.getById(id).subscribe((<%= entityName.camel %>Data) => {
-        this.<%= entityName.camel %> = <%= entityName.camel %>Data;
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        const id = params['id'];
+        this.<%= entityName.camel %>Service.getById(id).subscribe(<%= entityName.camel %> => this.<%= entityName.camel %> = <%= entityName.camel %>);
       });
-    });
+    }
   }
-}

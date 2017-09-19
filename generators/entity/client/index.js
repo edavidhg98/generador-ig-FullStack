@@ -37,8 +37,10 @@ module.exports = class extends Generator {
           attributesGroupByPosition: this._getAttributesGroupByPosition(this.entity.attributes),
           attributesWithoutPosition: this._getAttributesWithoutPosition(this.entity.attributes),
           globalMessages: this.globalMessages,
-          util,
           relationships: this.entity.relationships,
+          manyToOneRelationShips: this.manyToOneRelationShips,
+          oneToManyRelationShips: this.oneToManyRelationShips,
+          util,
           _: _
         }
       );

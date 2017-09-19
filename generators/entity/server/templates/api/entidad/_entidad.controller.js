@@ -20,15 +20,8 @@ function getById(req, res) {
     .catch(handleError(res));
 }
 
-function insertEntity(req, res) {
-  const _<%= entityName.camel %> = {
-  <%_ attributes.forEach((attribute, index) => { _%>
-    <%= attribute.name %>: req.body.<%= attribute.name %>,
-  <%_ }); _%>
-  <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
-    <%= manyToOneRelationShip.fieldName %>: req.body.<%= manyToOneRelationShip.fieldName %>,
-  <%_ } _%>
-  };
+function insert(req, res) {
+  const _<%= entityName.camel %> = extractData(req);
 
   repository.add(_<%= entityName.camel %>)
     .then((<%= entityName.camel %>) => {
@@ -37,16 +30,9 @@ function insertEntity(req, res) {
     .catch(handleError(res));
 }
 
-function updateEntity(req, res) {
+function update(req, res) {
   const id = req.params.id;
-  const _<%= entityName.camel %> = {
-  <%_ attributes.forEach((attribute, index) => { _%>
-    <%= attribute.name %>: req.body.<%= attribute.name %>,
-  <%_ }); _%>
-  <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
-    <%= manyToOneRelationShip.fieldName %>: req.body.<%= manyToOneRelationShip.fieldName %>,
-  <%_ } _%>
-  };
+  const _<%= entityName.camel %> = extractData(req);
 
   repository.update(id, _<%= entityName.camel %>)
     .then((<%= entityName.camel %>) => {
@@ -58,7 +44,18 @@ function updateEntity(req, res) {
     .catch(handleError(res));
 }
 
-function deleteEntity(req, res) {
+function extractData(req) {
+  return {
+    <%_ attributes.forEach((attribute, index) => { _%>
+      <%= attribute.name %>: req.body.<%= attribute.name %>,
+    <%_ }); _%>
+    <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
+      id<%= manyToOneRelationShip.entityRef.pascal %>: req.body.id<%= manyToOneRelationShip.entityRef.pascal %>,
+    <%_ } _%>
+    };
+}
+
+function remove(req, res) {
   const id = req.params.id;
   repository.remove(id)
     .then((<%= entityName.camel %>) => {
@@ -84,7 +81,7 @@ function handleError(res, statusCode) {
 module.exports = {
   getAll,
   getById,
-  insertEntity,
-  updateEntity,
-  deleteEntity
+  insert,
+  update,
+  remove
 };

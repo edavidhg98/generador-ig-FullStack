@@ -24,11 +24,17 @@ Helper styles
   margin-bottom: 2rem;
 }
 
+.m-left-2 {
+  margin-left: 2rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
-
+.list-without-bullets {
+  list-style-type: none;
+}
 /* ==========================================================================
 Generic styles
 ========================================================================== */

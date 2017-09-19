@@ -37,7 +37,7 @@ module.exports = class extends Generator {
 
       try {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
-        this.entities = this._processEntities(configSettings.entities);
+        this.entities = configSettings.entities;
         this.globalMessages = configSettings.globalMessages;
       } catch (error) {
         this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración, o no es un archivo JSON valido:
@@ -46,46 +46,6 @@ module.exports = class extends Generator {
         throw error;
       }
     });
-  }
-
-  _processEntities(entities) {
-    if (entities) {
-      entities.forEach((entity) => {
-        if (entity.relationships) {
-          entity.relationships = this._uniq(entity.relationships);
-        }
-      });
-
-      entities.forEach((entity) => {
-        if (entity.name !== 'TR_ADMISION_OBSERVACIONES') {
-          entity.relationships = null;
-        }
-      });
-
-      entities.forEach((entity) => {
-        if (entity.relationships) {
-          entity.relationships.forEach((relation) => {
-            const entRel = entities.find(ent => ent.name === relation.entityRef);
-            if (entRel) {
-              relation.entRel = Object.assign({}, entRel);
-              relation.entRel.naminFormat = utils.getNaminFormats(entRel.name);
-            }
-          });
-        }
-      });
-      return entities;
-    }
-  }
-
-  _uniq(relationships) {
-    const seen = {};
-    return relationships.filter((item) => {
-      return seen.hasOwnProperty(item.entityRef) ? false : (seen[item.entityRef] = true);
-    });
-  }
-
-  static circu(relationships, entity) {
-    return relationships.filter(item => item.entityRef !== entity.name);
   }
 
   writing() {

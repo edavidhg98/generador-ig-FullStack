@@ -11,7 +11,7 @@ module.exports = class extends Generator {
     this.globalMessages = opts.globalMessages;
     this.entityNameFormats = utils.getNaminFormats(this.entity.name);
 
-    this.relationships = this.entity.relationships ? this.entity.relationships : [];
+    this.relationships = this.entity.relationships ? this._changeFormatRelationshipsName(this.entity.relationships) : [];
     this.manyToOneRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
     this.oneToManyRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
   }
@@ -26,7 +26,7 @@ module.exports = class extends Generator {
   _writeAngularEntity() {
     this.composeWith(require.resolve('./client'), {
       typeOfApp: this.typeOfApp,
-      entity: this._formatNamingEntityAttributes(this.entity),
+      entity: this._changeFormatEntityAttributeNames(this.entity),
       entityNameFormats: this.entityNameFormats,
       globalMessages: this.globalMessages,
       relationships: this.relationships,
@@ -36,14 +36,27 @@ module.exports = class extends Generator {
   }
 
   // Cambia el formato de los nombres de los atributos de una entidad al formato Camel Case.
-  _formatNamingEntityAttributes(entity) {
-    const attributes = entity.attributes.map((attribute) => {
-      let name = attribute.name;
+  _changeFormatEntityAttributeNames(entityObject) {
+    const entity = Object.assign({}, entityObject);
+    const attributes = [];
+    for (const attribute of entity.attributes) {
+      const name = attribute.name;
       attribute.name = _.camelCase(name);
-      return attribute;
-    });
+      attributes.push(attribute);
+    }
     entity.attributes = attributes;
     return entity;
+  }
+
+  // Cambia el formato de los nombres de las entidades de referencia para realizar las relaciones.
+  _changeFormatRelationshipsName(relationships) {
+    const _relationships = [];
+    for (const relationship of relationships) {
+      const entityRefName = relationship.entityRef;
+      relationship.entityRef = utils.getNaminFormats(entityRefName);
+      _relationships.push(relationship);
+    }
+    return _relationships;
   }
 
   _writeServerEntity() {
