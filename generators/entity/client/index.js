@@ -24,7 +24,8 @@ module.exports = class extends Generator {
       '.service.ts', '.model.ts', '.component.ts',
       '-list.component.ts', '-list.component.html', '.module.ts', '.route.ts',
       '-upsert.component.ts', '-upsert.component.html',
-      '-details.component.ts', '-details.component.html'
+      '-details.component.ts', '-details.component.html',
+      '-shared.module.ts'
     ];
 
     layersNames.forEach((layerName) => {

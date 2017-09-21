@@ -4,10 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 
-<%_ for (let relationship of manyToOneRelationShips) { _%>
+<%_
+  for (let relationship of manyToOneRelationShips) {
+    // Validar que no hayan relaciones entre la misma tabla
+    if (relationship.entityRef.camel !== entityName.camel) {
+_%>
 import { <%= relationship.entityRef.pascal %>Service } from '../<%= relationship.entityRef.kebab %>/<%= relationship.entityRef.kebab %>.service';
 import { <%= relationship.entityRef.pascal %> } from '../<%= relationship.entityRef.kebab %>/<%= relationship.entityRef.kebab %>.model';
-<%_ } _%>
+<%_ }} _%>
 
 @Component({
   selector: 'app-<%= entityName.kebab %>-upsert',
@@ -18,7 +22,7 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
   crudOperationTitle = 'Crear';
   isCreate = true;
   <%= entityName.camel %>: <%= entityName.pascal %>;
-  <%_ for (let relationship of manyToOneRelationShips) { _%>
+  <%_ for (let relationship of manyToOneRelationShips) {_%>
   <%= relationship.entityRef.camel %>s: <%= relationship.entityRef.pascal %>[];
   <%_ } _%>
 
@@ -26,9 +30,13 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
-    <%_ for (let relationship of manyToOneRelationShips) { _%>
+    <%_
+      for (let relationship of manyToOneRelationShips) {
+        // Validar que no hayan relaciones entre la misma tabla
+        if (relationship.entityRef.camel !== entityName.camel) {
+    _%>
     private <%= relationship.entityRef.camel %>Service: <%= relationship.entityRef.pascal %>Service,
-    <%_ } _%>
+    <%_ }} _%>
   ) { }
 
   ngOnInit() {

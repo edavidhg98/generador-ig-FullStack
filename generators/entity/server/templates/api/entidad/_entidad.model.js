@@ -8,6 +8,7 @@ const <%= entityName.camel %>Schema = new Schema({<%attributes.forEach((attribut
   <%- include _entidad-relationships _%>
 }, { toJSON: { virtuals: true } });
 
+<%_ if (manyToOneRelationShips.length > 0) { _%>
 /** Relaciones Many-To-One */
 <%_ for (let relationship of manyToOneRelationShips) { _%>
 <%= entityName.camel %>Schema.virtual('<%= relationship.entityRef.camel %>', {
@@ -16,15 +17,16 @@ const <%= entityName.camel %>Schema = new Schema({<%attributes.forEach((attribut
   foreignField: '_id',
   justOne: true
 });
-<%_ } _%>
+<%_ }}_%>
 
+<%_ if (oneToManyRelationShips.length > 0) { _%>
 /** Relaciones One-To-Many */
 <%_ for(let oneToManyRelationShip of oneToManyRelationShips) { _%>
-<%= entityName.camel %>Schema.virtual('<%= oneToManyRelationShip.fieldName %>', {
+<%= entityName.camel %>Schema.virtual('<%= oneToManyRelationShip.entityRef.camel %>s', {
   ref: '<%= oneToManyRelationShip.entityRef.start %>',
   localField: '<%= oneToManyRelationShip.localField %>',
-  foreignField: '<%= oneToManyRelationShip.foreignField %>'
+  foreignField: 'id<%= entityName.start %>'
 });
-<%_ } _%>
+<%_ }}_%>
 
 module.exports = mongoose.model('<%= entityName.pascal %>', <%= entityName.camel %>Schema);

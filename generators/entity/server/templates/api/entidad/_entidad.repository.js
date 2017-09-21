@@ -5,7 +5,9 @@ module.exports = {
     return <%= entityName.pascal %>.find();
   },
   getById(id) {
-    return <%= entityName.pascal %>.findById(id)<%_ relationships.forEach(relationship => { _%> .populate('<%= relationship.fieldName %>') <%_ }); %>
+    return <%= entityName.pascal %>.findById(id)
+          <% manyToOneRelationShips.forEach(relationship => { %>.populate('<%= relationship.entityRef.camel %>')<% }); %>
+          <% oneToManyRelationShips.forEach(relationship => { %>.populate('<%= relationship.entityRef.camel %>s')<% }); %>
   },
   add(<%= entityName.camel %>) {
     const _<%= entityName.camel %> = new <%= entityName.pascal %>(<%= entityName.camel %>);
