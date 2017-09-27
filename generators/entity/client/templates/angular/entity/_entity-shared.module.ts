@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { EntitiesSharedModule } from '../entities-shared.module';
 
 import { <%= entityName.pascal %>ListComponent } from './<%= entityName.kebab %>-list.component';
+import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    EntitiesSharedModule
+    EntitiesSharedModule,
+    RouterModule
   ],
   exports: [
     <%= entityName.pascal %>ListComponent
@@ -16,6 +19,6 @@ import { <%= entityName.pascal %>ListComponent } from './<%= entityName.kebab %>
   declarations: [
     <%= entityName.pascal %>ListComponent
   ],
-  providers: []
+  providers: [<%= entityName.pascal %>Service]
 })
 export class <%= entityName.pascal %>SharedModule { }

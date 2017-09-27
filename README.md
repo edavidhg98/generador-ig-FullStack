@@ -327,7 +327,7 @@ Por defecto un control usa las 12 columnas de la grilla de Bootstrap, pero se pu
 
 Dando un resultado como este:
 
-![alt text](docs/posicionamiento-controles.png)
+![alt text](https://raw.githubusercontent.com/Yeyoxfunny/generator-ig-fullstack/master/docs/posicionamiento-controles.PNG)
 
 ## Relaciones
 ### One-To-Many

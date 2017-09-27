@@ -50,7 +50,7 @@ function extractData(req) {
       <%= attribute.name %>: req.body.<%= attribute.name %>,
     <%_ }); _%>
     <%_ for (let manyToOneRelationShip of manyToOneRelationShips) { _%>
-      id<%= manyToOneRelationShip.entityRef.pascal %>: req.body.id<%= manyToOneRelationShip.entityRef.pascal %>,
+      id<%= manyToOneRelationShip.fieldName.pascal %>: req.body.id<%= manyToOneRelationShip.entityRef.pascal %>,
     <%_ } _%>
     };
 }

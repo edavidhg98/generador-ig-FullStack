@@ -9,9 +9,14 @@ module.exports = class extends Generator {
     this.entity = opts.entity;
     this.globalMessages = opts.globalMessages;
     this.entityNameFormats = opts.entityNameFormats;
-    this.relationships = this.entity.relationships ? this.entity.relationships : [];
-    this.manyToOneRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'many-to-one');
-    this.oneToManyRelationShips = this.relationships.filter(x => x.typeRelationship.toLowerCase() === 'one-to-many');
+
+    this.relationships = opts.relationships;
+    this.duplicateFreeRelationships = opts.duplicateFreeRelationships;
+
+    this.manyToOneRelationShips = opts.manyToOneRelationShips;
+    this.duplicateFreeManyToOneRelationships = opts.duplicateFreeManyToOneRelationships;
+
+    this.oneToManyRelationShips = opts.oneToManyRelationShips;
   }
 
   writing() {
@@ -38,9 +43,11 @@ module.exports = class extends Generator {
           attributesGroupByPosition: this._getAttributesGroupByPosition(this.entity.attributes),
           attributesWithoutPosition: this._getAttributesWithoutPosition(this.entity.attributes),
           globalMessages: this.globalMessages,
-          relationships: this.entity.relationships,
+          relationships: this.relationships,
+          duplicateFreeRelationships: this.duplicateFreeRelationships,
           manyToOneRelationShips: this.manyToOneRelationShips,
           oneToManyRelationShips: this.oneToManyRelationShips,
+          duplicateFreeManyToOneRelationships: this.duplicateFreeManyToOneRelationships,
           util,
           _: _
         }

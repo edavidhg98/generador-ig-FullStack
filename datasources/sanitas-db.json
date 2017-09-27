@@ -1,0 +1,7428 @@
+{
+  "globalMessages": {
+    "required": "El campo es requerido",
+    "minlength": "la longitud mínima es de %d caracteres",
+    "maxlength": "La longitud máxima es de %d caracteres"
+  },
+	"entities": [
+		{
+			"name": "ADMISION_OBSERVACIONES",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_DEFINICION",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_DEFINICION",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_DEFINICION",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_EGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_EGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_EGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "DESTINO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CAMA"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				}
+			]
+		},
+		{
+			"name": "ALIAS_TIPO_DOCUMENTO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_TIPO_DOCUMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_CE",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_CONTABILIDAD",
+					"type": "String"
+				},
+				{
+					"name": "JERARQUIA",
+					"type": "Number"
+				},
+				{
+					"name": "ALIAS_DISPEN",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_VALIDADOR",
+					"type": "String"
+				},
+				{
+					"name": "NUEVO",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_PINES",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_BUKEALA",
+					"type": "Number"
+				},
+				{
+					"name": "ALIAS_CLIENTE",
+					"type": "String"
+				},
+				{
+					"name": "ALIASBH",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "ANTICIPO",
+			"attributes": [
+				{
+					"name": "VALOR_ANTICIPO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ESTADO_ITEM_LISTA",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "AUDITORIA",
+			"attributes": [
+				{
+					"name": "FICHERO",
+					"type": "String"
+				},
+				{
+					"name": "TIP_ACCESO",
+					"type": "String"
+				},
+				{
+					"name": "ID_PACIENTE",
+					"type": "Number"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "AUDITORIA_CONTRATO",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "CARNET",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "AUDITORIA_ESTADO_ADMISION",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_ANTERIOR",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_NUEVO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "AUDITORIA_SOLICITUD",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "NUMERO_SOLICITUD",
+					"type": "String"
+				},
+				{
+					"name": "ID_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "AUTORIZACION_BH",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "NUMERO_AUTORIZACION",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_INTERNO_ENTIDAD",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_PLAN",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_CONTRATO",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_FAMILIA",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_USUARIO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PROCEDIMIENTO_SERVICIO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "CALENDARIO",
+			"attributes": [
+				{
+					"name": "FECHA",
+					"type": "Date"
+				},
+				{
+					"name": "NOMBRE_DIA",
+					"type": "String"
+				},
+				{
+					"name": "FESTIVO",
+					"type": "Boolean"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PRUEBA_RANGO",
+					"type": "Number"
+				},
+				{
+					"name": "ACTIVO",
+					"type": "Boolean"
+				}
+			]
+		},
+		{
+			"name": "CAMA",
+			"attributes": [
+				{
+					"name": "CAMA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CAMA",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "NUM_EXT",
+					"type": "Number"
+				},
+				{
+					"name": "FEC_POS_EGR",
+					"type": "Date"
+				},
+				{
+					"name": "HOR_POS_EGR",
+					"type": "Number"
+				},
+				{
+					"name": "MIN_POS_EGR",
+					"type": "Number"
+				},
+				{
+					"name": "CAR_HAB",
+					"type": "String"
+				},
+				{
+					"name": "FEC_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ADMISION_OBSERVACIONES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ADMISION_OBSERVACIONES",
+					"localField": "_id",
+					"foreignField": "ID_CAMA"
+				},
+				{
+					"entityRef": "FOTO_ESTADO_CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "FOTO_ESTADO_CAMA"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "CENSO_HISTORICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_HISTORICO",
+					"localField": "_id",
+					"foreignField": "ID_CAMA"
+				},
+				{
+					"entityRef": "CENSO_TRASLADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_TRASLADO",
+					"localField": "_id",
+					"foreignField": "ID_CAMA"
+				},
+				{
+					"entityRef": "CENSO_TRASLADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_TRASLADO1",
+					"localField": "_id",
+					"foreignField": "ID_CAMA"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO1"
+				},
+				{
+					"entityRef": "SECCION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SECCION"
+				},
+				{
+					"entityRef": "TIPO_CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_CAMA"
+				},
+				{
+					"entityRef": "CAMA_PLAN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA_PLAN",
+					"localField": "_id",
+					"foreignField": "ID_CAMA"
+				}
+			]
+		},
+		{
+			"name": "CAMA_PLAN",
+			"attributes": [
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CAMA"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_PLAN",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_PLAN"
+				}
+			]
+		},
+		{
+			"name": "CARGO_AUTOMATICO",
+			"attributes": [
+				{
+					"name": "CODIGO_INTELIGENTE",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CARGO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "CARGOS_PENDIENTES",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO_DESTINO",
+					"type": "Number"
+				},
+				{
+					"name": "CON_SOLICITU",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_TIENE",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_PEDIDO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_DESPACHO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_PEDIDO",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_DESPACHO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "MANUAL",
+					"type": "Boolean"
+				},
+				{
+					"name": "CONSECUTIVO_MANUAL",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRIORIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRIORIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "DETALLE_CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "DETALLE_CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_CARGOS_PENDIENTES"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "CARNET",
+			"attributes": [
+				{
+					"name": "CAMPO",
+					"type": "String"
+				},
+				{
+					"name": "LONGITUD",
+					"type": "Number"
+				},
+				{
+					"name": "ORDEN",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "CATALOGO_MEDICAMENTOS",
+			"attributes": [
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_MODIFICACION",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_MODIFICACION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CAT_MEDICAMENTOS",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "CATALOGO_MEDICAMENTOS_DETALLE",
+			"attributes": [
+				{
+					"name": "ID_ENCABEZADO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRODUCTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ITEM_LISTA_REGULADO",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_COMPRA",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_VENTA_PUBLICO",
+					"type": "Number"
+				},
+				{
+					"name": "PORCENTAJE_MATERIAL",
+					"type": "Number"
+				},
+				{
+					"name": "PORCENTAJE_REGULADO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INICIAL",
+					"type": "Date"
+				},
+				{
+					"name": "FECHA_FINAL",
+					"type": "Date"
+				},
+				{
+					"name": "VALOR_MN",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_MODIFICACION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_MODIFICACION",
+					"type": "Date"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "CENSO_HISTORICO",
+			"attributes": [
+				{
+					"name": "FECHA",
+					"type": "Date"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CAMA_CENSO_HISTORICO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CAMA"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "CENSO_SERVICIO",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO_ERROR",
+					"type": "Number"
+				},
+				{
+					"name": "MENSAJE_ERROR",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_REGISTRO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_TRAZABILIDAD_ADMISION",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "CENSO_TRASLADO",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "FEC_INGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HOR_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MIN_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "ENTIDAD",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CAMA"
+				},
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CAMA1"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				}
+			]
+		},
+		{
+			"name": "CENTRO_COSTO_VALIDO",
+			"attributes": [
+				{
+					"name": "ID_CENTRO_COSTO_GENERA",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO_VALIDO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "FARMACIA",
+					"type": "String"
+				},
+				{
+					"name": "ESTADO_ITEM_LISTA",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CENTRO_COSTO_VALIDO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CENTRO_COSTO_VALIDO1"
+				},
+				{
+					"entityRef": "CENTRO_COSTO_VALIDO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CENTRO_COSTO_VALIDO2"
+				},
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				}
+			]
+		},
+		{
+			"name": "CITA_RETRASO",
+			"attributes": [
+				{
+					"name": "ID_ESPECIALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "EXCEPCION_RETRASO",
+					"type": "String"
+				},
+				{
+					"name": "MIN_PENALIZACION_RETRASO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "CIUDAD",
+			"attributes": [
+				{
+					"name": "ID_DEPARTAMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "NOMBRE_CIUDAD",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "LOCALIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "LOCALIDAD",
+					"localField": "_id",
+					"foreignField": "ID_CIUDAD"
+				},
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PRESTADOR",
+					"localField": "_id",
+					"foreignField": "ID_CIUDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL",
+					"localField": "_id",
+					"foreignField": "ID_CIUDAD"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_CIUDAD"
+				},
+				{
+					"entityRef": "LOGIN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "LOGIN",
+					"localField": "_id",
+					"foreignField": "ID_CIUDAD"
+				}
+			]
+		},
+		{
+			"name": "CODIGO_DIA",
+			"attributes": [
+				{
+					"name": "FECHA_DIA",
+					"type": "Date"
+				},
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "CODIGO_POSTAL",
+			"attributes": [
+				{
+					"name": "CODIGO_POSTAL",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
+			"attributes": [
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CON_CPTO_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "CONSULTA_EXTERNA_PYP",
+			"attributes": [
+				{
+					"name": "CODIGO_PYP",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_PYPCYD",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "CONSULTORIO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_TIPO_CONSULTORIO",
+					"type": "Number"
+				},
+				{
+					"name": "CONSULTORIO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "TURNO",
+					"type": "Number"
+				},
+				{
+					"name": "DIR_IP",
+					"type": "String"
+				},
+				{
+					"name": "CON_URGENCIA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CONSULTORIO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_CONSULTORIO"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "TRIAGE",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRIAGE",
+					"localField": "_id",
+					"foreignField": "ID_CONSULTORIO"
+				}
+			]
+		},
+		{
+			"name": "CONSUMO_SOAT_OTRA_IPS",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ENTIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "POLIZA",
+					"type": "String"
+				},
+				{
+					"name": "ID_PACIENTE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_ATENCION",
+					"type": "Date"
+				},
+				{
+					"name": "NOMBRE_IPS",
+					"type": "String"
+				},
+				{
+					"name": "MONTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES_SOPORTE",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "DETALLE_CARGOS_PENDIENTES",
+			"attributes": [
+				{
+					"name": "SECUENCIA",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_CARGO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRODUCTO",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_SOLICITA",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_DESPACHADA",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_ENTREGADA",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_APLICADA",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_SUMINISTRADA",
+					"type": "Number"
+				},
+				{
+					"name": "NUMERO_AUTORIZACION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_MEDIDA_MEDICAMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "PRESENTACION",
+					"type": "String"
+				},
+				{
+					"name": "DURANTE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_DESPACHO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_CANCEL",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CANTIDAD_RECIBIDA",
+					"type": "Number"
+				},
+				{
+					"name": "CONFIRMACION_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "ATC_SOLICITADO",
+					"type": "String"
+				},
+				{
+					"name": "VAL_COMPRA",
+					"type": "Number"
+				},
+				{
+					"name": "POR_POCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "MED_MOLLIER",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "POR_INCREMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "NUM_PEDDEVUELTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_ENVIO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CARGOS_PENDIENTES",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CARGOS_PENDIENTES"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "DIAGNOSTICO",
+			"attributes": [
+				{
+					"name": "DIAGNOST",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_GENERO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "MORTAL",
+					"type": "Boolean"
+				},
+				{
+					"name": "EDA_INI",
+					"type": "Number"
+				},
+				{
+					"name": "EDA_FIN",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_DIAGNOSTICO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_CLASIFICACION",
+					"type": "Number"
+				},
+				{
+					"name": "CIE10RIPS",
+					"type": "String"
+				},
+				{
+					"name": "INDICETEXTO",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "ENCABEZADO_CATALOGO",
+			"attributes": [
+				{
+					"name": "ID_ENCABEZADO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "OBSERVACION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_MODIFICACION",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_MODIFICACION",
+					"type": "String"
+				},
+				{
+					"name": "ACTIVO",
+					"type": "Boolean"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_ENCABEZADO_CATALOGO"
+				}
+			]
+		},
+		{
+			"name": "ENCABEZADO_RESULTADO",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "CONSECUTIVO_SOLICITUD",
+					"type": "Number"
+				},
+				{
+					"name": "SECUENCIA",
+					"type": "Number"
+				},
+				{
+					"name": "PROCEDENCIA",
+					"type": "String"
+				},
+				{
+					"name": "ID_MEDICO_ORDENA",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_PRACTICA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO_SOLICITA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_CARGO",
+					"type": "Date"
+				},
+				{
+					"name": "NUM_MUESTRAS",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "ENTIDAD",
+			"attributes": [
+				{
+					"name": "ENTIDAD",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_ENTIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_DOCUMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_USUARIO",
+					"type": "Number"
+				},
+				{
+					"name": "CONFIRMACION_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_URGENCIA",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_EXTERNA",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_PRIMERA_VEZ",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_OBSERVACION",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "NUM_DOC",
+					"type": "String"
+				},
+				{
+					"name": "RESPONSABLE",
+					"type": "String"
+				},
+				{
+					"name": "TELEFONO",
+					"type": "String"
+				},
+				{
+					"name": "FAX",
+					"type": "String"
+				},
+				{
+					"name": "DIRECCION",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_RECAUDO",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_COPAGO",
+					"type": "String"
+				},
+				{
+					"name": "TIEMPO_CUB_URG",
+					"type": "Number"
+				},
+				{
+					"name": "TIEMPO_CUB_EXT",
+					"type": "Number"
+				},
+				{
+					"name": "TIEMPO_CUB_VEZ",
+					"type": "Number"
+				},
+				{
+					"name": "TIEMPO_OBSERVA",
+					"type": "Number"
+				},
+				{
+					"name": "PED_AUTORIZA",
+					"type": "String"
+				},
+				{
+					"name": "CON_SIN_CONV",
+					"type": "String"
+				},
+				{
+					"name": "VALOR_MAXIMO_LIQUIDACION",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_MINIMO_LIQUIDACION",
+					"type": "Number"
+				},
+				{
+					"name": "MANEJA_PORCENTAJE_INCREMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_CONVENIO",
+					"type": "Date"
+				},
+				{
+					"name": "DIR_IP_ENTIDAD",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_MED_FAMILIAR",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_CAPITACION",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_CORTE_ANUAL",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_CORTE",
+					"type": "String"
+				},
+				{
+					"name": "NUM_CORTES_MES",
+					"type": "Number"
+				},
+				{
+					"name": "NUM_DIASCALEND",
+					"type": "Number"
+				},
+				{
+					"name": "NIV_VAL_PRIMERAVEZ",
+					"type": "String"
+				},
+				{
+					"name": "VER_ESTADO_PAC",
+					"type": "String"
+				},
+				{
+					"name": "BD_ESTADO_EXT",
+					"type": "String"
+				},
+				{
+					"name": "NRO_MED_FOR",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_CONV_MED",
+					"type": "String"
+				},
+				{
+					"name": "PED_AUT_MEDICAME",
+					"type": "String"
+				},
+				{
+					"name": "CADU_FOR_PROCED",
+					"type": "Number"
+				},
+				{
+					"name": "CADU_FOR_MEDICAME",
+					"type": "Number"
+				},
+				{
+					"name": "CADU_FOR_PROCEDQX",
+					"type": "Number"
+				},
+				{
+					"name": "ENTIDAD_OSI",
+					"type": "String"
+				},
+				{
+					"name": "MONTOXPROCE",
+					"type": "String"
+				},
+				{
+					"name": "MAN_TOPES",
+					"type": "String"
+				},
+				{
+					"name": "MAN_TOP_POR",
+					"type": "String"
+				},
+				{
+					"name": "VLR_TOP_POR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "TOP_LIQ_CIRUGIA",
+					"type": "Number"
+				},
+				{
+					"name": "COD_INTERNO",
+					"type": "String"
+				},
+				{
+					"name": "COD_BARRAS_DOC",
+					"type": "String"
+				},
+				{
+					"name": "COD_BARRAS_CARNET",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CAPITACIONODO",
+					"type": "String"
+				},
+				{
+					"name": "COD_BARR_DIG_CTRL",
+					"type": "String"
+				},
+				{
+					"name": "TIEMPO_CUB_ODONTOLOGICO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_ODONTOLOGIA",
+					"type": "Number"
+				},
+				{
+					"name": "MANPROGCRONICOS",
+					"type": "String"
+				},
+				{
+					"name": "MAXENTREGASFORMULACRONICOS",
+					"type": "Number"
+				},
+				{
+					"name": "EMAIL",
+					"type": "String"
+				},
+				{
+					"name": "MAN_WEB_NUEVO",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CITA",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_PROTECCION_DATOS",
+					"type": "String"
+				},
+				{
+					"name": "CARGOS",
+					"type": "String"
+				},
+				{
+					"name": "NO_CARGOS",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_PAQ_NO_QUIRUR",
+					"type": "String"
+				},
+				{
+					"name": "CONVENIO_INTER",
+					"type": "String"
+				},
+				{
+					"name": "PLANOBH",
+					"type": "String"
+				},
+				{
+					"name": "MAN_NUEVA_AFILIACION",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ANTICIPO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ANTICIPO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "AUDITORIA_CONTRATO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "AUDITORIA_CONTRATO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "CAMA_PLAN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA_PLAN",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "CARGO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "CITA_RETRASO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CITA_RETRASO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "CIUDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CIUDAD"
+				},
+				{
+					"entityRef": "DETALLE_CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "DETALLE_CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "ENTIDAD_UVR",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENTIDAD_UVR",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "EPS_RECOBRABLE",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EPS_RECOBRABLE",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "EXCEPCION_REGARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_REGARGO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "HOMOLOGACION_SERVICIOS_AGFA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "HOMOLOGACION_SERVICIOS_AGFA",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "PACIENTE_INCONSISTENCIAS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PACIENTE_INCONSISTENCIAS",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "RECALCULO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "RECALCULO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_CIRUGIA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIPO_CIRUGIA",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_PLAN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIPO_PLAN",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "ENTIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENTIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "EXCEPCION_PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_PRODUCTO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "GRUPO_ETAREO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "GRUPO_ETAREO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "HOMOLOGACION_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "HOMOLOGACION_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "HOMOLOGACION_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "HOMOLOGACION_ENTIDAD1",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "MEDICAMENTO_ALTO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICAMENTO_ALTO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "PLANES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PLANES",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "RECARGO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "RECARGO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPOS_DOCUMENTO_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIPOS_DOCUMENTO_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				},
+				{
+					"entityRef": "TRIAGE",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRIAGE",
+					"localField": "_id",
+					"foreignField": "ID_ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "ENTIDAD_ADMISION",
+			"attributes": [
+				{
+					"name": "ID_TIPO_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ABRE_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "MAN_ANTICIPO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "ENTIDAD_UVR",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_PERSONAL_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INICIO_CONVENIO",
+					"type": "Date"
+				},
+				{
+					"name": "FEC_FIN_CONVENIO",
+					"type": "Date"
+				},
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_ENTIDAD_UVR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "EPS_RECOBRABLE",
+			"attributes": [
+				{
+					"name": "EPS_RECOBRABLE",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "ESTADO_SALIDA_PACIENTE",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_SALIDA_PACIENTE",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_HC_REGISTRA",
+					"type": "Number"
+				},
+				{
+					"name": "OBS_SALIDA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "EXCEPCION_PRODUCTO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_ESTADO_EXCEPCION_PRODUCTO",
+					"type": "Number"
+				},
+				{
+					"name": "PARTICULAR",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRODUCTO"
+				}
+			]
+		},
+		{
+			"name": "EXCEPCION_REGARGO",
+			"attributes": [
+				{
+					"name": "PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Boolean"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "TIPO_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_ADMISION"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "FOTO_ESTADO_CAMA",
+			"attributes": [
+				{
+					"name": "IDFOTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CAMA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA",
+					"localField": "_id",
+					"foreignField": "ID_FOTO_ESTADO_CAMA"
+				}
+			]
+		},
+		{
+			"name": "GRUPO_ETAREO",
+			"attributes": [
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "EDAD_DESDE",
+					"type": "Number"
+				},
+				{
+					"name": "EDAD_HASTA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "GRUPO_PROCEDIMIENTO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_TIPO_PROCEDIMIENTO",
+					"type": "Number"
+				},
+				{
+					"name": "GRU_PROCED",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_ENTIDAD_UVR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUB_GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUB_GRUPO_PROCEDIMIENTO",
+					"localField": "_id",
+					"foreignField": "ID_GRUPO_PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "HOMOLOGACION_ENTIDAD",
+			"attributes": [
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "ESTADO",
+					"type": "Boolean"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD1"
+				}
+			]
+		},
+		{
+			"name": "HOMOLOGACION_SERVICIOS_AGFA",
+			"attributes": [
+				{
+					"name": "CODIGO_SOPHIA",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_GRABACION_AGFA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_HOMOLOGA_SERVICIO_AGFA",
+					"type": "Number"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "INSTITUCION",
+			"attributes": [
+				{
+					"name": "CODIGO_INSTITUCION",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "LOCALIDAD",
+			"attributes": [
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_LOCALIDAD",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CIUDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CIUDAD"
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"attributes": [
+				{
+					"name": "LOGIN",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE",
+					"type": "String"
+				},
+				{
+					"name": "APELLIDO",
+					"type": "String"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_USUARIO_LOGIN",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PASSWORD",
+					"type": "String"
+				},
+				{
+					"name": "CALL_CENTER",
+					"type": "String"
+				},
+				{
+					"name": "USUARIO_AGFA",
+					"type": "String"
+				},
+				{
+					"name": "CLAVE_AGFA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_CARGO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_LOGIN",
+					"type": "Number"
+				},
+				{
+					"name": "NUMERO_DOCUMENTO",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_DOCUMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "USUARIO_LDAP",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_ULTIMO_CAMBIO",
+					"type": "Date"
+				},
+				{
+					"name": "CONSULTA_HISTORIA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_ULTIMO_ACCESO",
+					"type": "Date"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CIUDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CIUDAD"
+				},
+				{
+					"entityRef": "LOGIN_SUCURSAL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "LOGIN_SUCURSAL",
+					"localField": "_id",
+					"foreignField": "ID_LOGIN"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "LOGIN_SUCURSAL",
+			"attributes": [
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "LOGIN",
+					"typeRelationship": "many-to-one",
+					"fieldName": "LOGIN"
+				}
+			]
+		},
+		{
+			"name": "MEDICAMENTO_ALTO_COSTO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_TIPO_ALTO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_MED_ALTO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_MODIFICACION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_MODIFICACION",
+					"type": "Date"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRODUCTO"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "MEDICO_GRUPO_PROCEDIMIENTO",
+			"attributes": [
+				{
+					"name": "ID_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ESPECIALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUB_GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUB_GRUPO_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "MEDICO_SUCURSAL",
+			"attributes": [
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ESPECIALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_CARGO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_NIVEL_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "TELEFONO_CASA_MEDICO",
+					"type": "String"
+				},
+				{
+					"name": "DIRECCION_CASA_MEDICO",
+					"type": "String"
+				},
+				{
+					"name": "TELEFONO_CONSULTORIO_MEDICO",
+					"type": "String"
+				},
+				{
+					"name": "DIRECCION_CONSULTORIO_MEDICO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_MEDICO_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_REEMPLAZO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INICIAL_REMISION",
+					"type": "Date"
+				},
+				{
+					"name": "FECHA_FINAL_REMISION",
+					"type": "Date"
+				},
+				{
+					"name": "ID_CONCEPTO_ALQUILER",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_REEMPLAZO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_SUELDO",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_SUELDO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO_SUELDO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_MINIMO_MENSUAL",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_MINIMO_MENSUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO_MINIMO_MENSUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_MINIMO_ANUAL",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_MINIMO_ANUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO_MINIMO_ANUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_DESCUENTO",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR_PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO_PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ALQUILER",
+					"type": "Number"
+				},
+				{
+					"name": "ALQUILER_HORA",
+					"type": "Number"
+				},
+				{
+					"name": "ALQUILER_SEMANAL",
+					"type": "Number"
+				},
+				{
+					"name": "ALQUILER_MENSUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ALQUILER_ANUAL",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_SERVICIO_CONCERTADO",
+					"type": "Number"
+				},
+				{
+					"name": "ASOCIACION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_URGENCIAS",
+					"type": "Number"
+				},
+				{
+					"name": "IRPF",
+					"type": "Number"
+				},
+				{
+					"name": "IVA_ARRIENDO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_PROVEEDOR",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "MEDICO_SUCURSAL_ENTIDAD",
+			"attributes": [
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ESPECIALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ENTIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ITEM_LISTA_MEDICO_FAMILIAR",
+					"type": "Number"
+				},
+				{
+					"name": "ID_ITEM_LISTA_FORMULA_CRONICOS",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_ITEM_LISTA_MEDICO_CITASWEB",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "MONEDA",
+			"attributes": [
+				{
+					"name": "MONEDA",
+					"type": "String"
+				},
+				{
+					"name": "ABREVIATURA_PAIS_MONEDA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_MONEDA"
+				}
+			]
+		},
+		{
+			"name": "MOTIVO",
+			"attributes": [
+				{
+					"name": "MOTIVO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ADMISION_OBSERVACIONES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ADMISION_OBSERVACIONES",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "CENSO_TRASLADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_TRASLADO",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "DETALLE_CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "DETALLE_CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION1",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION2",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "TRIAGE",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRIAGE",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "TIPO_MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_MOTIVO"
+				},
+				{
+					"entityRef": "SUBCONCEPTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUBCONCEPTO",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				},
+				{
+					"entityRef": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"localField": "_id",
+					"foreignField": "ID_MOTIVO"
+				}
+			]
+		},
+		{
+			"name": "NIVEL_CARGO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_NIVEL1",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_NIVEL2",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_NIVEL3",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_NIVEL4",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_NIVEL5",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "NUMERO_SECUENCIA",
+			"attributes": [
+				{
+					"name": "TYPE",
+					"type": "String"
+				},
+				{
+					"name": "PREFIX",
+					"type": "String"
+				},
+				{
+					"name": "LASTNUMBER",
+					"type": "Number"
+				},
+				{
+					"name": "LENGTH",
+					"type": "Number"
+				},
+				{
+					"name": "YEAR",
+					"type": "Boolean"
+				},
+				{
+					"name": "MONTH",
+					"type": "Boolean"
+				},
+				{
+					"name": "LASTYEAR",
+					"type": "Number"
+				},
+				{
+					"name": "LASTMONTH",
+					"type": "Number"
+				},
+				{
+					"name": "TABLENAME",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "OCUPACION",
+			"attributes": [
+				{
+					"name": "CODIGO_OCUPACION",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_OCUPACION",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "OPCION",
+			"attributes": [
+				{
+					"name": "CODIGO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MODULO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ID_DEPENDENCIA",
+					"type": "Number"
+				},
+				{
+					"name": "NOMBRE_FORMA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_PAGINA",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_PANTALLA",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PACIENTE_INCONSISTENCIAS",
+			"attributes": [
+				{
+					"name": "NUM_DOC",
+					"type": "String"
+				},
+				{
+					"name": "NUM_DOC_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "TIP_DOC",
+					"type": "String"
+				},
+				{
+					"name": "TIP_DOC_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "FEC_NAC",
+					"type": "Date"
+				},
+				{
+					"name": "FEC_NAC_EXTERNO",
+					"type": "Date"
+				},
+				{
+					"name": "SEXO",
+					"type": "String"
+				},
+				{
+					"name": "SEXO_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "CONTRATO",
+					"type": "String"
+				},
+				{
+					"name": "APP_INTERNA",
+					"type": "String"
+				},
+				{
+					"name": "APP_EXTERNA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "NOM1",
+					"type": "String"
+				},
+				{
+					"name": "NOM2",
+					"type": "String"
+				},
+				{
+					"name": "APEL1",
+					"type": "String"
+				},
+				{
+					"name": "APEL2",
+					"type": "String"
+				},
+				{
+					"name": "NOM1_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "NOM2_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "APEL1_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "APEL2_EXTERNO",
+					"type": "String"
+				},
+				{
+					"name": "NUM_INFO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "TIPO_INCONSISTENCIA",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_TIPDOC",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_NUMDOC",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_NOM1",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_NOM",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_APEL1",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_APEL2",
+					"type": "String"
+				},
+				{
+					"name": "TIPO_FECNAC",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "PAIS",
+			"attributes": [
+				{
+					"name": "NOMBRE_PAIS",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "GENTILICIO",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PAR_ALIASCOLUMNAS",
+			"attributes": [
+				{
+					"name": "NOMBRETABLA",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRECOLUMNA",
+					"type": "String"
+				},
+				{
+					"name": "ALIASCOLUMNA",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				}
+			]
+		},
+		{
+			"name": "PAR_DEPENDENCIA_CAMPO",
+			"attributes": [
+				{
+					"name": "ID_PAR_CAMPO_PRINCIPAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PAR_CAMPO_DEPENDIENTE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PAR_FORMATO_CAMPO",
+			"attributes": [
+				{
+					"name": "LONGITUD_TEXTO",
+					"type": "Number"
+				},
+				{
+					"name": "FORMATO_FECHA",
+					"type": "String"
+				},
+				{
+					"name": "RANGO_MINIMO",
+					"type": "Number"
+				},
+				{
+					"name": "RANGO_MAXIMO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "EXPRESION_REGULAR",
+					"type": "String"
+				},
+				{
+					"name": "ES_DECIMAL",
+					"type": "String"
+				},
+				{
+					"name": "ES_NEGATIVO",
+					"type": "String"
+				},
+				{
+					"name": "Descripcion",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PAR_FORMULARIO",
+			"attributes": [
+				{
+					"name": "NOMBRE",
+					"type": "String"
+				},
+				{
+					"name": "TITULO",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_TABLA",
+					"type": "String"
+				},
+				{
+					"name": "ESTADO_FORMULARIO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PAR_ORIGEN_INFORMACION",
+			"attributes": [
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "TABLA",
+					"type": "String"
+				},
+				{
+					"name": "FILTRO",
+					"type": "String"
+				},
+				{
+					"name": "ORDEN",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "IDENTIFICADOR",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PAR_TIPO_CAMPO",
+			"attributes": [
+				{
+					"name": "DESCRIPCION_TIPO",
+					"type": "String"
+				},
+				{
+					"name": "ESTADO_TIPO_CAMPO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PEDIDOS",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO_DESTINO",
+					"type": "Number"
+				},
+				{
+					"name": "CONSECUTIVO_SOLICITUD",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_ATIENDE",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_PEDIDO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_DESPACHO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "PEDIDO_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "CONSECUTIVO_MANUAL",
+					"type": "Number"
+				},
+				{
+					"name": "LOGIN_PEDIDO",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_DESPACHO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_PEDIDO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRIORIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRIORIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "PLANES",
+			"attributes": [
+				{
+					"name": "COD_COMPANIA",
+					"type": "Number"
+				},
+				{
+					"name": "COD_PLAN",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "PORCENTAJE_MEDICO",
+			"attributes": [
+				{
+					"name": "CODIGO_PORCENTAJE",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_MODIFICACION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_MODIFICACION",
+					"type": "Date"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_PORCENTAJE_MEDICO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "PREFIJO",
+			"attributes": [
+				{
+					"name": "PREFIJO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PIE_PREFIJO",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "PRESTADOR",
+			"attributes": [
+				{
+					"name": "COD_PRE_SGS",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_DOCUMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "MONEDA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_TIEMPO",
+					"type": "Number"
+				},
+				{
+					"name": "NUM_DOC",
+					"type": "String"
+				},
+				{
+					"name": "COD_INTERNO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "DIRECCION",
+					"type": "String"
+				},
+				{
+					"name": "TELEFONO",
+					"type": "String"
+				},
+				{
+					"name": "MAN_HIS_CLI",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CON_AUT_MENEDAD",
+					"type": "String"
+				},
+				{
+					"name": "CONSECUTIVO_MENOR_EDAD",
+					"type": "Number"
+				},
+				{
+					"name": "CONSECUTIVO_NN",
+					"type": "Number"
+				},
+				{
+					"name": "TIE_CON_URG",
+					"type": "Number"
+				},
+				{
+					"name": "FAX",
+					"type": "String"
+				},
+				{
+					"name": "DIRECTOR",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CON_LOC_MENEDAD",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CON_LOC_NN",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CON_ANTICIPO",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_ANTICIPO_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "TAG_DOCUMENTO",
+					"type": "String"
+				},
+				{
+					"name": "MAN_INTER_CONTAB",
+					"type": "String"
+				},
+				{
+					"name": "AUDITORIA",
+					"type": "String"
+				},
+				{
+					"name": "TIP_DOCDEFEC",
+					"type": "String"
+				},
+				{
+					"name": "MAN_RIPS",
+					"type": "String"
+				},
+				{
+					"name": "COMPORTAMIENTO",
+					"type": "Number"
+				},
+				{
+					"name": "PROCEANALITICA",
+					"type": "String"
+				},
+				{
+					"name": "IMAGEN",
+					"type": "String"
+				},
+				{
+					"name": "MAN_VOLANTES",
+					"type": "String"
+				},
+				{
+					"name": "CONCCONCEPCC",
+					"type": "String"
+				},
+				{
+					"name": "MAN_PINES",
+					"type": "String"
+				},
+				{
+					"name": "MAXINTENTOS_PINES",
+					"type": "Number"
+				},
+				{
+					"name": "COD_PROG_IFCO",
+					"type": "Number"
+				},
+				{
+					"name": "COD_ORIGEN",
+					"type": "String"
+				},
+				{
+					"name": "CONTROLAVERSION",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CENTRO_COSTO_VALIDO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENTRO_COSTO_VALIDO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "CIUDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CIUDAD"
+				},
+				{
+					"entityRef": "MEDICAMENTO_ALTO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICAMENTO_ALTO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "SUSTITUTOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUSTITUTOS",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CENTRO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CENTRO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "EXCEPCION_PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_PRODUCTO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "PRESTADOR_CENTRO_COSTO_UNICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PRESTADOR_CENTRO_COSTO_UNICO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				},
+				{
+					"entityRef": "RECARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "RECARGO",
+					"localField": "_id",
+					"foreignField": "ID_PRESTADOR"
+				}
+			]
+		},
+		{
+			"name": "PRESTADOR_CENTRO_COSTO_UNICO",
+			"attributes": [
+				{
+					"name": "CENTRO_COSTO",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_CENTRO_COSTO_UNICO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				}
+			]
+		},
+		{
+			"name": "PRIORIDAD",
+			"attributes": [
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "VAL_PRIORIDA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PRIORIDAD",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_PRIORIDAD"
+				},
+				{
+					"entityRef": "PEDIDOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PEDIDOS",
+					"localField": "_id",
+					"foreignField": "ID_PRIORIDAD"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO",
+			"attributes": [
+				{
+					"name": "PROCEDIM",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_SEXO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "EDAD_INI",
+					"type": "Number"
+				},
+				{
+					"name": "EDAD_FIN",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_COPAGO",
+					"type": "String"
+				},
+				{
+					"name": "POR_COPAGO",
+					"type": "Number"
+				},
+				{
+					"name": "NIV_PROCED",
+					"type": "String"
+				},
+				{
+					"name": "AUT_PACIENTE",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_CUPS",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_ISS",
+					"type": "String"
+				},
+				{
+					"name": "CATEGORIA",
+					"type": "String"
+				},
+				{
+					"name": "CLASE",
+					"type": "String"
+				},
+				{
+					"name": "UVR",
+					"type": "Number"
+				},
+				{
+					"name": "BILATERAL",
+					"type": "String"
+				},
+				{
+					"name": "TIE_DURACION",
+					"type": "Number"
+				},
+				{
+					"name": "TIE_ADECUACION",
+					"type": "Number"
+				},
+				{
+					"name": "TIE_LIMPIEZA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_PROCEDIMIENTO",
+					"type": "Number"
+				},
+				{
+					"name": "FOR_CONSENT",
+					"type": "Number"
+				},
+				{
+					"name": "OBS_CONSENT",
+					"type": "String"
+				},
+				{
+					"name": "FINALIDAD",
+					"type": "String"
+				},
+				{
+					"name": "OBS_SIS",
+					"type": "String"
+				},
+				{
+					"name": "OSI",
+					"type": "String"
+				},
+				{
+					"name": "ID_ESPECIALIDAD_INTERCONSULTA",
+					"type": "Number"
+				},
+				{
+					"name": "ORDENAHC",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_OSI",
+					"type": "String"
+				},
+				{
+					"name": "FLAG_POS",
+					"type": "String"
+				},
+				{
+					"name": "COD_SISPRO",
+					"type": "String"
+				},
+				{
+					"name": "DES_SISPRO",
+					"type": "String"
+				},
+				{
+					"name": "BIOPSIA",
+					"type": "String"
+				},
+				{
+					"name": "FACTORES",
+					"type": "String"
+				},
+				{
+					"name": "INJERTOS",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_BILATERALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "PATOLOGIA",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ANTICIPO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ANTICIPO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "AUDITORIA_SOLICITUD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "AUDITORIA_SOLICITUD",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "AUTORIZACION_BH",
+					"typeRelationship": "one-to-many",
+					"fieldName": "AUTORIZACION_BH",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA1",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "CARGO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "CONSULTA_EXTERNA_PYP",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CONSULTA_EXTERNA_PYP",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "DETALLE_CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "DETALLE_CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "ENCABEZADO_RESULTADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENCABEZADO_RESULTADO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "EXCEPCION_REGARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_REGARGO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "SUB_GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUB_GRUPO_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "TIPO_ANESTESIA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIPO_ANESTESIA",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CENTRO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CENTRO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_NIVEL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_NIVEL",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_NIVEL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_NIVEL1",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTOS_RIS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTOS_RIS",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_FINALIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_FINALIDAD",
+					"localField": "_id",
+					"foreignField": "ID_PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO_CENTRO_COSTO",
+			"attributes": [
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "TIEMPO_DURACION",
+					"type": "Number"
+				},
+				{
+					"name": "TIEMPO_ADECUACION",
+					"type": "Number"
+				},
+				{
+					"name": "TIEMPO_LIMPIEZA",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_HCRESULTADO",
+					"type": "String"
+				},
+				{
+					"name": "HONORARIOS_R",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIEMPO_LIMPIEZA",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_ENCABEZADO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+			"attributes": [
+				{
+					"name": "FECHA_INICIAL",
+					"type": "Date"
+				},
+				{
+					"name": "FECHA_FINAL",
+					"type": "Date"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_CARGO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "ALIAS",
+					"type": "String"
+				},
+				{
+					"name": "EXCEDENTE",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_ADMISION"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO_ENTIDAD",
+			"attributes": [
+				{
+					"name": "AUTORIZA",
+					"type": "String"
+				},
+				{
+					"name": "APLICA_VALOR_UVR",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "FLAG_EGRESA",
+					"type": "String"
+				},
+				{
+					"name": "AUTORIZA_URGENCIAS",
+					"type": "String"
+				},
+				{
+					"name": "AUTORIZA_CONSULTAEXTERNA",
+					"type": "String"
+				},
+				{
+					"name": "AUTORIZA_HOSPITALIZACION",
+					"type": "String"
+				},
+				{
+					"name": "AUTORIZA_CIRUGIA",
+					"type": "String"
+				},
+				{
+					"name": "AUTORIZA_PROCEDIMIENTOS",
+					"type": "String"
+				},
+				{
+					"name": "ATRIBUTO_BH",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_PROCXENT",
+					"type": "Number"
+				},
+				{
+					"name": "FLAG_UVR",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_AUTORIZA_PROCXENT",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO_FINALIDAD",
+			"attributes": [
+				{
+					"name": "FINALIDAD",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTO_NIVEL",
+			"attributes": [
+				{
+					"name": "FECHA_INICIAL",
+					"type": "Date"
+				},
+				{
+					"name": "FECHA_FINAL",
+					"type": "Date"
+				},
+				{
+					"name": "NIVEL",
+					"type": "String"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO1"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "PROCEDIMIENTOS_RIS",
+			"attributes": [
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO_RIS",
+					"type": "String"
+				},
+				{
+					"name": "NOMBRE_EXAMEN",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ID_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO_HIS",
+					"type": "String"
+				},
+				{
+					"name": "PET_AUTOMATICA",
+					"type": "String"
+				},
+				{
+					"name": "PET_AOTOMATICA_SI_ES_URGENTE",
+					"type": "String"
+				},
+				{
+					"name": "ROWNUM",
+					"type": "Number"
+				},
+				{
+					"name": "EX_KEY",
+					"type": "Number"
+				},
+				{
+					"name": "QPQD_QP_EXAMKEY",
+					"type": "String"
+				},
+				{
+					"name": "QPQD_QP_EXSDKEY",
+					"type": "String"
+				},
+				{
+					"name": "EX_SERVICE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ACTIVO",
+					"type": "Boolean"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "PRODUCTO",
+			"attributes": [
+				{
+					"name": "COD_CORTO",
+					"type": "String"
+				},
+				{
+					"name": "COD_INTELIGENTE",
+					"type": "String"
+				},
+				{
+					"name": "COD_BARRAS",
+					"type": "String"
+				},
+				{
+					"name": "COD_ALEA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_FLAG_GENERICO",
+					"type": "Number"
+				},
+				{
+					"name": "NIVEL_MEDICAM",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_MEDICAMENTO_CONTROLADO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_PRESENTACION_PRODUCTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_REUTILIZABLE",
+					"type": "Number"
+				},
+				{
+					"name": "CONTENIDO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_MODO_DESPACHO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_MEDICAMENTO_MATER",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "COD_POS",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_FLAG_POS",
+					"type": "Number"
+				},
+				{
+					"name": "DES_GENERICO",
+					"type": "String"
+				},
+				{
+					"name": "CONCENTRACION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_FORMA_FARMACEUTICA",
+					"type": "Number"
+				},
+				{
+					"name": "COD_HIJO",
+					"type": "String"
+				},
+				{
+					"name": "DES_CORTA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION_PA",
+					"type": "String"
+				},
+				{
+					"name": "COD_CUMS",
+					"type": "String"
+				},
+				{
+					"name": "ID_CONCEPTO_NO_POS",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "MEDICAMENTO_ALTO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICAMENTO_ALTO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_PRODUCTO"
+				},
+				{
+					"entityRef": "UNIDAD_MEDIDA_PEDIDO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "UNIDAD_MEDIDA_PEDIDO"
+				},
+				{
+					"entityRef": "UNIDAD_MEDIDA_PEDIDO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "UNIDAD_MEDIDA_PEDIDO1"
+				},
+				{
+					"entityRef": "UNIDAD_MEDIDA_PEDIDO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "UNIDAD_MEDIDA_PEDIDO2"
+				},
+				{
+					"entityRef": "SUSTITUTOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUSTITUTOS",
+					"localField": "_id",
+					"foreignField": "ID_PRODUCTO"
+				},
+				{
+					"entityRef": "SUSTITUTOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUSTITUTOS1",
+					"localField": "_id",
+					"foreignField": "ID_PRODUCTO"
+				},
+				{
+					"entityRef": "EXCEPCION_PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_PRODUCTO",
+					"localField": "_id",
+					"foreignField": "ID_PRODUCTO"
+				}
+			]
+		},
+		{
+			"name": "PYP_PROCEDIMIENTO_PROGRAMA",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "EDADINI",
+					"type": "Number"
+				},
+				{
+					"name": "EDADFIN",
+					"type": "Number"
+				},
+				{
+					"name": "UNI_MED_EDAD",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_SEXO",
+					"type": "Number"
+				},
+				{
+					"name": "FRECUENCIA",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PYP_PROGRAMAS",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PYP_PROGRAMAS"
+				}
+			]
+		},
+		{
+			"name": "PYP_PROGRAMAS",
+			"attributes": [
+				{
+					"name": "COD_PROGRAMA",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADOSCYF",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PYP_PROCEDIMIENTO_PROGRAMA",
+					"localField": "_id",
+					"foreignField": "ID_PYP_PROGRAMAS"
+				}
+			]
+		},
+		{
+			"name": "RECALCULO_AUTOMATICO",
+			"attributes": [
+				{
+					"name": "CODIGO_INTELIGENTE",
+					"type": "String"
+				},
+				{
+					"name": "PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_RECALCULO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "RECARGO",
+			"attributes": [
+				{
+					"name": "RECARGO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_RECARGO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				}
+			]
+		},
+		{
+			"name": "RECARGO_AUTOMATICO",
+			"attributes": [
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO_INTELIGENTE",
+					"type": "String"
+				},
+				{
+					"name": "PORCENTAJE",
+					"type": "Number"
+				},
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ACTIVO",
+					"type": "Boolean"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "RELIGION",
+			"attributes": [
+				{
+					"name": "RELIGION",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ORDEN",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "RUTA_LIQUIDACION",
+			"attributes": []
+		},
+		{
+			"name": "SALARIO",
+			"attributes": [
+				{
+					"name": "ANNO",
+					"type": "Number"
+				},
+				{
+					"name": "SALARIO_MINIMO_LEGAL",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "SALAS",
+			"attributes": [
+				{
+					"name": "SALA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_SALA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "SECCION",
+			"attributes": [
+				{
+					"name": "SECCION",
+					"type": "String"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_CENSO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA",
+					"localField": "_id",
+					"foreignField": "ID_SECCION"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "SUB_GRUPO_PROCEDIMIENTO",
+			"attributes": [
+				{
+					"name": "SUB_PROCED",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "GRUPO_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "MEDICO_GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICO_GRUPO_PROCEDIMIENTO",
+					"localField": "_id",
+					"foreignField": "ID_SUB_GRUPO_PROCEDIMIENTO"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO",
+					"localField": "_id",
+					"foreignField": "ID_SUB_GRUPO_PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "SUBCONCEPTO",
+			"attributes": [
+				{
+					"name": "ID_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_SUB_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				},
+				{
+					"entityRef": "TIPO_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "SUCURSAL",
+			"attributes": [
+				{
+					"name": "COD_SUCUR",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_DOCUMENTO",
+					"type": "Number"
+				},
+				{
+					"name": "COD_INTERNO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "CON_AUT_REM",
+					"type": "Number"
+				},
+				{
+					"name": "NUM_DOC",
+					"type": "String"
+				},
+				{
+					"name": "MAN_TRIAGE",
+					"type": "String"
+				},
+				{
+					"name": "NUM_CONSULT",
+					"type": "Number"
+				},
+				{
+					"name": "NIV_INSTITUC",
+					"type": "Number"
+				},
+				{
+					"name": "DIRECCION",
+					"type": "String"
+				},
+				{
+					"name": "TELEFONO",
+					"type": "String"
+				},
+				{
+					"name": "FAX",
+					"type": "String"
+				},
+				{
+					"name": "CONSECUTIVO_MENOR_EDAD",
+					"type": "Number"
+				},
+				{
+					"name": "CONSECUTIVO_NN",
+					"type": "Number"
+				},
+				{
+					"name": "DIRECTOR",
+					"type": "String"
+				},
+				{
+					"name": "SAL_MIN_LEG",
+					"type": "Number"
+				},
+				{
+					"name": "EMAIL",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CONS_AUT",
+					"type": "String"
+				},
+				{
+					"name": "MOD_FEC_ADM",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CAR_AUT_URG",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CAR_AUT_CE",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CAM_PLA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_UNIDAD_MEDIDA_TIEMPO_OBSERVACION",
+					"type": "Number"
+				},
+				{
+					"name": "TIE_ESP_OB",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_REC_AUT",
+					"type": "String"
+				},
+				{
+					"name": "CON_FORMULACION",
+					"type": "Number"
+				},
+				{
+					"name": "CON_FOR_PROC",
+					"type": "Number"
+				},
+				{
+					"name": "BLOQ_PEDIDOS",
+					"type": "String"
+				},
+				{
+					"name": "MAN_INVENTARIO",
+					"type": "String"
+				},
+				{
+					"name": "CON_PROGCIRU",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CON_CTACOBRO",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_REDONDEO",
+					"type": "String"
+				},
+				{
+					"name": "VLR_REDONDEO",
+					"type": "Number"
+				},
+				{
+					"name": "CON_RIPS",
+					"type": "Number"
+				},
+				{
+					"name": "CON_DIETAS",
+					"type": "Number"
+				},
+				{
+					"name": "HOR_MEDIO_DIA",
+					"type": "Number"
+				},
+				{
+					"name": "CON_CERTIFISOAT",
+					"type": "Number"
+				},
+				{
+					"name": "CON_CERTIFIHOS",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_CONVEMED",
+					"type": "String"
+				},
+				{
+					"name": "CON_CITA",
+					"type": "Number"
+				},
+				{
+					"name": "ANUL_PED_INTEFACE_ACT",
+					"type": "String"
+				},
+				{
+					"name": "PED_INTEFACE_ACT",
+					"type": "String"
+				},
+				{
+					"name": "DEV_INTEFACE_ACT",
+					"type": "String"
+				},
+				{
+					"name": "INC_PED_INTEFACE_ACT",
+					"type": "String"
+				},
+				{
+					"name": "CON_AUTORIZA",
+					"type": "Number"
+				},
+				{
+					"name": "COD_GRABACION_CT",
+					"type": "String"
+				},
+				{
+					"name": "DIFHORSERVIDOR",
+					"type": "Number"
+				},
+				{
+					"name": "MAN_PROTOCOLOS",
+					"type": "String"
+				},
+				{
+					"name": "MAN_PRECARGOS",
+					"type": "String"
+				},
+				{
+					"name": "ANUL_SINVALIDAR",
+					"type": "String"
+				},
+				{
+					"name": "CODIGORIPS",
+					"type": "String"
+				},
+				{
+					"name": "AGFA",
+					"type": "String"
+				},
+				{
+					"name": "AGFA_MERGE",
+					"type": "String"
+				},
+				{
+					"name": "AGFA_MEDIWEB",
+					"type": "String"
+				},
+				{
+					"name": "ORDENAR_GENERICO",
+					"type": "String"
+				},
+				{
+					"name": "PEDIDO_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "MAN_UNI_ATE_PRI",
+					"type": "String"
+				},
+				{
+					"name": "MAN_ENFERMERIA",
+					"type": "String"
+				},
+				{
+					"name": "PHD",
+					"type": "String"
+				},
+				{
+					"name": "EMAIL_CTC",
+					"type": "String"
+				},
+				{
+					"name": "PIDE_CTC",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CITAESP",
+					"type": "String"
+				},
+				{
+					"name": "MAN_DIGITURNO",
+					"type": "String"
+				},
+				{
+					"name": "MAN_WSCITAS",
+					"type": "String"
+				},
+				{
+					"name": "MAN_ESTADO_PAC",
+					"type": "String"
+				},
+				{
+					"name": "SUCURSAL_OSI",
+					"type": "String"
+				},
+				{
+					"name": "FLAG_CENSO",
+					"type": "Boolean"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ANTICIPO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ANTICIPO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CARGO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CARGOS_PENDIENTES",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CARGOS_PENDIENTES",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CENSO_HISTORICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_HISTORICO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CIUDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CIUDAD"
+				},
+				{
+					"entityRef": "CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CONCATENA_CONCEPTO_POR_CENTRO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "ENCABEZADO_RESULTADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENCABEZADO_RESULTADO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ENTIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "EXCEPCION_REGARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_REGARGO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "HOMOLOGACION_SERVICIOS_AGFA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "HOMOLOGACION_SERVICIOS_AGFA",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "LOGIN_SUCURSAL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "LOGIN_SUCURSAL",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "MEDICAMENTO_ALTO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICAMENTO_ALTO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "MEDICO_GRUPO_PROCEDIMIENTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MEDICO_GRUPO_PROCEDIMIENTO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "NUMERO_SECUENCIA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "NUMERO_SECUENCIA",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CENTRO_COSTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CENTRO_COSTO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "RECALCULO_AUTOMATICO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "RECALCULO_AUTOMATICO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "SALAS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SALAS",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUCURSAL_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "ZONA_HORARIA_VERANO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ZONA_HORARIA_VERANO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CENSO_SERVICIO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CENSO_SERVICIO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CITA_RETRASO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CITA_RETRASO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "CONSULTORIO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CONSULTORIO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "GRUPO_ETAREO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "GRUPO_ETAREO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "LOGIN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "LOGIN",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "PEDIDOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PEDIDOS",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_NIVEL",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_NIVEL",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "SECCION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SECCION",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "TRIAGE",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRIAGE",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				},
+				{
+					"entityRef": "ZONA_HORARIA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "ZONA_HORARIA",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "SUCURSAL_CENTRO_COSTO",
+			"attributes": [
+				{
+					"name": "ID_SUCURSAL",
+					"type": "Number"
+				},
+				{
+					"name": "ID_CENTRO_COSTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "SUCURSAL_ENTIDAD",
+			"attributes": [
+				{
+					"name": "PORCENTAJE_MIN_ANTICIPO",
+					"type": "Number"
+				},
+				{
+					"name": "PORCENTAJE_ADICIONAL_ANTICIPO",
+					"type": "Number"
+				},
+				{
+					"name": "MANEJA_REDONDEO",
+					"type": "String"
+				},
+				{
+					"name": "VALOR_REDONDEO",
+					"type": "Number"
+				},
+				{
+					"name": "VERIFICA_ESTADO_PAC",
+					"type": "String"
+				},
+				{
+					"name": "VERIFICA_FOTO",
+					"type": "String"
+				},
+				{
+					"name": "HORA_GENERA_REPORTE",
+					"type": "Number"
+				},
+				{
+					"name": "MANEJA_PAQUETE_URGENCIA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_MANEJO_HORA_OBS",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_HORAS_OBSERVACION",
+					"type": "Number"
+				},
+				{
+					"name": "CANTIDAD_MINUTOS_OBSERVACION",
+					"type": "Number"
+				},
+				{
+					"name": "MANEJA_PYP",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_VALE",
+					"type": "Number"
+				},
+				{
+					"name": "USA_AFIRMA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_USUARIO",
+					"type": "Number"
+				},
+				{
+					"name": "EMAIL",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_PENALIZA_INASISTENCIA",
+					"type": "String"
+				},
+				{
+					"name": "MANEJA_PENALIZA_CANCELACION",
+					"type": "String"
+				},
+				{
+					"name": "MINEJA_TIEMPO_CANCELA_CITA",
+					"type": "Number"
+				},
+				{
+					"name": "RESTRINGE_ADMISION",
+					"type": "String"
+				},
+				{
+					"name": "ID_ITEM_LISTA_ESTADOCYF_CATALOGO",
+					"type": "Number"
+				},
+				{
+					"name": "MANEJA_DECIMALES",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_ITEM_LISTA_ESTADOCYF",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENCABEZADO_CATALOGO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENCABEZADO_CATALOGO"
+				},
+				{
+					"entityRef": "MONEDA",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MONEDA"
+				},
+				{
+					"entityRef": "NIVEL_CARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "NIVEL_CARGO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "TIEMPO_RECARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIEMPO_RECARGO",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "TARIFA_VACUNACION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TARIFA_VACUNACION",
+					"localField": "_id",
+					"foreignField": "ID_SUCURSAL_ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "SUSTITUTOS",
+			"attributes": [
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRESTADOR",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRESTADOR"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRODUCTO"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PRODUCTO1"
+				}
+			]
+		},
+		{
+			"name": "TARIFA_VACUNACION",
+			"attributes": [
+				{
+					"name": "VALOR",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL_ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_TARIFA_VACUNACION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_TARIFA_VACUNACION"
+				},
+				{
+					"entityRef": "VACUNAS",
+					"typeRelationship": "many-to-one",
+					"fieldName": "VACUNAS"
+				}
+			]
+		},
+		{
+			"name": "TIEMPO_RECARGO",
+			"attributes": [
+				{
+					"name": "CODIGO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "HORA_DESDE",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_DESDE",
+					"type": "Number"
+				},
+				{
+					"name": "HORA_FINAL",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_FINAL",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_MTTO_REC_AUTO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL_ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL_ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "TIPO_ADMISION",
+			"attributes": [
+				{
+					"name": "TIP_ADMISION",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "MAN_RESPONSA",
+					"type": "String"
+				},
+				{
+					"name": "MAN_LISESPE",
+					"type": "String"
+				},
+				{
+					"name": "MAN_CARGO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "EXCEPCION_REGARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "EXCEPCION_REGARGO",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_ADMISION"
+				},
+				{
+					"entityRef": "NIVEL_CARGO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "NIVEL_CARGO",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_ADMISION"
+				},
+				{
+					"entityRef": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PROCEDIMIENTO_CONVENIO_CAPITADO",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_ADMISION"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_ADMISION"
+				},
+				{
+					"entityRef": "SUBCONCEPTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "SUBCONCEPTO",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "TIPO_AFILIADO",
+			"attributes": [
+				{
+					"name": "TIP_AFILIAD",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "MAN_COPAGO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "TIPO_ANESTESIA",
+			"attributes": [
+				{
+					"name": "TIPO_ANESTESIA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PROCEDIMIENTO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "PROCEDIMIENTO"
+				}
+			]
+		},
+		{
+			"name": "TIPO_CAMA",
+			"attributes": [
+				{
+					"name": "TIP_CAMA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_ESTANCIA",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_CAMA"
+				}
+			]
+		},
+		{
+			"name": "TIPO_CIRUGIA",
+			"attributes": [
+				{
+					"name": "TIPO_CIRUGIA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_CIRUGIA",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				}
+			]
+		},
+		{
+			"name": "TIPO_ENTIDAD_LABORATORIO",
+			"attributes": [
+				{
+					"name": "CODIGO_ENTIDAD_LABORATORIO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "TIPO_MOTIVO",
+			"attributes": [
+				{
+					"name": "ITEM_LISTA_CLASE_MOTIVO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "MOTIVO",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_MOTIVO"
+				}
+			]
+		},
+		{
+			"name": "TIPO_NOVEDAD",
+			"attributes": [
+				{
+					"name": "CODIGO_TIPO_NOVEDAD",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "ID_CONCEPTO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "TIPO_PLAN",
+			"attributes": [
+				{
+					"name": "TIP_PLAN",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "VAL_MODERADO",
+					"type": "Number"
+				},
+				{
+					"name": "VAL_COPAGO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CAMA_PLAN",
+					"typeRelationship": "one-to-many",
+					"fieldName": "CAMA_PLAN",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_PLAN"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "TIPOS_DOCUMENTO_ENTIDAD",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TIPOS_DOCUMENTO_ENTIDAD",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_PLAN"
+				}
+			]
+		},
+		{
+			"name": "TIPO_TARIFA_VACUNACION",
+			"attributes": [
+				{
+					"name": "TARIFA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "TARIFA_VACUNACION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TARIFA_VACUNACION",
+					"localField": "_id",
+					"foreignField": "ID_TIPO_TARIFA_VACUNACION"
+				}
+			]
+		},
+		{
+			"name": "TIPOS_DOCUMENTO_ENTIDAD",
+			"attributes": [
+				{
+					"name": "ID_TIPO_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_TIPO_AFILIADO",
+					"type": "Number"
+				},
+				{
+					"name": "DOCUMENTO",
+					"type": "String"
+				},
+				{
+					"name": "PIDE_NUMERO_DOCUMENTO",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "TIPO_PLAN",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_PLAN"
+				}
+			]
+		},
+		{
+			"name": "TIPOS_VALORES",
+			"attributes": [
+				{
+					"name": "ID_PRESTADOR",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "CANTIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ID_ITEM_LISTA_ESTADOCYF",
+					"type": "Number"
+				}
+			]
+		},
+		{
+			"name": "TRAZABILIDAD_ADMISION",
+			"attributes": [
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "ID_ESPECIALIDAD",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_TRATANTE",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_EGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "ID_MEDICO_HOSPITALIZA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_EGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_EGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_EGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "CON_PRI_VEZ",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_FLAG_FACTURADO",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_VIA_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "LOGIN_CREACION",
+					"type": "String"
+				},
+				{
+					"name": "LOGIN_EGRESO",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_DESTINO_FINAL",
+					"type": "Number"
+				},
+				{
+					"name": "DIAS_ESTANCIA",
+					"type": "Number"
+				},
+				{
+					"name": "INGRESOCONCITA",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_DESTINO_LISTA_ESPERA",
+					"type": "Number"
+				},
+				{
+					"name": "IP_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "FLAG_INCONSISTENCIA",
+					"type": "String"
+				},
+				{
+					"name": "CONSULTA_PROGRAMADA",
+					"type": "String"
+				},
+				{
+					"name": "CONSECUTIVO_FUR",
+					"type": "Number"
+				},
+				{
+					"name": "CODIGO_CITA",
+					"type": "String"
+				},
+				{
+					"name": "CONSECUTIVO_ATENCION",
+					"type": "Number"
+				},
+				{
+					"name": "ANO_ADM",
+					"type": "Number"
+				},
+				{
+					"name": "NUM_ADM",
+					"type": "Number"
+				},
+				{
+					"name": "LEY_PROTECCION_DATOS",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				},
+				{
+					"entityRef": "TIPO_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TIPO_ADMISION"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION_LISTA_ESPERA_HISTORIA_CLINICA",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION_LISTA_ESPERA_HISTORIA_CLINICA",
+					"localField": "_id",
+					"foreignField": "ID_IDAZABILIDAD_ADMISION"
+				},
+				{
+					"entityRef": "CONSULTORIO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CONSULTORIO"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO1"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO2"
+				},
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION_CARGOS",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TRAZABILIDAD_ADMISION_CARGOS",
+					"localField": "_id",
+					"foreignField": "ID_IDAZABILIDAD_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "TRAZABILIDAD_ADMISION_CARGOS",
+			"attributes": [
+				{
+					"name": "ID_CARGOS_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TRAZABILIDAD_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "TRAZABILIDAD_ADMISION_LISTA_ESPERA_HISTORIA_CLINICA",
+			"attributes": [
+				{
+					"name": "ID_LISTA_ESPERA_HISTORIA_CLINICA",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "TRAZABILIDAD_ADMISION",
+					"typeRelationship": "many-to-one",
+					"fieldName": "TRAZABILIDAD_ADMISION"
+				}
+			]
+		},
+		{
+			"name": "TRIAGE",
+			"attributes": [
+				{
+					"name": "ID_PACIENTE",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_INGRESO",
+					"type": "Date"
+				},
+				{
+					"name": "HORA_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "MINUTO_INGRESO",
+					"type": "Number"
+				},
+				{
+					"name": "DESCRIPCION_MOTIVO_CONSULTA",
+					"type": "String"
+				},
+				{
+					"name": "ESC_DOLOR",
+					"type": "String"
+				},
+				{
+					"name": "ALERTA",
+					"type": "String"
+				},
+				{
+					"name": "FUR",
+					"type": "Date"
+				},
+				{
+					"name": "FUP",
+					"type": "Date"
+				},
+				{
+					"name": "GESTACION",
+					"type": "String"
+				},
+				{
+					"name": "TIEMPOAPROX",
+					"type": "Number"
+				},
+				{
+					"name": "PARTOS",
+					"type": "Number"
+				},
+				{
+					"name": "ABORTOS",
+					"type": "Number"
+				},
+				{
+					"name": "VIVOS",
+					"type": "Number"
+				},
+				{
+					"name": "MUERTOS",
+					"type": "Number"
+				},
+				{
+					"name": "CESARIAS",
+					"type": "Number"
+				},
+				{
+					"name": "REMITIDOA",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ESPECIALIDAD",
+					"type": "String"
+				},
+				{
+					"name": "CLASIFICACION_MANUAL",
+					"type": "String"
+				},
+				{
+					"name": "CLASIFICACION_CALCULADA",
+					"type": "String"
+				},
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO_TRIAGE",
+					"type": "Number"
+				},
+				{
+					"name": "ESTADO_ALARMA",
+					"type": "String"
+				},
+				{
+					"name": "ENCABEZADO_CUESTIONARIO",
+					"type": "Number"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "CONSULTORIO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "CONSULTORIO"
+				},
+				{
+					"entityRef": "ENTIDAD",
+					"typeRelationship": "many-to-one",
+					"fieldName": "ENTIDAD"
+				},
+				{
+					"entityRef": "MOTIVO",
+					"typeRelationship": "many-to-one",
+					"fieldName": "MOTIVO"
+				},
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "UNIDAD_MEDIDA_PEDIDO",
+			"attributes": [
+				{
+					"name": "UNIDAD_MEDIDA_PEDIDO",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "ALIAS_UNIDAD_MEDIDA_PEDIDO",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PRODUCTO",
+					"localField": "_id",
+					"foreignField": "ID_UNIDAD_MEDIDA_PEDIDO"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PRODUCTO1",
+					"localField": "_id",
+					"foreignField": "ID_UNIDAD_MEDIDA_PEDIDO"
+				},
+				{
+					"entityRef": "PRODUCTO",
+					"typeRelationship": "one-to-many",
+					"fieldName": "PRODUCTO2",
+					"localField": "_id",
+					"foreignField": "ID_UNIDAD_MEDIDA_PEDIDO"
+				}
+			]
+		},
+		{
+			"name": "VACUNAS",
+			"attributes": [
+				{
+					"name": "VACUNA",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION",
+					"type": "String"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "TARIFA_VACUNACION",
+					"typeRelationship": "one-to-many",
+					"fieldName": "TARIFA_VACUNACION",
+					"localField": "_id",
+					"foreignField": "ID_VACUNAS"
+				}
+			]
+		},
+		{
+			"name": "VALE_ELECTRONICO",
+			"attributes": [
+				{
+					"name": "SERVICIO",
+					"type": "String"
+				},
+				{
+					"name": "CODIGO_ERROR",
+					"type": "String"
+				},
+				{
+					"name": "DESCRIPCION_ERROR",
+					"type": "String"
+				},
+				{
+					"name": "ITEM_LISTA_ESTADO",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				},
+				{
+					"name": "PIN",
+					"type": "String"
+				},
+				{
+					"name": "ID_ADMISION",
+					"type": "Number"
+				},
+				{
+					"name": "CONTRATO",
+					"type": "String"
+				}
+			]
+		},
+		{
+			"name": "ZONA_HORARIA",
+			"attributes": [
+				{
+					"name": "UTC",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		},
+		{
+			"name": "ZONA_HORARIA_VERANO",
+			"attributes": [
+				{
+					"name": "FECHA_INICIO",
+					"type": "Date"
+				},
+				{
+					"name": "FECHA_FIN",
+					"type": "Date"
+				},
+				{
+					"name": "UTC",
+					"type": "Number"
+				},
+				{
+					"name": "FECHA_REGISTRO",
+					"type": "Date"
+				},
+				{
+					"name": "LOGIN_REGISTRO",
+					"type": "String"
+				},
+				{
+					"name": "OBSERVACIONES",
+					"type": "String"
+				}
+			],
+			"relationships": [
+				{
+					"entityRef": "SUCURSAL",
+					"typeRelationship": "many-to-one",
+					"fieldName": "SUCURSAL"
+				}
+			]
+		}
+	]
+}

@@ -6,6 +6,7 @@
     "no-underscore-dangle": "off",
     "class-methods-use-this": "off",
     "prefer-destructuring": "off",
-    "no-restricted-syntax": ["error", "ForInStatement"]
+    "no-restricted-syntax": ["error", "ForInStatement"],
+    "no-plusplus": "off";
   }
 }

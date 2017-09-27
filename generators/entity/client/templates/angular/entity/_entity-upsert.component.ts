@@ -4,14 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 
-<%_
-  for (let relationship of manyToOneRelationShips) {
-    // Validar que no hayan relaciones entre la misma tabla
-    if (relationship.entityRef.camel !== entityName.camel) {
-_%>
+<%_ for (let relationship of duplicateFreeManyToOneRelationships) { _%>
 import { <%= relationship.entityRef.pascal %>Service } from '../<%= relationship.entityRef.kebab %>/<%= relationship.entityRef.kebab %>.service';
 import { <%= relationship.entityRef.pascal %> } from '../<%= relationship.entityRef.kebab %>/<%= relationship.entityRef.kebab %>.model';
-<%_ }} _%>
+<%_ } _%>
 
 @Component({
   selector: 'app-<%= entityName.kebab %>-upsert',
@@ -22,26 +18,25 @@ export class <%= entityName.pascal %>UpSertComponent implements OnInit {
   crudOperationTitle = 'Crear';
   isCreate = true;
   <%= entityName.camel %>: <%= entityName.pascal %>;
+
+  <%_ if (manyToOneRelationShips.length > 0) { _%>
+  /** Many-To-One Relationships */
   <%_ for (let relationship of manyToOneRelationShips) {_%>
-  <%= relationship.entityRef.camel %>s: <%= relationship.entityRef.pascal %>[];
-  <%_ } _%>
+  <%= relationship.fieldName.camel %>s: <%= relationship.entityRef.pascal %>[];
+  <%_ }} _%>
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private <%= entityName.camel %>Service: <%= entityName.pascal %>Service,
-    <%_
-      for (let relationship of manyToOneRelationShips) {
-        // Validar que no hayan relaciones entre la misma tabla
-        if (relationship.entityRef.camel !== entityName.camel) {
-    _%>
+    <%_ for (let relationship of duplicateFreeManyToOneRelationships) { _%>
     private <%= relationship.entityRef.camel %>Service: <%= relationship.entityRef.pascal %>Service,
-    <%_ }} _%>
+    <%_ } _%>
   ) { }
 
   ngOnInit() {
   <%_ for (let relationship of manyToOneRelationShips) { _%>
-    this.<%= relationship.entityRef.camel %>Service.getAll().subscribe(<%= relationship.entityRef.camel %>s => this.<%= relationship.entityRef.camel %>s = <%= relationship.entityRef.camel %>s);
+    this.<%= relationship.entityRef.camel %>Service.getAll().subscribe(<%= relationship.fieldName.camel %>s => this.<%= relationship.fieldName.camel %>s = <%= relationship.fieldName.camel %>s);
   <%_ } _%>
     this.route.params.subscribe((params) => {
       const id = params['id'];
