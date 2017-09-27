@@ -30,12 +30,12 @@
             <div class="col-12 form-group" *ngIf="<%= relationship.entityRef.camel %>s">
               <label for="field_<%= relationship.entityRef.camel %>"><%= relationship.entityRef.start %></label>
 
-              <select *ngIf="!<%= entityName.camel %>" class="form-control" name="id<%= relationship.entityRef.start %>" ngModel>
+              <select *ngIf="!<%= entityName.camel %>" class="form-control" name="id<%= relationship.fieldName.pascal %>" ngModel>
                 <option [ngValue]="null"></option>
                 <option [ngValue]="<%= relationship.entityRef.camel %>._id" *ngFor="let <%= relationship.entityRef.camel %> of <%= relationship.entityRef.camel %>s">{{ <%= relationship.entityRef.camel %>._id }}</option>
               </select>
 
-              <select *ngIf="<%= entityName.camel %> && <%= entityName.camel %>.id<%= relationship.entityRef.start %>" class="form-control" name="id<%= relationship.entityRef.start %>" [(ngModel)]="<%= entityName.camel %>.id<%= relationship.entityRef.start %>">
+              <select *ngIf="<%= entityName.camel %> && <%= entityName.camel %>.id<%= relationship.fieldName.pascal %>" class="form-control" name="id<%= relationship.fieldName.pascal %>" [(ngModel)]="<%= entityName.camel %>.id<%= relationship.fieldName.pascal %>">
                 <option [ngValue]="null"></option>
                 <option [ngValue]="<%= relationship.entityRef.camel %>._id" *ngFor="let <%= relationship.entityRef.camel %> of <%= relationship.entityRef.camel %>s">{{ <%= relationship.entityRef.camel %>._id }}</option>
               </select>
