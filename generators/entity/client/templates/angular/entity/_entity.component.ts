@@ -16,6 +16,12 @@ import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
                 [pageSize]="elementsPerPage" [boundaryLinks]="true"
                 (pageChange)="loadAll()"></ngb-pagination>
                 </div>
+                <%_} else {_%>
+                  <div class="row justify-content-center" *ngIf="<%= entityName.camel %>s && <%= entityName.camel %>s.length">
+                  <ngb-pagination [collectionSize]="totalElements" [(page)]="page"
+                  [pageSize]="elementsPerPage" [boundaryLinks]="true"
+                  (pageChange)="loadAll()"></ngb-pagination>
+                  </div>
                 <%_}_%>
               </div>
             `
@@ -41,14 +47,24 @@ export class <%= entityName.pascal %>Component implements OnInit {
     this.loadAll();
   }
    private loadAll() {
-     <%_if(!pagination){_%>
-      this.<%= entityName.camel %>Service.getAll().subscribe(<%= entityName.camel %>s => this.<%= entityName.camel %>s = <%= entityName.camel %>s);
-      <%_}else{_%>
+    <%_if(pagination){_%>
+      const query = { page: this.page - 1, size: this.elementsPerPage };
+      this.<%= entityName.camel %>Service.get(query).subscribe((response: Response) => {
+      this.<%= entityName.camel %>s = response.json().<%= entityName.camel %>s as <%= entityName.pascal %>[];
+      this.totalElements = response.headers.get('X-Total-Count');
+        });
+      <%_} else if(paginationGlobal){_%>
         const query = { page: this.page - 1, size: this.elementsPerPage };
         this.<%= entityName.camel %>Service.get(query).subscribe((response: Response) => {
         this.<%= entityName.camel %>s = response.json().<%= entityName.camel %>s as <%= entityName.pascal %>[];
         this.totalElements = response.headers.get('X-Total-Count');
       });
-      <%_}_%>
+      <%_} else {_%>
+        const query = { page: this.page - 1, size: this.elementsPerPage };
+        this.<%= entityName.camel %>Service.get(query).subscribe((response: Response) => {
+        this.<%= entityName.camel %>s = response.json().<%= entityName.camel %>s as <%= entityName.pascal %>[];
+        this.totalElements = response.headers.get('X-Total-Count');
+      });
+      <%_ } _%>
   }
 }
