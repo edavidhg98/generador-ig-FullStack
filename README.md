@@ -207,7 +207,7 @@ Se pueden especificar los mensajes de validación de un atributo de dos maneras:
 ```
 ## Especificación de la paginación  
 
-El atributo paginationGlobal permite especificar la paginación global que usaran todas las entidades de la aplicacion cuando no se especifica de manera local, es decir, dentro de la entidad.
+El atributo paginationGlobal permite especificar la cantidad de registros que se obtendran al consultar todas las entidades de la aplicacion.
 
 ```json
 {
@@ -217,7 +217,7 @@ El atributo paginationGlobal permite especificar la paginación global que usara
 }
 ```
 
-Ésta clase de paginación, hace referencia al tipo de paginación local, la cual se espesifica dentro de la entidad, es decir, es éste caso, no se implementaría la global. 
+Ésta clase de paginación, permite establecer por cada entidad la cantidad de registros que se quieren visualizar al realizar la consulta, a diferencia de la global sólo aplica para la entidad que lo contiene. 
 
 ```json
 {
@@ -226,7 +226,7 @@ El atributo paginationGlobal permite especificar la paginación global que usara
   }
 }
 ```
-Y en caso que no tenga ninguna de las anteriores, el generador implementará una por defecto, la cual será de 10 elemantos por pagina, algo así como (elementsPerPage: 10). Tenga en cuenta, que ésto se hará efectivo, cuando no se haya especificado la paginación global, ni la local.
+En caso que no se especifique ninguno de estro atributos se tomara la paginacion por defecto con un valor de (elementsPerPage: 10) aplicado a todas las entidades del modelo.
 
 ## Especificación de tipos de control a usar
 
