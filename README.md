@@ -205,9 +205,9 @@ Se pueden especificar los mensajes de validación de un atributo de dos maneras:
   ]
 }
 ```
-## Especificación de la paginacion 
+## Especificación de la paginación  
 
-El atributo paginationGlobal permite especificar la paginacion global que usaran todas las entidad de la aplicacion cuando no se especifica de manera local, es decir, dentro de la entidad.
+El atributo paginationGlobal permite especificar la paginación global que usaran todas las entidades de la aplicacion cuando no se especifica de manera local, es decir, dentro de la entidad.
 
 ```json
 {
@@ -217,7 +217,7 @@ El atributo paginationGlobal permite especificar la paginacion global que usaran
 }
 ```
 
-Éste tipo de paginacion, hace referencia al tipo de paginacion local, la cual se espesifica dentro de la entidad. 
+Ésta clase de paginación, hace referencia al tipo de paginación local, la cual se espesifica dentro de la entidad, es decir, es éste caso, no se implementaría la global. 
 
 ```json
 {
@@ -226,7 +226,7 @@ El atributo paginationGlobal permite especificar la paginacion global que usaran
   }
 }
 ```
-Y en caso que no tenga ninguna delas 
+Y en caso que no tenga ninguna de las anteriores, el generador implementará una por defecto, la cual será de 10 elemantos por pagina, algo así como (elementsPerPage: 10). Tenga en cuenta, que ésto se hará efectivo, cuando no se haya especificado la paginación global, ni la local.
 
 ## Especificación de tipos de control a usar
 
@@ -388,3 +388,4 @@ Apache-2.0 © [SMorales]()
 
 [npm-image]: https://badge.fury.io/js/generator-ig-fullstack.svg
 [npm-url]: https://npmjs.org/package/generator-ig-fullstack
+
