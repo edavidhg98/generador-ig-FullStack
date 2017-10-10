@@ -1,10 +1,18 @@
 const repository = require('./<%= entityName.kebab  %>.repository');
 
 function getAll(req, res) {
+  <%_if(!pagination) {_%>
   repository.get()
     .then((<%= entityName.camel %>s) => {
       res.json(<%= entityName.camel %>s);
     })
+  <%_}else{_%>
+    repository.get(req.query)
+    .then((<%= entityName.camel %>s) => {
+      res.set('X-Total-Count', <%= entityName.camel %>s.totalCount);
+      res.json(<%= entityName.camel %>s);
+    })
+  <%_}_%>
     .catch(handleError(res));
 }
 

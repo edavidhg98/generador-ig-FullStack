@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams } from '@angular/http';
 
 import { <%= entityName.pascal %> } from './<%= entityName.kebab %>.model';
 
@@ -16,12 +16,23 @@ export class <%= entityName.pascal %>Service {
 
   }
 
-  getAll(): Observable<<%= entityName.pascal %>[]> {
+<%_if(!pagination){_%>
+  getAll(): Observable<any>{
     return this.http.get(this.entityUrl)
       .map(this.checkStatus)
       .map(response => response.json() as <%= entityName.pascal %>[])
       .catch(this.handleError);
   }
+ <%_}else{_%>
+  get(query?: any): Observable<any> {
+    const params = new URLSearchParams();
+    params.set('page', query.page);
+    params.set('size', query.size);
+    return this.http.get(this.entityUrl, { search: params })
+      .map(this.checkStatus)
+      .catch(this.handleError);
+  }
+  <%_}_%>
 
   getById(id: string): Observable<<%= entityName.pascal %>> {
     return this.http.get(this.entityUrl + id)

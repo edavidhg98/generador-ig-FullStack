@@ -14,6 +14,7 @@ module.exports = class extends Generator {
     this.relationships = opts.relationships;
     this.manyToOneRelationShips = opts.manyToOneRelationShips;
     this.oneToManyRelationShips = opts.oneToManyRelationShips;
+    this.pagination = opts.pagination;
   }
 
   writing() {
@@ -35,6 +36,7 @@ module.exports = class extends Generator {
           relationships: this.relationships,
           manyToOneRelationShips: this.manyToOneRelationShips,
           oneToManyRelationShips: this.oneToManyRelationShips,
+          pagination: this.pagination,
           _: _
         }
       );

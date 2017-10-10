@@ -10,6 +10,7 @@ module.exports = class extends Generator {
     this.globalMessages = opts.globalMessages;
     this.entityNameFormats = opts.entityNameFormats;
 
+    this.paginationGlobal = opts.paginationGlobal;
     this.relationships = opts.relationships;
     this.duplicateFreeRelationships = opts.duplicateFreeRelationships;
 
@@ -49,6 +50,8 @@ module.exports = class extends Generator {
           oneToManyRelationShips: this.oneToManyRelationShips,
           duplicateFreeManyToOneRelationships: this.duplicateFreeManyToOneRelationships,
           util,
+          pagination: this.entity.pagination,
+          paginationGlobal: this.paginationGlobal,
           _: _
         }
       );

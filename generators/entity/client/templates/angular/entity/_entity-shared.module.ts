@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
 import { EntitiesSharedModule } from '../entities-shared.module';
-
 import { <%= entityName.pascal %>ListComponent } from './<%= entityName.kebab %>-list.component';
 import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.service';
 
@@ -11,7 +9,7 @@ import { <%= entityName.pascal %>Service } from './<%= entityName.kebab %>.servi
   imports: [
     CommonModule,
     EntitiesSharedModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     <%= entityName.pascal %>ListComponent

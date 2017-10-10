@@ -8,6 +8,7 @@ module.exports = class extends Generator {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.globalMessages = opts.globalMessages;
+    this.paginationGlobal = opts.paginationGlobal;
 
     this.entity = this._changeFormatEntityAttributeNames(opts.entity);
     this.entityNameFormats = utils.getNaminFormats(this.entity.name);
@@ -19,6 +20,7 @@ module.exports = class extends Generator {
     this.duplicateFreeManyToOneRelationships = this.duplicateFreeRelationships.filter(rel => rel.typeRelationship.toLowerCase() === 'many-to-one');
 
     this.oneToManyRelationShips = this._getOneToManyRelationships(this.relationships);
+
   }
 
   writing() {
@@ -56,18 +58,26 @@ module.exports = class extends Generator {
       manyToOneRelationShips: this.manyToOneRelationShips,
       oneToManyRelationShips: this.oneToManyRelationShips,
       duplicateFreeRelationships: this.duplicateFreeRelationships,
-      duplicateFreeManyToOneRelationships: this.duplicateFreeManyToOneRelationships
+      duplicateFreeManyToOneRelationships: this.duplicateFreeManyToOneRelationships,
+      paginationGlobal: this.paginationGlobal
     });
   }
 
   _writeServerEntity() {
+    var pagination = undefined;
+    if(this.entity.pagination){
+      pagination = this.entity.pagination;
+    }else if(this.paginationGlobal){
+      pagination = this.paginationGlobal;
+    }
     this.composeWith(require.resolve('./server'), {
       typeOfApp: this.typeOfApp,
       entity: this.entity,
       entityNameFormats: this.entityNameFormats,
       relationships: this.relationships,
       manyToOneRelationShips: this.manyToOneRelationShips,
-      oneToManyRelationShips: this.oneToManyRelationShips
+      oneToManyRelationShips: this.oneToManyRelationShips,
+      pagination: pagination
     });
   }
 

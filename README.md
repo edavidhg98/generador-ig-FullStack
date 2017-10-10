@@ -31,6 +31,9 @@ Cree un archivo config.json en la carpeta del proyecto. A continuación se muest
     "minlength": "la longitud mínima es de %d caracteres",
     "maxlength": "La longitud máxima es de %d caracteres"
   },
+    "paginationGlobal": {
+    "elementsPerPage": 5
+  },
   "entities": [
     {
       "name": "Producto",
@@ -84,7 +87,10 @@ Cree un archivo config.json en la carpeta del proyecto. A continuación se muest
           "typeRelationship": "many-to-one",
           "fieldName": "proveedor"
         }
-      ]
+      ],
+        "pagination": {
+        "elementsPerPage": 3
+      }
     },
     {
       "name": "Proveedor",
@@ -148,7 +154,6 @@ El atributo globalMessages permite especificar mensajes globales que se usarán 
   }
 }
 ```
-
 Se pueden especificar los mensajes de validación de un atributo de dos maneras:
 
 1. Dentro de cada validación, especificar el respectivo mensaje.
@@ -200,6 +205,28 @@ Se pueden especificar los mensajes de validación de un atributo de dos maneras:
   ]
 }
 ```
+## Especificación de la paginacion 
+
+El atributo paginationGlobal permite especificar la paginacion global que usaran todas las entidad de la aplicacion cuando no se especifica de manera local, es decir, dentro de la entidad.
+
+```json
+{
+    "paginationGlobal": {
+    "elementsPerPage": 5
+  }
+}
+```
+
+Éste tipo de paginacion, hace referencia al tipo de paginacion local, la cual se espesifica dentro de la entidad. 
+
+```json
+{
+    "pagination": {
+    "elementsPerPage": 3
+  }
+}
+```
+Y en caso que no tenga ninguna delas 
 
 ## Especificación de tipos de control a usar
 

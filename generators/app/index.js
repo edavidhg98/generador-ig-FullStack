@@ -39,6 +39,7 @@ module.exports = class extends Generator {
         const configSettings = JSON.parse(fs.readFileSync(path.join(props.configFile), 'utf8'));
         this.entities = configSettings.entities;
         this.globalMessages = configSettings.globalMessages;
+        this.paginationGlobal = configSettings.paginationGlobal;
       } catch (error) {
         this.log(yosay(chalk.red(`No se ha encontrado el archivo de configuración, o no es un archivo JSON valido:
          ${props.configFile}`)));
@@ -70,7 +71,8 @@ module.exports = class extends Generator {
           appName: this.appName,
           typeOfApp: this.typeOfApp,
           entity,
-          globalMessages: this.globalMessages
+          globalMessages: this.globalMessages,
+          paginationGlobal: this.paginationGlobal
         }
       );
     });
