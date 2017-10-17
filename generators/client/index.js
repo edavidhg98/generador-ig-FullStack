@@ -6,8 +6,29 @@ module.exports = class extends Generator {
     super(args, opts);
     this.typeOfApp = opts.typeOfApp;
     this.appName = opts.appName;
+    this.appDescription = opts.appDescription;
     this.entities = opts.entities;
     this.globalMessages = opts.globalMessages;
+  }
+
+  prompting() {
+    const prompts = [
+      {
+        type: 'input',
+        name: 'homeTitle',
+        message: 'Escriba un titulo descriptivo para la ventana principal de su app: '
+      },
+      {
+        type: 'input',
+        name: 'homeDescription',
+        message: 'Escriba una breve descripción para la la vista principal de su app: '
+      }
+    ];
+
+    return this.prompt(prompts).then((props) => {
+      this.homeTitle = props.homeTitle;
+      this.homeDescription = props.homeDescription;
+    });
   }
 
   writing() {
@@ -19,7 +40,11 @@ module.exports = class extends Generator {
   }
 
   _writeSourceFolder() {
-    this.fs.copy(this.templatePath('angular/src'), this.destinationPath('src'));
+    this.fs.copyTpl(
+      this.templatePath('angular/src'),
+      this.destinationPath('src'),
+    { homeDescription: this.homeDescription,
+    homeTitle: this.homeTitle });
   }
 
   _writeAngularEntitiesModule() {
